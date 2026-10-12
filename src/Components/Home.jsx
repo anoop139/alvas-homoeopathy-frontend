@@ -7,272 +7,170 @@ function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isAboutOpen, setIsAboutOpen] = useState(false)
 
+  const closeMenu = () => {
+    setIsMenuOpen(false)
+    setIsAboutOpen(false)
+  }
+
   return (
-    <div
-      id="home"
-      style={{
-        width: '100vw',
-        // height: '4px',
-        marginLeft: '50%',
-        // marginBottom: '40%',
-        transform: 'translateX(-50%)',
-        boxSizing: 'border-box',
-        backgroundColor: 'lightblue',
-      }}
-    >
+    <main id="home" className="home-page">
+      <header className="site-header">
+        <div className="site-header__inner">
+          <a className="site-brand" href="#home" aria-label="Alva's Homeopathic Medical College home">
+            <img src={ahmcImage} alt="Alva's Homeopathic Medical College" />
+          </a>
 
-      <div
-        className="navigation-menu"
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-        }}
-      >
-        <nav
-          style={{
-            display: 'flex',
-            alignItems: 'stretch',
-            justifyContent: 'space-between',
-            width: '100%',
-            padding: '0 16px',
-            boxSizing: 'border-box',
-            gap: '16px',
-          }}
-        >
-          <img
-            src={ahmcImage}
-            alt="Alva's Homoeopathic Medical College"
-            style={{
-              display: 'block',
-              width: 'auto',
-              maxWidth: '220px',
-              height: 'auto',
-            }}
-          />
-
-          <div
-            style={{
-              width: '310px',
-              maxWidth: '50vw',
-              marginLeft: 'auto',
-              flexShrink: 0,
-              overflow: 'hidden',
-            }}
-          >
-            <img
-              src={foundationLogo}
-              alt="Alva's Education Foundation"
-              style={{
-                display: 'block',
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-              }}
-            />
-          </div>
-        </nav>
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'flex-start',
-          padding: '0',
-          //backgroundColor: 'AccentColor',
-          boxSizing: 'border-box',
-          width: '100%',
-          height:'50%'
-        }}
-      >
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            position: 'relative',
-            zIndex: 1,
-          }}
-        >
           <button
+            className="menu-toggle"
             type="button"
-            aria-label="Toggle menu"
+            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-controls="main-menu-links"
             aria-expanded={isMenuOpen}
             onClick={() => setIsMenuOpen((open) => !open)}
-            style={{
-              height: '48px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '0 12px',
-              background: 'none',
-              boxSizing: 'border-box',
-              border: 'none',
-              cursor: 'pointer',
-            }}
           >
-            <span
-              aria-hidden="true"
-              style={{
-                position: 'relative',
-                display: 'block',
-                width: '42px',
-                height: '42px',
-              }}
-            >
-              <span
-                style={{
-                  position: 'absolute',
-                  width: '26px',
-                  height: '3px',
-                  backgroundColor: '#000',
-                  left: '8px',
-                  top: '20px',
-                  transform: isMenuOpen ? 'rotate(-45deg)' : 'translateY(-8px)',
-                  transformOrigin: 'center',
-                  transition: 'transform 200ms ease',
-                }}
-              />
-              <span
-                style={{
-                  position: 'absolute',
-                  width: '26px',
-                  height: '3px',
-                  backgroundColor: '#000',
-                  left: '8px',
-                  top: '20px',
-                  opacity: isMenuOpen ? 0 : 1,
-                  transition: 'opacity 150ms ease',
-                }}
-              />
-              <span
-                style={{
-                  position: 'absolute',
-                  width: '26px',
-                  height: '3px',
-                  backgroundColor: '#000',
-                  left: '8px',
-                  top: '20px',
-                  transform: isMenuOpen ? 'rotate(45deg)' : 'translateY(8px)',
-                  transformOrigin: 'center',
-                  transition: 'transform 200ms ease',
-                }}
-              />
+            <span className={`menu-toggle__icon${isMenuOpen ? ' is-open' : ''}`} aria-hidden="true">
+              <span />
+              <span />
+              <span />
             </span>
           </button>
-          <div
-            className={`hamburger-menu-panel${isMenuOpen ? ' is-open' : ''}`}
-            aria-hidden={!isMenuOpen}
-            inert={!isMenuOpen}
-            style={{
-              position: 'absolute',
-              top: '100%',
-              left: 0,
-              zIndex: 2,
-              display: isMenuOpen ? 'flex' : 'none',
-              flexDirection: 'row',
-              alignItems: 'center',
-              color: 'blue',
-              backgroundColor: '#f3f8fc',
-              flexWrap: 'wrap',
-              gap: '16px',
-              width: '100vw',
-              boxSizing: 'border-box',
-            }}
-          >
-            <div>
-             <a className="menu-link menu-link--home" href="#home" style={{ display: 'block', color: '#0d47a1', border: '1px solid black', padding: '8px', textDecoration: 'none' }}>
-                Home
-              </a>
-            </div>
 
-              <details
-                className="about-menu"
-                open={isAboutOpen}
-                onMouseEnter={() => setIsAboutOpen(true)}
-                onMouseLeave={() => setIsAboutOpen(false)}
+          <nav
+            id="main-menu-links"
+            className={`site-nav${isMenuOpen ? ' is-open' : ''}`}
+            aria-label="Main navigation"
+          >
+            <a className="site-nav__link" href="#home" onClick={closeMenu}>Home</a>
+            <details
+              className="site-nav__dropdown"
+              open={isAboutOpen}
+              onMouseEnter={() => setIsAboutOpen(true)}
+              onMouseLeave={() => setIsAboutOpen(false)}
+            >
+              <summary
+                className="site-nav__link"
+                onClick={(event) => {
+                  event.preventDefault()
+                  setIsAboutOpen((open) => !open)
+                }}
               >
-                <summary
-                  className="menu-link menu-link--about"
-                  onClick={(event) => {
-                    event.preventDefault()
-                    setIsAboutOpen((open) => !open)
-                  }}
-                  style={{ display: 'block', width: '120px', boxSizing: 'border-box', color: '#0d47a1', border: '1px solid #0d47a1', padding: '8px', cursor: 'pointer' }}
-                >
-                  About us
-                  <span
-                    aria-hidden="true"
-                    style={{
-                      display: 'inline-block',
-                      width: '6px',
-                      height: '6px',
-                      marginLeft: '6px',
-                      marginBottom: '3px',
-                      borderRight: '1.5px solid currentColor',
-                      borderBottom: '1.5px solid currentColor',
-                      transform: 'rotate(45deg)',
-                    }}
-                  />
-                </summary>
-                <a className="about-submenu menu-link menu-link--about-college" href="#about-college" style={{ display: 'block', width: '128px', minWidth: 0, boxSizing: 'border-box', left: 'auto', right: '-4px', whiteSpace: 'nowrap', backgroundColor: '#d6f0f5', color: '#0d47a1', border: '1px solid #0d47a1', padding: '8px', textDecoration: 'none' }}>
-                  About College
-                </a>
-              </details>
-              {/* <span>hello</span>/ */}
-              <a className="menu-link menu-link--course" href="#course" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#0d47a1', border: '1px solid #0d47a1', padding: '8px', textDecoration: 'none' }}>
-                Course
-                <span
-                  aria-hidden="true"
-                  style={{
-                    display: 'inline-block',
-                    width: '6px',
-                    height: '6px',
-                    marginLeft: '6px',
-                    marginBottom: '3px',
-                    borderRight: '1.5px solid currentColor',
-                    borderBottom: '1.5px solid currentColor',
-                    transform: 'rotate(45deg)',
-                  }}
-                />
-              </a>
-              <a className="menu-link menu-link--facilities" href="#facilities" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#0d47a1', border: '1px solid #0d47a1', padding: '8px', textDecoration: 'none' }}>
-                Facilities
-                <span
-                  aria-hidden="true"
-                  style={{
-                    display: 'inline-block',
-                    width: '6px',
-                    height: '6px',
-                    marginLeft: '6px',
-                    marginBottom: '3px',
-                    borderRight: '1.5px solid currentColor',
-                    borderBottom: '1.5px solid currentColor',
-                    transform: 'rotate(45deg)',
-                  }}
-                />
-              </a>
-              <a className="menu-link menu-link--hospital" href="#hospital" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#0d47a1', border: '1px solid #0d47a1', padding: '8px', textDecoration: 'none' }}>
-                Hospital
-                <span
-                  aria-hidden="true"
-                  style={{
-                    display: 'inline-block',
-                    width: '6px',
-                    height: '6px',
-                    marginLeft: '6px',
-                    marginBottom: '3px',
-                    borderRight: '1.5px solid currentColor',
-                    borderBottom: '1.5px solid currentColor',
-                    transform: 'rotate(45deg)',
-                  }}
-                />
-              </a>
+                About us
+                <span className="site-nav__chevron" aria-hidden="true" />
+              </summary>
+              <a className="site-nav__sublink" href="#about-college" onClick={closeMenu}>About College</a>
+            </details>
+            <a className="site-nav__link" href="#course" onClick={closeMenu}>Course</a>
+            <a className="site-nav__link" href="#facilities" onClick={closeMenu}>Facilities</a>
+            <a className="site-nav__link" href="#hospital" onClick={closeMenu}>Hospital</a>
+          </nav>
+
+          <a className="header-cta" href="#course">Explore Courses</a>
+        </div>
+      </header>
+
+      <section
+        className="hero-banner"
+        aria-label="College banner"
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+      >
+        <div className="hero-banner__overlay" />
+        <div className="hero-banner__content">
+          <p className="hero-banner__eyebrow">Welcome to Alva's</p>
+          <h1>Alva's Homeopathic Medical College</h1>
+          <p className="hero-banner__tagline">
+            Learn with purpose and prepare for a future in compassionate healthcare.
+          </p>
+          <a className="button hero-banner__cta" href="#course">Explore Courses</a>
+        </div>
+      </section>
+
+      <section id="about-college" className="intro-section section-wrap">
+        <div className="section-heading">
+          <p className="section-kicker">Welcome to Alva's</p>
+          <h2>Education shaped by knowledge and compassion</h2>
+        </div>
+        <div className="intro-section__copy">
+          <p>
+            At Alva's Homeopathic Medical College, learning is a journey of understanding people,
+            exploring health, and growing into a caring professional.
+          </p>
+          <a className="text-link" href="#hospital">Explore our approach <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
+      <section id="course" className="program-section">
+        <div className="section-wrap program-section__inner">
+          <div className="program-section__copy">
+            <p className="section-kicker">Study at Alva's</p>
+            <h2>Build a strong foundation for a life in healthcare.</h2>
+            <p>
+              Explore a learning experience that brings academic study, practical understanding,
+              and compassionate care together.
+            </p>
+            <a className="button button--light" href="#facilities">Discover the learning environment <span aria-hidden="true">→</span></a>
+          </div>
+          <div className="program-card" aria-label="A well-rounded learning experience">
+            <span className="program-card__index">01 / LEARNING</span>
+            <div className="program-card__mark" aria-hidden="true">✳</div>
+            <h3>Curiosity meets care</h3>
+            <p>Learn to see health through a thoughtful, whole-person perspective.</p>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+
+      <section id="facilities" className="features-section section-wrap">
+        <div className="features-section__heading">
+          <div>
+            <p className="section-kicker">The Alva's experience</p>
+            <h2>A place to learn, grow, and belong.</h2>
+          </div>
+          <p>Explore an environment designed to support learning, discovery, and connection.</p>
+        </div>
+        <div className="feature-grid">
+          <article className="feature-card">
+            <span className="feature-card__number">01</span>
+            <h3>Learning</h3>
+            <p>Build knowledge and confidence through focused academic study.</p>
+          </article>
+          <article className="feature-card feature-card--accent">
+            <span className="feature-card__number">02</span>
+            <h3>Discovery</h3>
+            <p>Stay curious, ask questions, and connect ideas to the world around you.</p>
+          </article>
+          <article className="feature-card">
+            <span className="feature-card__number">03</span>
+            <h3>Community</h3>
+            <p>Grow alongside a community that values empathy and shared purpose.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="hospital" className="care-section">
+        <div className="section-wrap care-section__inner">
+          <div className="care-section__symbol" aria-hidden="true">
+            <span />
+            <span />
+          </div>
+          <div>
+            <p className="section-kicker">Care at the heart</p>
+            <h2>Learning grounded in compassion.</h2>
+            <p>
+              A meaningful healthcare education begins with listening, respect, and a genuine
+              commitment to people and their wellbeing.
+            </p>
+          </div>
+          <a className="button button--light" href="#home">Back to top <span aria-hidden="true">↑</span></a>
+        </div>
+      </section>
+
+      <footer className="site-footer">
+        <div className="section-wrap site-footer__inner">
+          <a className="site-footer__brand" href="#home">Alva's Homeopathic Medical College</a>
+          <span>Learn with purpose. Care with compassion.</span>
+          <a href="#home">Back to top ↑</a>
+        </div>
+      </footer>
+    </main>
   )
 }
 
