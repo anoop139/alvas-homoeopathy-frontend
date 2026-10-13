@@ -1,7 +1,39 @@
 import React, { useState } from 'react'
 import ahmcImage from '../Images/Logo.jpg'
-import foundationLogo from '../Images/AlvasEducation.jpg'
 import backgroundImage from '../Images/Backgrond.png'
+
+const navItems = [
+  { label: 'Home', href: '#home' },
+  { label: 'About us', href: '#about-college', hasDropdown: true },
+  { label: 'Course', href: '#course' },
+  { label: 'Facilities', href: '#facilities' },
+  { label: 'Hospital', href: '#hospital' },
+]
+
+const featureCards = [
+  {
+    number: '01',
+    title: 'Academic Excellence',
+    description: 'Strong classroom learning, guided mentorship, and a foundation rooted in scientific understanding.',
+  },
+  {
+    number: '02',
+    title: 'Practical Exposure',
+    description: 'Hands-on clinical learning that encourages thoughtful observation and patient-centered care.',
+  },
+  {
+    number: '03',
+    title: 'Holistic Growth',
+    description: 'A learning culture that balances compassion, discipline, innovation, and social responsibility.',
+  },
+]
+
+const campusHighlights = [
+  'Well-equipped learning spaces',
+  'Student support and mentoring',
+  'Research and clinical exposure',
+  'Healthy campus environment',
+]
 
 function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -17,103 +49,145 @@ function Home() {
       <header className="site-header">
         <div className="site-header__inner">
           <a className="site-brand" href="#home" aria-label="Alva's Homeopathic Medical College home">
-            <img src={ahmcImage} alt="Alva's Homeopathic Medical College" />
+            <img src={ahmcImage} alt="Alva's Homeopathic Medical College logo" />
           </a>
-
-          <button
-            className="menu-toggle"
-            type="button"
-            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            aria-controls="main-menu-links"
-            aria-expanded={isMenuOpen}
-            onClick={() => setIsMenuOpen((open) => !open)}
-          >
-            <span className={`menu-toggle__icon${isMenuOpen ? ' is-open' : ''}`} aria-hidden="true">
-              <span />
-              <span />
-              <span />
-            </span>
-          </button>
-
           <nav
             id="main-menu-links"
             className={`site-nav${isMenuOpen ? ' is-open' : ''}`}
             aria-label="Main navigation"
           >
-            <a className="site-nav__link" href="#home" onClick={closeMenu}>Home</a>
-            <details
-              className="site-nav__dropdown"
-              open={isAboutOpen}
-              onMouseEnter={() => setIsAboutOpen(true)}
-              onMouseLeave={() => setIsAboutOpen(false)}
-            >
-              <summary
-                className="site-nav__link"
-                onClick={(event) => {
-                  event.preventDefault()
-                  setIsAboutOpen((open) => !open)
-                }}
-              >
-                About us
-                <span className="site-nav__chevron" aria-hidden="true" />
-              </summary>
-              <a className="site-nav__sublink" href="#about-college" onClick={closeMenu}>About College</a>
-            </details>
-            <a className="site-nav__link" href="#course" onClick={closeMenu}>Course</a>
-            <a className="site-nav__link" href="#facilities" onClick={closeMenu}>Facilities</a>
-            <a className="site-nav__link" href="#hospital" onClick={closeMenu}>Hospital</a>
+            {navItems.map((item) =>
+              item.hasDropdown ? (
+                <details
+                  key={item.label}
+                  className="site-nav__dropdown"
+                  open={isAboutOpen}
+                >
+                  <summary
+                    className="site-nav__link"
+                    onClick={(event) => {
+                      event.preventDefault()
+                      setIsAboutOpen((open) => !open)
+                    }}
+                  >
+                    {item.label}
+                    <span className="site-nav__chevron" aria-hidden="true" />
+                  </summary>
+                  <a className="site-nav__sublink" href="#about-college" onClick={closeMenu}>About College</a>
+                </details>
+              ) : (
+                <a key={item.label} className="site-nav__link" href={item.href} onClick={closeMenu}>
+                  {item.label}
+                  {item.label !== 'Home' && <span className="site-nav__chevron" aria-hidden="true" />}
+                </a>
+              ),
+            )}
           </nav>
 
-          <a className="header-cta" href="#course">Explore Courses</a>
         </div>
       </header>
 
       <section
         className="hero-banner"
         aria-label="College banner"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
+        style={{
+          backgroundImage: `linear-gradient(90deg, rgba(10, 26, 21, 0.82) 0%, rgba(15, 32, 28, 0.65) 38%, rgba(15, 32, 28, 0.28) 100%), url(${backgroundImage})`,
+        }}
       >
-        <div className="hero-banner__overlay" />
-        <div className="hero-banner__content">
-          <p className="hero-banner__eyebrow">Welcome to Alva's</p>
-          <h1>Alva's Homeopathic Medical College</h1>
-          <p className="hero-banner__tagline">
-            Learn with purpose and prepare for a future in compassionate healthcare.
-          </p>
-          <a className="button hero-banner__cta" href="#course">Explore Courses</a>
+        <div className="hero-banner__inner section-wrap">
+          <div className="hero-banner__content">
+            <p className="hero-banner__eyebrow">A unit of Alva's Education Foundation</p>
+            <h1>Alva's Homeopathic Medical College</h1>
+            <p className="hero-banner__tagline">
+              Inspiring compassionate care through quality education, clinical learning, and a value-driven campus culture.
+            </p>
+            <div className="hero-banner__actions">
+              <a className="button hero-banner__cta hero-banner__cta--ghost" href="#about-college">Know More</a>
+            </div>
+            <ul className="hero-banner__metrics" aria-label="College highlights">
+              <li>
+                <strong>20+</strong>
+                <span>Academic disciplines</span>
+              </li>
+              <li>
+                <strong>25+</strong>
+                <span>Clinical learning areas</span>
+              </li>
+              <li>
+                <strong>2008</strong>
+                <span>Established</span>
+              </li>
+            </ul>
+          </div>
+
         </div>
       </section>
 
-      <section id="about-college" className="intro-section section-wrap">
-        <div className="section-heading">
-          <p className="section-kicker">Welcome to Alva's</p>
-          <h2>Education shaped by knowledge and compassion</h2>
+      <section className="status-strip">
+        <div className="section-wrap status-strip__inner">
+          <div>
+            <span>Ranked among top institutions</span>
+          </div>
+          <div>
+            <span>Global collaborations</span>
+          </div>
+          <div>
+            <span>Campus with modern infrastructure</span>
+          </div>
         </div>
-        <div className="intro-section__copy">
-          <p>
-            At Alva's Homeopathic Medical College, learning is a journey of understanding people,
-            exploring health, and growing into a caring professional.
-          </p>
-          <a className="text-link" href="#hospital">Explore our approach <span aria-hidden="true">→</span></a>
+      </section>
+
+      <section id="about-college" className="about-section section-wrap">
+        <div className="section-heading">
+          <p className="section-kicker">About College</p>
+          <h2>Education shaped by knowledge, compassion, and purpose.</h2>
+        </div>
+        <div className="about-section__contents">
+          <div className="about-section__lead">
+            <p>
+              At Alva's Homeopathic Medical College, we believe healthcare education must be rooted in empathy,
+              scientific thinking, and a deep sense of responsibility toward patients and communities.
+            </p>
+            <a className="text-link" href="#hospital">Explore our approach <span aria-hidden="true">→</span></a>
+          </div>
+
+          <article className="message-card">
+            <span className="message-card__label">Chairman's Message</span>
+            <p>
+              “Welcome to Alva's! Our mission is to provide world-class education infused with cultural values,
+              shaping students into compassionate professionals who serve society.”
+            </p>
+            <a href="#home">Know More</a>
+          </article>
+
+          <article className="message-card message-card--alt">
+            <span className="message-card__label">Principal's Message</span>
+            <p>
+              “We foster an environment of academic excellence and personal growth, enabling learners to become
+              confident, capable and caring healthcare professionals.”
+            </p>
+            <a href="#home">Know More</a>
+          </article>
         </div>
       </section>
 
       <section id="course" className="program-section">
         <div className="section-wrap program-section__inner">
           <div className="program-section__copy">
-            <p className="section-kicker">Study at Alva's</p>
-            <h2>Build a strong foundation for a life in healthcare.</h2>
+            <p className="section-kicker">Academic Programs</p>
+            <h2>Build a strong foundation for a future in healthcare.</h2>
             <p>
-              Explore a learning experience that brings academic study, practical understanding,
-              and compassionate care together.
+              Our approach blends academic depth, practical training, and patient-centered learning to help students
+              grow with confidence and clarity.
             </p>
-            <a className="button button--light" href="#facilities">Discover the learning environment <span aria-hidden="true">→</span></a>
+            <a className="button button--light" href="#facilities">Discover the Learning Environment <span aria-hidden="true">→</span></a>
           </div>
+
           <div className="program-card" aria-label="A well-rounded learning experience">
             <span className="program-card__index">01 / LEARNING</span>
             <div className="program-card__mark" aria-hidden="true">✳</div>
             <h3>Curiosity meets care</h3>
-            <p>Learn to see health through a thoughtful, whole-person perspective.</p>
+            <p>Learn to understand health from a whole-person perspective while becoming a thoughtful professional.</p>
           </div>
         </div>
       </section>
@@ -121,27 +195,26 @@ function Home() {
       <section id="facilities" className="features-section section-wrap">
         <div className="features-section__heading">
           <div>
-            <p className="section-kicker">The Alva's experience</p>
+            <p className="section-kicker">Campus Life</p>
             <h2>A place to learn, grow, and belong.</h2>
           </div>
-          <p>Explore an environment designed to support learning, discovery, and connection.</p>
+          <p>Explore an environment designed to support learning, community, and discovery.</p>
         </div>
+
         <div className="feature-grid">
-          <article className="feature-card">
-            <span className="feature-card__number">01</span>
-            <h3>Learning</h3>
-            <p>Build knowledge and confidence through focused academic study.</p>
-          </article>
-          <article className="feature-card feature-card--accent">
-            <span className="feature-card__number">02</span>
-            <h3>Discovery</h3>
-            <p>Stay curious, ask questions, and connect ideas to the world around you.</p>
-          </article>
-          <article className="feature-card">
-            <span className="feature-card__number">03</span>
-            <h3>Community</h3>
-            <p>Grow alongside a community that values empathy and shared purpose.</p>
-          </article>
+          {featureCards.map((feature) => (
+            <article key={feature.number} className={`feature-card${feature.number === '02' ? ' feature-card--accent' : ''}`}>
+              <span className="feature-card__number">{feature.number}</span>
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="highlights-list">
+          {campusHighlights.map((highlight) => (
+            <span key={highlight}>{highlight}</span>
+          ))}
         </div>
       </section>
 
@@ -153,10 +226,9 @@ function Home() {
           </div>
           <div>
             <p className="section-kicker">Care at the heart</p>
-            <h2>Learning grounded in compassion.</h2>
+            <h2>Learning grounded in compassion and clinical understanding.</h2>
             <p>
-              A meaningful healthcare education begins with listening, respect, and a genuine
-              commitment to people and their wellbeing.
+              A meaningful healthcare education begins with listening, respect, and a sincere commitment to the dignity of every patient.
             </p>
           </div>
           <a className="button button--light" href="#home">Back to top <span aria-hidden="true">↑</span></a>
