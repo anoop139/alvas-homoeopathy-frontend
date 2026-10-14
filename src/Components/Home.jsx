@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ahmcImage from '../Images/Logo.jpg'
 import backgroundImage from '../Images/Backgrond.png'
 
 const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'About us', href: '#about-college', hasDropdown: true },
-  { label: 'Course', href: '#course' },
+  { label: 'Course - Admission', href: '#course' },
   { label: 'Facilities', href: '#facilities' },
   { label: 'Hospital', href: '#hospital' },
 ]
@@ -39,6 +39,21 @@ function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isAboutOpen, setIsAboutOpen] = useState(false)
 
+  useEffect(() => {
+    if (!isAboutOpen) return undefined
+
+    const closeAboutOnEscape = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        setIsAboutOpen(false)
+        document.querySelector('#main-menu-links .site-nav__dropdown summary')?.focus()
+      }
+    }
+
+    document.addEventListener('keydown', closeAboutOnEscape)
+    return () => document.removeEventListener('keydown', closeAboutOnEscape)
+  }, [isAboutOpen])
+
   const closeMenu = () => {
     setIsMenuOpen(false)
     setIsAboutOpen(false)
@@ -51,6 +66,20 @@ function Home() {
           <a className="site-brand" href="#home" aria-label="Alva's Homeopathic Medical College home">
             <img src={ahmcImage} alt="Alva's Homeopathic Medical College logo" />
           </a>
+          <button
+            className="menu-toggle"
+            type="button"
+            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isMenuOpen}
+            aria-controls="main-menu-links"
+            onClick={() => setIsMenuOpen((open) => !open)}
+          >
+            <span className={`menu-toggle__icon${isMenuOpen ? ' is-open' : ''}`} aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </span>
+          </button>
           <nav
             id="main-menu-links"
             className={`site-nav${isMenuOpen ? ' is-open' : ''}`}
@@ -62,6 +91,8 @@ function Home() {
                   key={item.label}
                   className="site-nav__dropdown"
                   open={isAboutOpen}
+                  onMouseEnter={() => setIsAboutOpen(true)}
+                  onMouseLeave={() => setIsAboutOpen(false)}
                 >
                   <summary
                     className="site-nav__link"
