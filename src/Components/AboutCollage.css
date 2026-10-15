@@ -1,0 +1,23 @@
+.about-college-placeholder {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 15% 30%, rgba(215, 172, 99, 0.12), transparent 38%),
+    linear-gradient(145deg, #f8faf8 0%, #edf3ef 52%, #fdfbf7 100%);
+}
+
+.about-college-placeholder h1 {
+  display: block;
+  margin: 0;
+  padding: 24px;
+  text-align: center;
+}
+
+.about-college-campus {
+  width: min(100% - 48px, 640px);
+  height: auto;
+  margin: 0 auto 32px;
+  border-radius: 16px;
+  object-fit: cover;
+}
