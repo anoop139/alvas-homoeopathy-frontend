@@ -1,14 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import ahmcImage from '../Images/Logo.jpg'
-import backgroundImage from '../Images/Backgrond.png'
-
-const navItems = [
-  { label: 'Home', href: '#home' },
-  { label: 'About us', href: '#about-college', hasDropdown: true },
-  { label: 'Course - Admission', href: '#course' },
-  { label: 'Facilities', href: '#facilities' },
-  { label: 'Hospital', href: '#hospital' },
-]
+import headingImage from '../Images/Heading.jpg'
+import SiteHeader from './SiteHeader'
 
 const featureCards = [
   {
@@ -36,93 +27,15 @@ const campusHighlights = [
 ]
 
 function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isAboutOpen, setIsAboutOpen] = useState(false)
-
-  useEffect(() => {
-    if (!isAboutOpen) return undefined
-
-    const closeAboutOnEscape = (event) => {
-      if (event.key === 'Escape') {
-        event.preventDefault()
-        setIsAboutOpen(false)
-        document.querySelector('#main-menu-links .site-nav__dropdown summary')?.focus()
-      }
-    }
-
-    document.addEventListener('keydown', closeAboutOnEscape)
-    return () => document.removeEventListener('keydown', closeAboutOnEscape)
-  }, [isAboutOpen])
-
-  const closeMenu = () => {
-    setIsMenuOpen(false)
-    setIsAboutOpen(false)
-  }
-
   return (
     <main id="home" className="home-page">
-      <header className="site-header">
-        <div className="site-header__inner">
-          <a className="site-brand" href="#home" aria-label="Alva's Homeopathic Medical College home">
-            <img src={ahmcImage} alt="Alva's Homeopathic Medical College logo" />
-          </a>
-          <button
-            className="menu-toggle"
-            type="button"
-            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            aria-expanded={isMenuOpen}
-            aria-controls="main-menu-links"
-            onClick={() => setIsMenuOpen((open) => !open)}
-          >
-            <span className={`menu-toggle__icon${isMenuOpen ? ' is-open' : ''}`} aria-hidden="true">
-              <span />
-              <span />
-              <span />
-            </span>
-          </button>
-          <nav
-            id="main-menu-links"
-            className={`site-nav${isMenuOpen ? ' is-open' : ''}`}
-            aria-label="Main navigation"
-          >
-            {navItems.map((item) =>
-              item.hasDropdown ? (
-                <details
-                  key={item.label}
-                  className="site-nav__dropdown"
-                  open={isAboutOpen}
-                  onMouseEnter={() => setIsAboutOpen(true)}
-                  onMouseLeave={() => setIsAboutOpen(false)}
-                >
-                  <summary
-                    className="site-nav__link"
-                    onClick={(event) => {
-                      event.preventDefault()
-                      setIsAboutOpen((open) => !open)
-                    }}
-                  >
-                    {item.label}
-                    <span className="site-nav__chevron" aria-hidden="true" />
-                  </summary>
-                  <a className="site-nav__sublink" href="#about-college" onClick={closeMenu}>About College</a>
-                </details>
-              ) : (
-                <a key={item.label} className="site-nav__link" href={item.href} onClick={closeMenu}>
-                  {item.label}
-                  {item.label !== 'Home' && <span className="site-nav__chevron" aria-hidden="true" />}
-                </a>
-              ),
-            )}
-          </nav>
-
-        </div>
-      </header>
+      <SiteHeader />
 
       <section
         className="hero-banner"
         aria-label="College banner"
         style={{
-          backgroundImage: `linear-gradient(90deg, rgba(10, 26, 21, 0.82) 0%, rgba(15, 32, 28, 0.65) 38%, rgba(15, 32, 28, 0.28) 100%), url(${backgroundImage})`,
+          backgroundImage: `linear-gradient(90deg, rgba(10, 26, 21, 0.82) 0%, rgba(15, 32, 28, 0.65) 38%, rgba(15, 32, 28, 0.28) 100%), url(${headingImage})`,
         }}
       >
         <div className="hero-banner__inner section-wrap">
