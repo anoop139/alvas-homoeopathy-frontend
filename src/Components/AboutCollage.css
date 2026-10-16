@@ -46,6 +46,43 @@
   line-height: 1.9;
 }
 
+.about-college-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 24px;
+  padding: 24px max(24px, calc((100% - 1100px) / 2));
+  background: var(--forest-deep);
+  color: var(--white);
+}
+
+.about-college-footer p {
+  margin: 0;
+  font-weight: 700;
+}
+
+.about-college-footer__social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+}
+
+.about-college-footer__social-links a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.about-college-footer__social-links a:hover,
+.about-college-footer__social-links a:focus-visible {
+  color: var(--gold);
+}
+
+.about-college-footer__social-links a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
 @media (max-width: 640px) {
   .about-college-content {
     width: calc(100% - 32px);
@@ -55,5 +92,11 @@
   .about-college-campus {
     margin-bottom: 24px;
     border-radius: 14px;
+  }
+
+  .about-college-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 16px;
   }
 }
