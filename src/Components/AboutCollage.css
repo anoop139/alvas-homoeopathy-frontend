@@ -1,8 +1,31 @@
-.about-college-page {
+.about-college-placeholder {
   min-height: 100vh;
   background:
-    radial-gradient(ellipse at 15% 30%, rgba(215, 172, 99, 0.12), transparent 38%),
-    linear-gradient(145deg, #f8faf8 0%, #edf3ef 52%, #fdfbf7 100%);
+    radial-gradient(ellipse at 8% 18%, rgba(215, 172, 99, 0.18), transparent 30%),
+    radial-gradient(ellipse at 92% 42%, rgba(29, 79, 73, 0.12), transparent 34%),
+    linear-gradient(135deg, #f9fbf9 0%, #edf4f0 48%, #f5f2eb 100%);
+}
+
+.about-college-placeholder > h1 {
+  width: fit-content;
+  margin: 28px auto;
+  padding: 0 24px;
+  color: var(--forest-deep);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1;
+}
+
+.about-college-placeholder > .AboutCollege {
+  max-width: 1000px;
+  margin: 0 auto 18px;
+  padding: 24px 28px;
+  border: 1px solid rgba(20, 63, 57, 0.08);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 12px 30px rgba(13, 42, 40, 0.06);
+  text-align: left;
+  backdrop-filter: blur(8px);
 }
 
 .about-college-content {
@@ -87,6 +110,12 @@
   .about-college-content {
     width: calc(100% - 32px);
     padding: 44px 0 64px;
+  }
+
+  .about-college-placeholder > .AboutCollege {
+    margin-right: 16px;
+    margin-left: 16px;
+    padding: 20px;
   }
 
   .about-college-campus {
