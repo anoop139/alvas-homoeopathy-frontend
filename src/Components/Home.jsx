@@ -1,4 +1,5 @@
 import headingImage from '../Images/Heading.jpg'
+import rankHoldersImage from '../Images/RankeHolderjpg.jpg'
 import SiteHeader from './SiteHeader'
 
 const featureCards = [
@@ -78,6 +79,21 @@ function Home() {
           <div>
             <span>Campus with modern infrastructure</span>
           </div>
+        </div>
+      </section>
+
+      <section className="rank-holders-section" aria-labelledby="rank-holders-title">
+        <div className="section-wrap">
+          <div className="section-heading">
+            <p className="section-kicker">Student Achievement</p>
+            <h2 id="rank-holders-title">University Rank Holders</h2>
+          </div>
+          <img
+            className="rank-holders-section__image"
+            src={rankHoldersImage}
+            alt="Alva's Homoeopathic Medical College university rank holders from 2019 to 2025"
+            loading="lazy"
+          />
         </div>
       </section>
 
@@ -181,9 +197,13 @@ function Home() {
 
       <footer className="site-footer">
         <div className="section-wrap site-footer__inner">
-          <a className="site-footer__brand" href="#home">Alva's Homeopathic Medical College</a>
-          <span>Learn with purpose. Care with compassion.</span>
-          <a href="#home">Back to top ↑</a>
+          <p className="site-footer__brand">Follow Alva's Homeopathic Medical College</p>
+          <nav className="site-footer__social-links" aria-label="Social media">
+            <a href="https://m.facebook.com/ahmc.official/" target="_blank" rel="noreferrer">Facebook</a>
+            <a href="https://instagram.com/ahmc.official?igshid=177ug59wuzplk" target="_blank" rel="noreferrer">Instagram</a>
+            <a href="https://twitter.com/OfficialAhmc?s=09" target="_blank" rel="noreferrer">X</a>
+            <a href="https://www.youtube.com/channel/UCy8HW-j_mFfEQRf-vnx4oYw" target="_blank" rel="noreferrer">YouTube</a>
+          </nav>
         </div>
       </footer>
     </main>
