@@ -18,7 +18,7 @@ const navItems = [
 
 const aboutLinks = [
   { label: 'About College', to: '/about-college' },
-  { label: 'Vision & Mission', to: '/#about-college' },
+  { label: 'Vision & Mission', to: '/vision-mission' },
   { label: "Chairman's Message", to: '/#about-college' },
   { label: "Principal's Message", to: '/#about-college' },
   { label: 'Our Administration', to: '/#about-college' },
@@ -28,7 +28,18 @@ const aboutLinks = [
 function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isAboutOpen, setIsAboutOpen] = useState(false)
+  const [selectedNavItem, setSelectedNavItem] = useState('')
   const location = useLocation()
+  const selectedItem = navItems.find((item) => item.label === selectedNavItem)
+  const activeNavItem = ['/about-college', '/vision-mission'].includes(location.pathname)
+    ? 'About us'
+    : location.pathname === '/'
+      ? selectedItem?.href === location.hash
+        ? selectedNavItem
+        : location.hash
+          ? navItems.find((item) => item.href === location.hash)?.label ?? ''
+          : 'Home'
+      : ''
 
   useEffect(() => {
     if (!isAboutOpen) return undefined
@@ -100,7 +111,7 @@ function SiteHeader() {
                 onMouseLeave={() => setIsAboutOpen(false)}
               >
                 <summary
-                  className={`site-nav__link${location.pathname === '/about-college' ? ' is-active' : ''}`}
+                  className={`site-nav__link${activeNavItem === item.label ? ' is-active' : ''}`}
                   onClick={(event) => {
                     event.preventDefault()
                     setIsAboutOpen((open) => !open)
@@ -125,10 +136,13 @@ function SiteHeader() {
             ) : (
               <NavLink
                 key={item.label}
-                className="site-nav__link"
+                className={`site-nav__link${activeNavItem === item.label ? ' is-active' : ''}`}
                 to={`/${item.href}`}
                 end={item.label === 'Home'}
-                onClick={closeMenu}
+                onClick={() => {
+                  setSelectedNavItem(item.label)
+                  closeMenu()
+                }}
               >
                 {item.label}
                 {(item.showChevron ?? item.label !== 'Home') && (
