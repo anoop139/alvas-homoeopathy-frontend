@@ -1,0 +1,108 @@
+.chairperson-message-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 82% 76%, rgba(215, 172, 99, 0.16), transparent 34%),
+    linear-gradient(145deg, #f8faf8 0%, #edf3ef 52%, #fdfbf7 100%);
+}
+
+.chairperson-message {
+  display: grid;
+  min-height: calc(100vh - 92px);
+  place-items: center;
+  padding: clamp(48px, 8vw, 88px) 24px;
+}
+
+.chairperson-message__content {
+  width: min(100%, 900px);
+}
+
+.chairperson-message__eyebrow {
+  margin: 0 0 10px;
+  color: var(--gold-deep);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.chairperson-message__content h1 {
+  margin: 0 0 32px;
+  color: var(--forest-deep);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.8rem, 6vw, 4.6rem);
+  font-weight: 600;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.chairperson-message__card {
+  padding: clamp(26px, 5vw, 52px);
+  border: 1px solid rgba(20, 63, 57, 0.08);
+  border-radius: 22px;
+  background: var(--white);
+  box-shadow: 0 18px 38px rgba(17, 30, 27, 0.08);
+}
+
+.chairperson-message__intro {
+  margin: 0 0 24px;
+  color: var(--forest-deep);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.chairperson-message__intro span {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.chairperson-message__body {
+  display: grid;
+  gap: 16px;
+}
+
+.chairperson-message__body p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.85;
+}
+
+.chairperson-message__source {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 26px;
+  color: var(--forest-mid);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration-color: rgba(29, 79, 73, 0.35);
+  text-underline-offset: 4px;
+}
+
+.chairperson-message__source:hover,
+.chairperson-message__source:focus-visible {
+  color: var(--gold-deep);
+}
+
+@media (max-width: 600px) {
+  .chairperson-message {
+    min-height: calc(100vh - 80px);
+    padding-inline: 16px;
+  }
+
+  .chairperson-message__content h1 {
+    margin-bottom: 24px;
+  }
+
+  .chairperson-message__card {
+    border-radius: 18px;
+  }
+}
