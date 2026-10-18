@@ -8,6 +8,7 @@
 .vision-mission-page > h1 {
   margin: 12px 0 20px;
   text-align: center;
+  padding-top: 40px;
   font-size: clamp(2rem, 4vw, 3.2rem);
 }
 
