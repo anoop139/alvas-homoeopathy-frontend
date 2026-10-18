@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import headingImage from '../Images/Heading.jpg'
 import rankHoldersImage from '../Images/RankeHolderjpg.jpg'
 import SiteHeader from './SiteHeader'
@@ -117,7 +118,7 @@ function Home() {
               “Welcome to Alva's! Our mission is to provide world-class education infused with cultural values,
               shaping students into compassionate professionals who serve society.”
             </p>
-            <a href="#home">Know More</a>
+            <Link to="/chairperson-message">Know More</Link>
           </article>
 
           <article className="message-card message-card--alt">
