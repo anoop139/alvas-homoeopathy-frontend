@@ -6,13 +6,16 @@
 }
 
 .chairperson-message {
+  padding-top: 0px;
   display: grid;
   min-height: calc(100vh - 92px);
-  place-items: center;
-  padding: clamp(48px, 8vw, 88px) 24px;
+
+  justify-items: center;
+  /* padding: 16px 24px 48px;/ */
 }
 
 .chairperson-message__content {
+   /* background-color: greenyellow; */
   width: min(100%, 900px);
 }
 
@@ -25,17 +28,50 @@
   text-align: center;
   text-transform: uppercase;
 }
+.chairperson-name-card {
+  width: fit-content;
+  max-width: 100%;
+  margin: 12px auto 22px;
+  padding: 10px 20px;
+  border: 1px solid rgba(20, 63, 57, 0.12);
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ffffff 0%, #edf4f0 100%);
+  box-shadow: 0 8px 22px rgba(17, 30, 27, 0.08);
+  text-align: center;
+}
+
+.chairperson-name {
+  margin: 0;
+  color: var(--forest-deep);
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.chairperson-name + .chairperson-name {
+  margin-top: 4px;
+  color: var(--forest-mid);
+  font-size: clamp(0.85rem, 1.7vw, 1rem);
+  font-weight: 600;
+}
 
 .chairperson-message__content h1 {
-  margin: 0 0 32px;
+  margin: 0 0 16px;
   color: var(--forest-deep);
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.8rem, 6vw, 4.6rem);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
   font-weight: 600;
   letter-spacing: 0;
   text-align: center;
 }
-
+.chairperson-message__content > img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px; /* Keeps image corners clean */
+}
 .chairperson-message__card {
   padding: clamp(26px, 5vw, 52px);
   border: 1px solid rgba(20, 63, 57, 0.08);
@@ -45,7 +81,7 @@
 }
 
 .chairperson-message__intro {
-  margin: 0 0 24px;
+
   color: var(--forest-deep);
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: clamp(1.6rem, 3vw, 2.1rem);
@@ -65,9 +101,10 @@
 
 .chairperson-message__body {
   display: grid;
+  align-content: start;
+  margin: 0;
   gap: 16px;
 }
-
 .chairperson-message__body p {
   margin: 0;
   color: var(--muted);

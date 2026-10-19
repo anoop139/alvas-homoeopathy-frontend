@@ -1,21 +1,21 @@
 import './ChairpersonMessage.css'
 import SiteHeader from './SiteHeader'
-
+import ChairPerson from '../Images/chairPerson.jpg'
 function ChairpersonMessage() {
   return (
     <main className="chairperson-message-page">
       <SiteHeader />
       <section className="chairperson-message" aria-labelledby="chairperson-message-title">
         <div className="chairperson-message__content">
-          <p className="chairperson-message__eyebrow">Alva's Education Foundation</p>
           <h1 id="chairperson-message-title">Chairman's Message</h1>
+          <img src={ChairPerson} alt="Dr. .M. Mohan Alva" />
+          <div className="chairperson-name-card">
+            <h2 className="chairperson-name">Dr. M. Mohan Alva</h2>
+            <h2 className="chairperson-name">Chairman, Alva's Education Foundation (R.)</h2>
+          </div>
           <article className="chairperson-message__card">
-            <p className="chairperson-message__intro">
-              Dr. M. Mohan Alva
-              <span>Chairman, Alva's Education Foundation (R.)</span>
-            </p>
             <div className="chairperson-message__body">
-              <p>
+            <p className='para'>
                 Education can turn information into lasting knowledge, giving young people the understanding and
                 confidence to meet the challenges of a rapidly changing world. Alva's Education Foundation seeks
                 to support that growth while encouraging integrity and ethical responsibility.
