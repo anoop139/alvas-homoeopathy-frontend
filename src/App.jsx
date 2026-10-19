@@ -4,6 +4,7 @@ import Home from './Components/Home'
 import AboutCollage from './Components/AboutCollage'
 import VisionMission from './Components/VisionMission'
 import ChairpersonMessage from './Components/ChairpersonMessage'
+import PrincipalMessage from './Components/PrincipalMessage'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/about-college" element={<AboutCollage />} />
         <Route path="/vision-mission" element={<VisionMission />} />
         <Route path="/chairperson-message" element={<ChairpersonMessage />} />
+        <Route path="/principal-message" element={<PrincipalMessage />} />
       </Routes>
     </BrowserRouter>
   )
