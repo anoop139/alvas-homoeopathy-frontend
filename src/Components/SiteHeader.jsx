@@ -19,9 +19,9 @@ const navItems = [
 const aboutLinks = [
   { label: 'About College', to: '/about-college' },
   { label: 'Vision & Mission', to: '/vision-mission' },
-  { label: "Chairman's Message", to: '/#about-college' },
-  { label: "Principal's Message", to: '/#about-college' },
-  { label: 'Our Administration', to: '/#about-college' },
+  { label: "Chairman's Message", to: '/chairperson-message' },
+  { label: "Principal's Message", to: '/principal-message' },
+  { label: 'Our Administration', to: '/administration' },
   { label: 'About AEF', to: '/#about-college' },
 ]
 
@@ -31,7 +31,7 @@ function SiteHeader() {
   const [selectedNavItem, setSelectedNavItem] = useState('')
   const location = useLocation()
   const selectedItem = navItems.find((item) => item.label === selectedNavItem)
-  const activeNavItem = ['/about-college', '/vision-mission'].includes(location.pathname)
+  const activeNavItem = ['/about-college', '/vision-mission', '/chairperson-message', '/principal-message', '/administration'].includes(location.pathname)
     ? 'About us'
     : location.pathname === '/'
       ? selectedItem?.href === location.hash
