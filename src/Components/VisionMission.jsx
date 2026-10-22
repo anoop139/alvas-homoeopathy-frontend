@@ -1,6 +1,7 @@
 
 import './VisionMission.css'
 import SiteHeader from './SiteHeader'
+import SiteFooter from './SiteFooter'
 import visionMissionImage from '../Images/Vission.jpg'
 
 function VisionMission() {
@@ -34,15 +35,7 @@ function VisionMission() {
           </article>
         </section>
       </div>
-      <footer className="vision-mission-footer">
-        <p>Follow Alva’s Homoeopathic Medical College</p>
-        <nav className="vision-mission-footer__social-links" aria-label="Social media">
-          <a href="https://m.facebook.com/ahmc.official/" target="_blank" rel="noreferrer">Facebook</a>
-          <a href="https://instagram.com/ahmc.official?igshid=177ug59wuzplk" target="_blank" rel="noreferrer">Instagram</a>
-          <a href="https://twitter.com/OfficialAhmc?s=09" target="_blank" rel="noreferrer">X</a>
-          <a href="https://www.youtube.com/channel/UCy8HW-j_mFfEQRf-vnx4oYw" target="_blank" rel="noreferrer">YouTube</a>
-        </nav>
-      </footer>
+      <SiteFooter />
     </main>
   )
 }

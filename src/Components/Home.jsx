@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import headingImage from '../Images/Heading.jpg'
 import rankHoldersImage from '../Images/RankeHolderjpg.jpg'
 import SiteHeader from './SiteHeader'
+import SiteFooter from './SiteFooter'
 
 const featureCards = [
   {
@@ -196,17 +197,7 @@ function Home() {
         </div>
       </section>
 
-      <footer className="site-footer">
-        <div className="section-wrap site-footer__inner">
-          <p className="site-footer__brand">Follow Alva's Homeopathic Medical College</p>
-          <nav className="site-footer__social-links" aria-label="Social media">
-            <a href="https://m.facebook.com/ahmc.official/" target="_blank" rel="noreferrer">Facebook</a>
-            <a href="https://instagram.com/ahmc.official?igshid=177ug59wuzplk" target="_blank" rel="noreferrer">Instagram</a>
-            <a href="https://twitter.com/OfficialAhmc?s=09" target="_blank" rel="noreferrer">X</a>
-            <a href="https://www.youtube.com/channel/UCy8HW-j_mFfEQRf-vnx4oYw" target="_blank" rel="noreferrer">YouTube</a>
-          </nav>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   )
 }

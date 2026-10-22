@@ -1,5 +1,6 @@
 import './ChairpersonMessage.css'
 import SiteHeader from './SiteHeader'
+import SiteFooter from './SiteFooter'
 import ChairPerson from '../Images/chairPerson.jpg'
 function ChairpersonMessage() {
   return (
@@ -41,6 +42,7 @@ function ChairpersonMessage() {
           </article>
         </div>
       </section>
+      <SiteFooter />
     </main>
   )
 }

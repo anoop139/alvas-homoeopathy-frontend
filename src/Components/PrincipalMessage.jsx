@@ -1,5 +1,6 @@
 import './ChairpersonMessage.css'
 import SiteHeader from './SiteHeader'
+import SiteFooter from './SiteFooter'
 import PrincipalImg from '../Images/Try.jpeg'
 
 function PrincipalMessage() {
@@ -27,6 +28,7 @@ function PrincipalMessage() {
           </p>
         </div>
       </section>
+      <SiteFooter />
     </main>
   )
 }

@@ -6,6 +6,7 @@ import prajnyaAlvaImage from '../Images/Manging Comunity/prajnaalva.jpeg'
 import roshanPintoImage from '../Images/Manging Comunity/Dr.RoshanPinto.jpeg'
 import praveenRajImage from '../Images/Manging Comunity/Dr.PraveenRajP.jpeg'
 import './Administration.css'
+import SiteFooter from './SiteFooter'
 import { useEffect, useRef, useState } from 'react'
 import PrajnyaAlvaM from './PrajnyaAlvaM'
 import RoshanPinto from './RoshanPinto'
@@ -105,6 +106,7 @@ function Administration() {
           ))}
         </div>
       </section>
+      <SiteFooter />
       {activeProfile && (
         <div
           className="administration-profile-overlay"

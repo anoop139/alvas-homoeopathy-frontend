@@ -1,4 +1,5 @@
 import SiteHeader from './SiteHeader'
+import SiteFooter from './SiteFooter'
 import roshanPintoImage from '../Images/Manging Comunity/Dr.RoshanPinto.jpeg'
 import './PrajnyaAlvaM.css'
 
@@ -42,6 +43,7 @@ function RoshanPinto({ embedded = false }) {
           </dl>
         </section>
       </section>
+      {!embedded && <SiteFooter />}
     </div>
   )
 }

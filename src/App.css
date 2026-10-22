@@ -902,8 +902,8 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  min-height: 80px;
-  font-size: 0.74rem;
+  min-height: 68px;
+  font-size: 0.9rem;
 }
 
 .site-footer__inner a {
@@ -912,9 +912,9 @@ img {
 }
 
 .site-footer__brand {
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .site-footer__inner p {

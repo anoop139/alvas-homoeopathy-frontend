@@ -1,4 +1,5 @@
 import SiteHeader from './SiteHeader'
+import SiteFooter from './SiteFooter'
 import prajnyaAlvaImage from '../Images/Manging Comunity/prajnaalva.jpeg'
 import './PrajnyaAlvaM.css'
 
@@ -42,6 +43,7 @@ function PrajnyaAlvaM({ embedded = false }) {
           </dl>
         </section>
       </section>
+      {!embedded && <SiteFooter />}
     </div>
   )
 }

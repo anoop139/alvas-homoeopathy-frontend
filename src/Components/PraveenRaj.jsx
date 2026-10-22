@@ -1,4 +1,5 @@
 import SiteHeader from './SiteHeader'
+import SiteFooter from './SiteFooter'
 import praveenRajImage from '../Images/Manging Comunity/Dr.PraveenRajP.jpeg'
 import './PrajnyaAlvaM.css'
 
@@ -42,6 +43,7 @@ function PraveenRaj({ embedded = false }) {
           </dl>
         </section>
       </section>
+      {!embedded && <SiteFooter />}
     </div>
   )
 }

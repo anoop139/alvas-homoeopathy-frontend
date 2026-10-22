@@ -1,5 +1,6 @@
 import './AboutCollage.css'
 import SiteHeader from './SiteHeader'
+import SiteFooter from './SiteFooter'
 import campusImage from '../Images/CollageCampus.jpg'
 
 function AboutCollage() {
@@ -38,15 +39,7 @@ function AboutCollage() {
         teaching and non-teaching staff and the efforts of students will take this institution to the highest
         pinnacle of imparting the Homoeopathic education to the future generation.
       </p>
-      <footer className="about-college-footer">
-        <p>Follow Alva’s Homoeopathic Medical College</p>
-        <nav className="about-college-footer__social-links" aria-label="Social media">
-          <a href="https://m.facebook.com/ahmc.official/" target="_blank" rel="noreferrer">Facebook</a>
-          <a href="https://instagram.com/ahmc.official?igshid=177ug59wuzplk" target="_blank" rel="noreferrer">Instagram</a>
-          <a href="https://twitter.com/OfficialAhmc?s=09" target="_blank" rel="noreferrer">X</a>
-          <a href="https://www.youtube.com/channel/UCy8HW-j_mFfEQRf-vnx4oYw" target="_blank" rel="noreferrer">YouTube</a>
-        </nav>
-      </footer>
+      <SiteFooter />
     </main>
   )
 }
