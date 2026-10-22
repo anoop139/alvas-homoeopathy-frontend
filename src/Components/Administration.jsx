@@ -6,7 +6,10 @@ import prajnyaAlvaImage from '../Images/Manging Comunity/prajnaalva.jpeg'
 import roshanPintoImage from '../Images/Manging Comunity/Dr.RoshanPinto.jpeg'
 import praveenRajImage from '../Images/Manging Comunity/Dr.PraveenRajP.jpeg'
 import './Administration.css'
-import { NavLink } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
+import PrajnyaAlvaM from './PrajnyaAlvaM'
+import RoshanPinto from './RoshanPinto'
+import PraveenRaj from './PraveenRaj'
 
 const administrators = [
   { name: 'Dr. M. Mohan Alva', role: '(Chairman, AEF)', image: chairpersonImage },
@@ -16,23 +19,52 @@ const administrators = [
     name: 'Dr. Prajnya Alva M',
     role: 'Administrative Officer',
     image: prajnyaAlvaImage,
-    moreInfoUrl:'/PrajnyaAlvaM',
+    profileComponent: PrajnyaAlvaM,
   },
   {
     name: 'Dr. H. Roshan Pinto',
     role: 'Principal',
     image: roshanPintoImage,
-    moreInfoUrl: '/RoshanPinto',
+    profileComponent: RoshanPinto,
   },
   {
     name: 'Dr. Praveen Raj',
     role: 'Advisor',
     image: praveenRajImage,
-    moreInfoUrl: '/PraveenRaj',
+    profileComponent: PraveenRaj,
   },
 ]
 
 function Administration() {
+  const [activeProfile, setActiveProfile] = useState(null)
+  const profileTrigger = useRef(null)
+
+  useEffect(() => {
+    if (!activeProfile) return undefined
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') {
+        setActiveProfile(null)
+        profileTrigger.current?.focus()
+      }
+    }
+
+    document.addEventListener('keydown', closeOnEscape)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      document.removeEventListener('keydown', closeOnEscape)
+    }
+  }, [activeProfile])
+
+  const closeProfile = () => {
+    setActiveProfile(null)
+    profileTrigger.current?.focus()
+  }
+  const ActiveProfile = activeProfile?.profileComponent
+
   return (
     <main className="administration-page">
       <SiteHeader />
@@ -53,16 +85,52 @@ function Administration() {
               <div className="administration-card__details">
                 <h2>{person.name}</h2>
                 <p>{person.role}</p>
-                {person.moreInfoUrl && (
-                  <NavLink className="administration-card__more-info" to={person.moreInfoUrl} >
+                {person.profileComponent && (
+                  <button
+                    ref={profileTrigger}
+                    className="administration-card__more-info"
+                    type="button"
+                    aria-haspopup="dialog"
+                    aria-expanded={activeProfile?.name === person.name}
+                    onClick={() => {
+                      profileTrigger.current = document.activeElement
+                      setActiveProfile(person)
+                    }}
+                  >
                     More info <span aria-hidden="true">↗</span>
-                  </NavLink>
+                  </button>
                 )}
               </div>
             </article>
           ))}
         </div>
       </section>
+      {activeProfile && (
+        <div
+          className="administration-profile-overlay"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) closeProfile()
+          }}
+        >
+          <section
+            className="administration-profile-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${activeProfile.name} profile`}
+          >
+            <button
+              className="administration-profile-dialog__close"
+              type="button"
+              aria-label="Close profile"
+              onClick={closeProfile}
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+            <ActiveProfile embedded />
+          </section>
+        </div>
+      )}
+
     </main>
   )
 }
