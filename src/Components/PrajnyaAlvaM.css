@@ -1,139 +1,106 @@
 .prajnya-profile-page {
   min-height: 100vh;
-  background: #f7f6f1;
+  background:
+    radial-gradient(ellipse at 8% 14%, rgba(201, 154, 77, .13), transparent 28%),
+    radial-gradient(ellipse at 92% 80%, rgba(20, 83, 73, .1), transparent 34%),
+    linear-gradient(145deg, #f7f9f8 0%, #edf3f2 54%, #f5f3ed 100%);
+  color: #183b36;
 }
 
-.prajnya-profile {
-  width: min(880px, calc(100% - 40px));
-  margin: 0 auto;
-  padding: 0;
-  color: #143f39;
-  text-align: center;
+.prajnya-profile-page--embedded {
+  min-height: 0;
 }
 
-.prajnya-profile > h1 {
-  width: fit-content;
-  max-width: 100%;
-  margin: 0 auto 4px;
-  padding: 5px 22px;
-  border: 1px solid rgba(20, 63, 57, 0.12);
-  border-radius: 10px;
-  background: linear-gradient(135deg, #fff 0%, #edf4f0 100%);
-  box-shadow: 0 6px 16px rgba(17, 30, 27, 0.07);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  line-height: 1.05;
+.prajnya-profile-page--embedded .prajnya-overview {
+  grid-template-columns: minmax(220px, .68fr) minmax(0, 1.32fr);
+  gap: 30px;
+  padding: 24px 34px;
 }
 
-.prajnya-profile > img {
-  display: block;
-  width: min(320px, 60vw);
-  height: 300px;
-  margin: 0 auto;
-  border-radius: 12px;
-  object-fit: cover;
-  object-position: center 35%;
+.prajnya-profile-page--embedded .prajnya-overview__title {
+  margin-bottom: -10px;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
 }
 
-.prajnya-profile__identity {
-  grid-column: 1 / -1;
-  margin: 0;
-  padding: 8px 12px;
-  background: #fff;
-  text-align: center;
-}
-
-.prajnya-profile__identity dt {
-  margin-bottom: 2px;
-  color: #66716d;
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.prajnya-profile__identity dd {
-  margin: 0;
-  overflow-wrap: anywhere;
-  color: #143f39;
-  font-size: 0.84rem;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.prajnya-profile__details {
-  display: grid;
-  width: min(100%, 700px);
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1px;
-  overflow: hidden;
-  margin: 0;
-  border: 1px solid rgba(20, 63, 57, 0.1);
-  border-radius: 12px;
-  background: rgba(20, 63, 57, 0.1);
-  box-shadow: 0 8px 20px rgba(19, 49, 43, 0.06);
-  text-align: left;
+.prajnya-profile-page--embedded .prajnya-overview__portrait {
+  width: min(100%, 310px);
   margin-inline: auto;
 }
 
-.prajnya-profile__detail {
-  padding: 4px 10px;
-  background: #fff;
+.prajnya-profile-page--embedded .prajnya-overview__portrait img {
+  max-height: min(40vh, 310px);
 }
 
-.prajnya-profile__detail dt {
-  margin-bottom: 2px;
-  color: #66716d;
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
+.prajnya-profile-page--embedded .prajnya-details-section__heading {
+  margin-bottom: 12px;
 }
 
-.prajnya-profile__detail dd {
-  margin: 0;
-  overflow-wrap: anywhere;
-  font-size: 0.84rem;
+.prajnya-profile-page--embedded .prajnya-details-section__heading h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.prajnya-profile-page--embedded .prajnya-section-kicker {
+  margin-bottom: 8px;
+  font-size: .62rem;
+}
+
+.prajnya-profile-page--embedded .prajnya-details-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.prajnya-profile-page--embedded .prajnya-detail-card {
+  grid-column: auto;
+  min-height: 0;
+  padding: 10px 11px;
+  border-radius: 9px;
+}
+
+.prajnya-profile-page--embedded .prajnya-detail-card dt {
+  margin-bottom: 4px;
+  font-size: .57rem;
+  letter-spacing: .08em;
+}
+
+.prajnya-profile-page--embedded .prajnya-detail-card dd {
+  font-size: .76rem;
   line-height: 1.3;
 }
 
-.prajnya-profile__name dd {
-  color: #143f39;
-  font-weight: 700;
+.prajnya-overview { display: grid; grid-template-columns: minmax(260px, .72fr) minmax(0, 1.28fr); gap: clamp(28px, 5vw, 64px); align-items: start; width: min(100% - 56px, 1080px); margin: 0 auto; padding: 20px 0 68px; }
+.prajnya-overview__title { grid-column: 1 / -1; margin: 0 0 -8px; color: #123b36; font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 600; letter-spacing: -.035em; line-height: 1; text-align: center; }
+.prajnya-overview__portrait { position: relative; align-self: center; width: 100%; }
+.prajnya-overview__portrait img { width: 100%; height: auto; aspect-ratio: 1; border-radius: 50%; object-fit: cover; object-position: center 28%; box-shadow: 0 22px 46px rgba(17,48,42,.18); }
+.prajnya-details-section__heading h2 { margin: 0; color: #123b36; font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(2.35rem, 4.4vw, 3.8rem); font-weight: 600; letter-spacing: -.035em; line-height: .98; }
+
+.prajnya-details-section { min-width: 0; padding: 0; }
+.prajnya-details-section__heading { margin: 0 0 20px; text-align: left; }
+.prajnya-details-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; width: 100%; margin: 0; }
+.prajnya-detail-card { min-height: 100px; padding: 19px 20px; border: 1px solid rgba(20,63,57,.08); border-radius: 14px; background: #fff; box-shadow: 0 10px 24px rgba(17,48,42,.045); }
+.prajnya-detail-card:last-child { grid-column: auto; }
+.prajnya-profile-page--embedded .prajnya-detail-card:last-child { grid-column: auto; }
+.prajnya-detail-card dt { margin-bottom: 8px; color: #78837f; font-size: .66rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.prajnya-detail-card dd { margin: 0; color: #173d37; font-size: .91rem; font-weight: 700; line-height: 1.5; overflow-wrap: anywhere; }
+.prajnya-detail-card a { color: inherit; text-decoration: none; }
+.prajnya-detail-card a:hover { color: #a32d29; }
+
+@media (max-width: 720px) {
+  .prajnya-overview { grid-template-columns: 1fr; gap: 30px; width: calc(100% - 36px); padding: 16px 0 48px; }
+  .prajnya-overview__portrait { width: min(100%, 430px); margin: 0 auto; }
+  .prajnya-overview__portrait img { height: auto; }
+  .prajnya-details-section { padding: 0; }
+  .prajnya-details-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+  .prajnya-detail-card { padding: 15px; }
+
+  .prajnya-profile-page--embedded .prajnya-overview { grid-template-columns: 1fr; gap: 22px; padding: 46px 20px 24px; }
+  .prajnya-profile-page--embedded .prajnya-overview__portrait { width: min(100%, 280px); }
+  .prajnya-profile-page--embedded .prajnya-overview__portrait img { max-height: none; }
+  .prajnya-profile-page--embedded .prajnya-details-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .prajnya-profile-page--embedded .prajnya-detail-card { grid-column: auto; }
+  .prajnya-profile-page--embedded .prajnya-detail-card:last-child { grid-column: auto; }
 }
 
-.prajnya-profile--prajnya .prajnya-profile__name {
-  display: grid;
-  grid-column: 1 / -1;
-  grid-template-columns: 1fr 2fr;
-  align-items: center;
-  gap: 12px;
-  background: linear-gradient(135deg, #fff 0%, #edf4f0 100%);
-  text-align: center;
-}
-
-.prajnya-profile--prajnya .prajnya-profile__name dt {
-  margin: 0;
-  text-align: left;
-}
-
-.prajnya-profile--prajnya .prajnya-profile__detail:last-child {
-  grid-column: 1 / -1;
-}
-
-
-.prajnya-profile__detail a {
-  color: inherit;
-}
-
-@media (max-width: 480px) {
-  .prajnya-profile {
-    width: calc(100% - 28px);
-  }
-
-  .prajnya-profile > img {
-    height: 220px;
-  }
-
-  .prajnya-profile__details {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 440px) {
+  .prajnya-details-grid { grid-template-columns: 1fr; }
+  .prajnya-detail-card { min-height: 0; }
 }

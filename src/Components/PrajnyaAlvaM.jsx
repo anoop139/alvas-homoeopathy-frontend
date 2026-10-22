@@ -3,37 +3,46 @@ import prajnyaAlvaImage from '../Images/Manging Comunity/prajnaalva.jpeg'
 import './PrajnyaAlvaM.css'
 
 const profileDetails = [
-  ['Qualification', 'B.H.M.S., M.D. (Hom.) Organon'],
-  ['Designation', 'Administrative Officer & Associate Professor'],
+  ['Name', 'Dr. Prajnya Alva M'],
+  ['Qualification', 'B.H.M.S., MD (Hom)'],
+  ['Designation', 'Administrative officer & Associate Professor'],
   ['Department', 'Organon'],
-  ['Experience', '8 years'],
-  ['Contact', '+91 8722873696'],
+  ['Experience', '8 Year'],
+  ['Phone', '+91-8722873696'],
   ['Email', 'dr.prajnya.alva.m@gmail.com'],
-  ['Date of Birth', '24-12-1988'],
-  ['Date of Joining', '29-12-2022'],
-  ['Registration No.', 'A-11405'],
+  ['DOB', '24-12-1988'],
+  ['Joined', '23-12-2015'],
+  ['Reg. No.', 'A-11405'],
 ]
 
-function PrajnyaAlvaM() {
+function PrajnyaAlvaM({ embedded = false }) {
   return (
-    <main className="prajnya-profile-page">
-      <SiteHeader />
-      <section className="prajnya-profile prajnya-profile--prajnya" aria-label="Dr. Prajnya Alva M profile">
-        <img src={prajnyaAlvaImage} alt="Dr. Prajnya Alva M" />
-        <dl className="prajnya-profile__details">
-          <div className="prajnya-profile__detail prajnya-profile__name">
-            <dt>Name</dt>
-            <dd>Dr. Prajnya Alva M</dd>
+    <div className={`prajnya-profile-page${embedded ? ' prajnya-profile-page--embedded' : ''}`}>
+      {!embedded && <SiteHeader />}
+      <section className="prajnya-overview" aria-label="Profile overview">
+        <div className="prajnya-overview__portrait">
+          <img src={prajnyaAlvaImage} alt="Dr. Prajnya Alva M" />
+        </div>
+        <section className="prajnya-details-section" aria-labelledby="prajnya-details-title">
+          <div className="prajnya-details-section__heading">
+            <p className="prajnya-section-kicker">Professional Information</p>
+            <h2 id="prajnya-details-title">Profile details</h2>
           </div>
-          {profileDetails.map(([label, value]) => (
-            <div className="prajnya-profile__detail" key={label}>
-              <dt>{label}</dt>
-              <dd>{label === 'Email' ? <a href={`mailto:${value}`}>{value}</a> : value}</dd>
-            </div>
-          ))}
-        </dl>
+          <dl className="prajnya-details-grid">
+            {profileDetails.map(([label, value]) => (
+              <div className="prajnya-detail-card" key={label}>
+                <dt>{label}</dt>
+                <dd>
+                  {label === 'Email' ? <a href={`mailto:${value}`}>{value}</a> : null}
+                  {label === 'Phone' ? <a href={`tel:${value.replace(/[^+\d]/g, '')}`}>{value}</a> : null}
+                  {label !== 'Email' && label !== 'Phone' ? value : null}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
       </section>
-    </main>
+    </div>
   )
 }
 
