@@ -10,6 +10,7 @@ import Administration from './Components/Administration'
 import PrajnyaAlvaM from './Components/PrajnyaAlvaM'
 import RoshanPinto from './Components/RoshanPinto'
 import PraveenRaj from './Components/PraveenRaj'
+import Aef from './Components/Aef'
 
 const pageTitles = {
   '/': "Alva's Homeopathic Medical College",
@@ -21,6 +22,7 @@ const pageTitles = {
   '/PrajnyaAlvaM': 'Dr. Prajnya Alva M',
   '/RoshanPinto': 'Dr. Herald Roshan Pinto',
   '/PraveenRaj': 'Dr. Praveen Raj',
+  '/aef': "About Alva's Education Foundation",
 }
 
 function PageTitle() {
@@ -47,6 +49,7 @@ function App() {
         <Route path="/PrajnyaAlvaM" element={<PrajnyaAlvaM />} />
         <Route path="/RoshanPinto" element={<RoshanPinto />} />
         <Route path="/PraveenRaj" element={<PraveenRaj />} />
+        <Route path="/aef" element={<Aef />} />
       </Routes>
     </BrowserRouter>
   )
