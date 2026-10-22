@@ -134,6 +134,8 @@
   font-weight: 800;
   letter-spacing: 0.04em;
   text-decoration: none;
+  background: transparent;
+  cursor: pointer;
   transition: background 160ms ease, color 160ms ease;
 }
 
@@ -141,6 +143,60 @@
 .administration-card__more-info:focus-visible {
   background: #143f39;
   color: #fff;
+}
+
+.administration-profile-overlay {
+  position: fixed;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(8, 22, 19, .52);
+  backdrop-filter: blur(8px);
+  inset: 0;
+}
+
+.administration-profile-dialog {
+  position: relative;
+  width: min(1120px, 100%);
+  max-height: min(92vh, 1000px);
+  overflow: auto;
+  border: 1px solid rgba(255,255,255,.68);
+  border-radius: 20px;
+  background: #f7f8f5;
+  box-shadow: 0 28px 90px rgba(0,0,0,.3);
+}
+
+.administration-profile-dialog__close {
+  position: sticky;
+  z-index: 2;
+  top: 14px;
+  float: right;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  margin: 14px 14px -56px 0;
+  border: 1px solid rgba(20,63,57,.16);
+  border-radius: 50%;
+  background: #fff;
+  color: #143f39;
+  font-size: 1.65rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(13,42,40,.12);
+}
+
+.administration-profile-dialog__close:hover,
+.administration-profile-dialog__close:focus-visible {
+  background: #143f39;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .administration-profile-overlay { padding: 10px; }
+  .administration-profile-dialog { max-height: 96vh; border-radius: 14px; }
+  .administration-profile-dialog__close { top: 8px; margin: 8px 8px -50px 0; }
 }
 
 @media (max-width: 760px) {
