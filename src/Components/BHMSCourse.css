@@ -19,6 +19,7 @@
 }
 
 .bhms-course-heading {
+  padding-top: 10px;
   margin-bottom: 6px;
   text-align: center;
 }
@@ -118,6 +119,37 @@
   border-bottom: 0;
 }
 
+.first-professional-bhms-page .site-header {
+  padding-block: 0;
+}
+
+.first-professional-bhms-page .site-header__inner {
+  min-height: 48px;
+  padding: 2px 12px;
+  border-radius: 0;
+}
+
+.first-professional-bhms-page .bhms-course-content {
+  padding-block: 2px 4px;
+}
+
+.first-professional-bhms-page .bhms-course-heading {
+  margin-bottom: 4px;
+}
+
+.first-professional-bhms-page .bhms-course-card {
+  padding: 6px;
+}
+
+.first-professional-bhms-page .bhms-course-table th,
+.first-professional-bhms-page .bhms-course-table td {
+  padding-block: 3px;
+}
+
+.first-professional-bhms-page .site-footer__inner {
+  min-height: 40px;
+}
+
 @media (max-width: 560px) {
   .bhms-course-content {
     width: calc(100% - 32px);
@@ -128,5 +160,19 @@
   .bhms-course-table td {
     padding: 10px 12px;
     font-size: 0.9rem;
+  }
+
+  .first-professional-bhms-page .bhms-course-content {
+    padding-block: 2px 4px;
+  }
+
+  .first-professional-bhms-page .bhms-course-table th,
+  .first-professional-bhms-page .bhms-course-table td {
+    padding-block: 3px;
+  }
+
+  .first-professional-bhms-page .site-footer__inner {
+    min-height: 40px;
+    padding-block: 0;
   }
 }
