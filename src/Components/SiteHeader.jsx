@@ -6,7 +6,7 @@ import backgroundImage from '../Images/Backgrond.png'
 const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'About us', href: '#about-college', hasDropdown: true },
-  { label: 'Course - Admission', href: '#course' },
+  { label: 'Course - Admission', href: '#course', hasDropdown: true, menu: 'course' },
   { label: 'Facilities', href: '#facilities' },
   { label: 'Hospital', href: '#hospital' },
   { label: 'Academics', href: '#course' },
@@ -22,18 +22,44 @@ const aboutLinks = [
   { label: "Chairman's Message", to: '/chairperson-message' },
   { label: "Principal's Message", to: '/principal-message' },
   { label: 'Our Administration', to: '/administration' },
-  { label: 'About AEF', to: '/#about-college' },
+  { label: 'About AEF', to: '/aef' },
+]
+
+const courseLinks = [
+  {
+    label: 'B.H.M.S Course',
+    children: [
+      { label: 'Course Duration', href: '/course-admission/bhms-course' },
+      { label: 'First Professional B.H.M.S. Subjects', href: '/course-admission/first-professional-bhms-subjects' },
+      { label: 'Second Professional B.H.M.S. Subjects', href: '/#second-professional-bhms-subjects' },
+      { label: 'Third Professional B.H.M.S. Subjects', href: '/#third-professional-bhms-subjects' },
+      { label: 'Final Professional B.H.M.S. Subjects', href: '/#final-professional-bhms-subjects' },
+      { label: 'Intake Capacity', href: '/#intake-capacity' },
+    ],
+  },
+  { label: 'Admission Procedure', href: '/#admission-procedure' },
+  { label: 'UG/PG Fees Structure', href: '/#fees-structure' },
 ]
 
 function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isAboutOpen, setIsAboutOpen] = useState(false)
+  const [isCourseOpen, setIsCourseOpen] = useState(false)
+  const [isBhmsOpen, setIsBhmsOpen] = useState(false)
   const [selectedNavItem, setSelectedNavItem] = useState('')
   const location = useLocation()
   const selectedItem = navItems.find((item) => item.label === selectedNavItem)
-  const activeNavItem = ['/about-college', '/vision-mission', '/chairperson-message', '/principal-message', '/administration'].includes(location.pathname)
+  const courseSectionHashes = courseLinks.flatMap((link) => [
+    ...(link.href ? [link.href] : []),
+    ...(link.children ?? []).map((child) => child.href),
+  ]).map((href) => href.split('#')[1]).filter(Boolean)
+  const isCoursePage = location.pathname.startsWith('/course-admission')
+    || (location.pathname === '/' && courseSectionHashes.includes(location.hash.slice(1)))
+  const activeNavItem = ['/about-college', '/vision-mission', '/chairperson-message', '/principal-message', '/administration', '/aef'].includes(location.pathname)
     ? 'About us'
-    : location.pathname === '/'
+    : isCoursePage
+      ? 'Course - Admission'
+      : location.pathname === '/'
       ? selectedItem?.href === location.hash
         ? selectedNavItem
         : location.hash
@@ -42,19 +68,21 @@ function SiteHeader() {
       : ''
 
   useEffect(() => {
-    if (!isAboutOpen) return undefined
+    if (!isAboutOpen && !isCourseOpen) return undefined
 
     const closeAboutOnEscape = (event) => {
       if (event.key === 'Escape') {
         event.preventDefault()
         setIsAboutOpen(false)
-        document.querySelector('#main-menu-links .site-nav__dropdown summary')?.focus()
+        setIsCourseOpen(false)
+        setIsBhmsOpen(false)
+        document.querySelector('#main-menu-links .site-nav__dropdown[open] summary')?.focus()
       }
     }
 
     document.addEventListener('keydown', closeAboutOnEscape)
     return () => document.removeEventListener('keydown', closeAboutOnEscape)
-  }, [isAboutOpen])
+  }, [isAboutOpen, isCourseOpen])
 
   useEffect(() => {
     if (!location.hash) return
@@ -66,6 +94,8 @@ function SiteHeader() {
   const closeMenu = () => {
     setIsMenuOpen(false)
     setIsAboutOpen(false)
+    setIsCourseOpen(false)
+    setIsBhmsOpen(false)
   }
 
   return (
@@ -106,22 +136,72 @@ function SiteHeader() {
               <details
                 key={item.label}
                 className="site-nav__dropdown"
-                open={isAboutOpen}
-                onMouseEnter={() => setIsAboutOpen(true)}
-                onMouseLeave={() => setIsAboutOpen(false)}
+                open={item.menu === 'course' ? isCourseOpen : isAboutOpen}
+                onMouseEnter={() => (item.menu === 'course' ? setIsCourseOpen(true) : setIsAboutOpen(true))}
+                onMouseLeave={() => {
+                  if (item.menu === 'course') {
+                    setIsCourseOpen(false)
+                    setIsBhmsOpen(false)
+                  } else {
+                    setIsAboutOpen(false)
+                  }
+                }}
               >
                 <summary
                   className={`site-nav__link${activeNavItem === item.label ? ' is-active' : ''}`}
                   onClick={(event) => {
                     event.preventDefault()
-                    setIsAboutOpen((open) => !open)
+                    if (item.menu === 'course') setIsCourseOpen((open) => !open)
+                    else setIsAboutOpen((open) => !open)
                   }}
                 >
                   {item.label}
                   <span className="site-nav__chevron" aria-hidden="true" />
                 </summary>
                 <div className="site-nav__submenu">
-                  {aboutLinks.map((link) => (
+                  {(item.menu === 'course' ? courseLinks : aboutLinks).map((link) => (
+                    item.menu === 'course' && link.children ? (
+                      <details
+                        key={link.label}
+                        className="site-nav__nested"
+                        open={isBhmsOpen}
+                        onMouseEnter={() => setIsBhmsOpen(true)}
+                        onMouseLeave={() => setIsBhmsOpen(false)}
+                      >
+                        <summary
+                          className="site-nav__sublink site-nav__nested-summary"
+                          onClick={(event) => {
+                            event.preventDefault()
+                            setIsBhmsOpen((open) => !open)
+                          }}
+                        >
+                          {link.label}
+                          <span className="site-nav__chevron" aria-hidden="true" />
+                        </summary>
+                        <div className="site-nav__submenu site-nav__nested-menu">
+                          {link.children.map((child) => (
+                            <NavLink
+                              key={child.label}
+                              className="site-nav__sublink"
+                              to={child.href}
+                              onClick={closeMenu}
+                            >
+                              {child.label}
+                            </NavLink>
+                          ))}
+                        </div>
+                      </details>
+                    ) : item.menu === 'course' ? (
+                      <NavLink
+                        key={link.label}
+                        className="site-nav__sublink"
+                        to={link.href}
+                        onClick={closeMenu}
+                      >
+                        {link.label}
+                        {link.hasChevron && <span className="site-nav__chevron" aria-hidden="true" />}
+                      </NavLink>
+                    ) : (
                     <NavLink
                       key={link.label}
                       className="site-nav__sublink"
@@ -130,6 +210,7 @@ function SiteHeader() {
                     >
                       {link.label}
                     </NavLink>
+                    )
                   ))}
                 </div>
               </details>
