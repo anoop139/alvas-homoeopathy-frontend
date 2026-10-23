@@ -11,6 +11,8 @@ import PrajnyaAlvaM from './Components/PrajnyaAlvaM'
 import RoshanPinto from './Components/RoshanPinto'
 import PraveenRaj from './Components/PraveenRaj'
 import Aef from './Components/Aef'
+import BHMSCourse from './Components/BHMSCourse'
+import FirstProfesnalBHMS from './Components/FirstProfesnalBHMS'
 
 const pageTitles = {
   '/': "Alva's Homeopathic Medical College",
@@ -22,7 +24,9 @@ const pageTitles = {
   '/PrajnyaAlvaM': 'Dr. Prajnya Alva M',
   '/RoshanPinto': 'Dr. Herald Roshan Pinto',
   '/PraveenRaj': 'Dr. Praveen Raj',
-  '/aef': "About Alva's Education Foundation",
+  '/aef': 'About AEF',
+  '/course-admission/bhms-course': 'B.H.M.S Course',
+  '/course-admission/first-professional-bhms-subjects': 'First Professional B.H.M.S. Subjects',
 }
 
 function PageTitle() {
@@ -50,6 +54,10 @@ function App() {
         <Route path="/RoshanPinto" element={<RoshanPinto />} />
         <Route path="/PraveenRaj" element={<PraveenRaj />} />
         <Route path="/aef" element={<Aef />} />
+        <Route path="/course-admission">
+          <Route path="bhms-course" element={<BHMSCourse />} />
+          <Route path="first-professional-bhms-subjects" element={<FirstProfesnalBHMS />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )
