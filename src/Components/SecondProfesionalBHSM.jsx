@@ -22,7 +22,7 @@ function SecondProfesionalHtml() {
   }, [])
 
   return (
-    <main className="bhms-course-page first-professional-bhms-page">
+    <main className="bhms-course-page first-professional-bhms-page second-professional-bhms-page">
       <SiteHeader />
       <section className="bhms-course-content" aria-labelledby="second-professional-bhms-title">
         <header className="bhms-course-heading">
