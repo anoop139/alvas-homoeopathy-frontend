@@ -31,14 +31,6 @@ function ChairpersonMessage() {
                 capable and compassionate future doctors.
               </p>
             </div>
-            <a
-              className="chairperson-message__source"
-              href="https://alvashomoeopathy.com/chairman.html"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Read the original message <span aria-hidden="true">↗</span>
-            </a>
           </article>
         </div>
       </section>
