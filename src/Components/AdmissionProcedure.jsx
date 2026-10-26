@@ -91,14 +91,6 @@ function AdmissionProcedure() {
           >
             Karnataka Examinations Authority website <span aria-hidden="true">↗</span>
           </a>
-          <a
-            className="admission-procedure-source"
-            href="https://alvashomoeopathy.com/addmissionprocedure.html"
-            target="_blank"
-            rel="noreferrer"
-          >
-            View the college's admission information <span aria-hidden="true">↗</span>
-          </a>
         </section>
       </section>
       <SiteFooter />
