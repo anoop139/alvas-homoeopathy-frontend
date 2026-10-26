@@ -12,7 +12,11 @@ import RoshanPinto from './Components/RoshanPinto'
 import PraveenRaj from './Components/PraveenRaj'
 import Aef from './Components/Aef'
 import BHMSCourse from './Components/BHMSCourse'
+import AdmissionProcedure from './Components/AdmissionProcedure'
 import FirstProfesnalBHMS from './Components/FirstProfesnalBHMS'
+import SecondProfesionalHtml from './Components/SecondProfesionalBHSM'
+import ThirdProfesionalHtml from './Components/ThirdProfesionalHtml'
+import FinalProfesionalHtml from './Components/FinalProfesionalBHMS'
 
 const pageTitles = {
   '/': "Alva's Homeopathic Medical College",
@@ -26,7 +30,11 @@ const pageTitles = {
   '/PraveenRaj': 'Dr. Praveen Raj',
   '/aef': 'About AEF',
   '/course-admission/bhms-course': 'B.H.M.S Course',
+  '/course-admission/admission-procedure': 'Admission Procedure',
   '/course-admission/first-professional-bhms-subjects': 'First Professional B.H.M.S. Subjects',
+  '/course-admission/second-professional-bhms-subjects': 'Second Professional B.H.M.S. Subjects',
+  '/course-admission/third-professional-bhms-subjects': 'Third Professional B.H.M.S. Subjects',
+  '/course-admission/final-professional-bhms-subjects': 'Final Professional B.H.M.S. Subjects',
 }
 
 function PageTitle() {
@@ -56,7 +64,11 @@ function App() {
         <Route path="/aef" element={<Aef />} />
         <Route path="/course-admission">
           <Route path="bhms-course" element={<BHMSCourse />} />
+          <Route path="admission-procedure" element={<AdmissionProcedure />} />
           <Route path="first-professional-bhms-subjects" element={<FirstProfesnalBHMS />} />
+          <Route path="second-professional-bhms-subjects" element={<SecondProfesionalHtml />} />
+          <Route path="third-professional-bhms-subjects" element={<ThirdProfesionalHtml />} />
+          <Route path="final-professional-bhms-subjects" element={<FinalProfesionalHtml />} />
         </Route>
       </Routes>
     </BrowserRouter>
