@@ -115,18 +115,11 @@
 }
 
 .admission-procedure-contacts a,
-.admission-procedure-kea-link,
-.admission-procedure-source {
+.admission-procedure-kea-link {
   color: var(--forest);
   font-weight: 700;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
-}
-
-.admission-procedure-source {
-  display: block;
-  margin-top: 16px;
-  font-size: 0.92rem;
 }
 
 .admission-procedure-kea-link {
