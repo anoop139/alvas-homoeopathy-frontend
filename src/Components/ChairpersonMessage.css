@@ -165,23 +165,6 @@
   line-height: 1.85;
 }
 
-.chairperson-message__source {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-top: 26px;
-  color: var(--forest-mid);
-  font-size: 0.82rem;
-  font-weight: 800;
-  text-decoration-color: rgba(29, 79, 73, 0.35);
-  text-underline-offset: 4px;
-}
-
-.chairperson-message__source:hover,
-.chairperson-message__source:focus-visible {
-  color: var(--gold-deep);
-}
-
 @media (max-width: 600px) {
   .chairperson-message {
     min-height: calc(100vh - 80px);

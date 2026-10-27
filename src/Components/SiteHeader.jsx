@@ -31,14 +31,17 @@ const courseLinks = [
     children: [
       { label: 'Course Duration', href: '/course-admission/bhms-course' },
       { label: 'First Professional B.H.M.S. Subjects', href: '/course-admission/first-professional-bhms-subjects' },
-      { label: 'Second Professional B.H.M.S. Subjects', href: '/#second-professional-bhms-subjects' },
-      { label: 'Third Professional B.H.M.S. Subjects', href: '/#third-professional-bhms-subjects' },
-      { label: 'Final Professional B.H.M.S. Subjects', href: '/#final-professional-bhms-subjects' },
-      { label: 'Intake Capacity', href: '/#intake-capacity' },
+      { label: 'Second Professional B.H.M.S. Subjects', href: '/course-admission/second-professional-bhms-subjects' },
+      { label: 'Third Professional B.H.M.S. Subjects', href: '/course-admission/third-professional-bhms-subjects' },
+      { label: 'Final Professional B.H.M.S. Subjects', href: '/course-admission/final-professional-bhms-subjects' },
     ],
   },
-  { label: 'Admission Procedure', href: '/#admission-procedure' },
-  { label: 'UG/PG Fees Structure', href: '/#fees-structure' },
+  { label: 'Admission Procedure', href: '/course-admission/admission-procedure' },
+  {
+    label: 'UG/PG Fees Structure',
+    href: 'https://alvashomoeopathy.com/files/2023-24%20UG,%20PG%20Fees%20Structure.pdf',
+    external: true,
+  },
 ]
 
 function SiteHeader() {
@@ -158,7 +161,7 @@ function SiteHeader() {
                   {item.label}
                   <span className="site-nav__chevron" aria-hidden="true" />
                 </summary>
-                <div className="site-nav__submenu">
+                <div className={`site-nav__submenu${item.menu === 'course' ? '' : ' site-nav__submenu--about'}`}>
                   {(item.menu === 'course' ? courseLinks : aboutLinks).map((link) => (
                     item.menu === 'course' && link.children ? (
                       <details
@@ -192,15 +195,28 @@ function SiteHeader() {
                         </div>
                       </details>
                     ) : item.menu === 'course' ? (
-                      <NavLink
-                        key={link.label}
-                        className="site-nav__sublink"
-                        to={link.href}
-                        onClick={closeMenu}
-                      >
-                        {link.label}
-                        {link.hasChevron && <span className="site-nav__chevron" aria-hidden="true" />}
-                      </NavLink>
+                      link.external ? (
+                        <a
+                          key={link.label}
+                          className="site-nav__sublink"
+                          href={link.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          onClick={closeMenu}
+                        >
+                          {link.label}
+                        </a>
+                      ) : (
+                        <NavLink
+                          key={link.label}
+                          className="site-nav__sublink"
+                          to={link.href}
+                          onClick={closeMenu}
+                        >
+                          {link.label}
+                          {link.hasChevron && <span className="site-nav__chevron" aria-hidden="true" />}
+                        </NavLink>
+                      )
                     ) : (
                     <NavLink
                       key={link.label}

@@ -9,7 +9,6 @@ const subjects = [
   ['HomUG-R-II', 'Homoeopathic Repertory & Case Taking'],
   ['HomUG-FMT', 'Forensic Medicine and Toxicology'],
   ['HomUG-Path M', 'Pathology and Microbiology'],
-  ['HomUG-CM', 'Community Medicine'],
   ['HomUG-Sur-I', 'Surgery'],
   ['HomUG-ObGy-I', 'Gynecology & Obstetrics'],
   ['HomUG-PM-I', 'Practice Of Medicine'],
