@@ -1,0 +1,115 @@
+  .facilities-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(ellipse at 15% 5%, rgba(215, 172, 99, 0.15), transparent 35%),
+    linear-gradient(145deg, #f8faf8 0%, #edf3f0 58%, #f5f4ef 100%);
+}
+
+.general-infrastructures {
+  width: min(100% - 48px, 1200px);
+  flex: 1;
+  margin: 0 auto;
+  padding: 42px 0 64px;
+}
+
+.general-infrastructures__heading {
+  max-width: 780px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.general-infrastructures__heading h1 {
+  margin: 0;
+  color: var(--forest-deep);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  line-height: 1;
+}
+
+.general-infrastructures__heading > p:last-child {
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.general-infrastructures__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.general-infrastructures__card {
+  position: relative;
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid rgba(20, 63, 57, 0.1);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 30px rgba(13, 42, 40, 0.06);
+}
+
+.general-infrastructures__number {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--gold-deep);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.general-infrastructures__card h2,
+.general-infrastructures__future h2 {
+  margin: 0 0 8px;
+  color: var(--forest-deep);
+  font-size: 1.1rem;
+}
+
+.general-infrastructures__card p,
+.general-infrastructures__future p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+.general-infrastructures__future {
+  margin-top: 18px;
+  padding: 24px;
+  border-left: 4px solid var(--gold);
+  border-radius: 0 14px 14px 0;
+  background: var(--forest-deep);
+}
+
+.general-infrastructures__future h2,
+.general-infrastructures__future p {
+  color: #fff;
+}
+
+.general-infrastructures__future p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+@media (max-width: 700px) {
+  .general-infrastructures {
+    width: calc(100% - 32px);
+    padding: 32px 0 48px;
+  }
+
+  .general-infrastructures__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .general-infrastructures__card,
+  .general-infrastructures__future {
+    padding: 20px;
+  }
+}
+
+.general-infrastructures__heading h1 {
+  white-space: nowrap;
+  font-size: clamp(1.5rem, 4vw, 3.5rem);
+}
+
