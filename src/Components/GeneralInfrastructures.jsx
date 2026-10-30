@@ -77,6 +77,20 @@ function GeneralInfrastructures() {
           <p>Commencing Post Graduate Study in Homeopathic Medicine.</p>
           <p>Manufacture of Homoeopathic Medicines.</p>
         </section>
+
+        <section className="general-infrastructures__clinical" aria-labelledby="clinical-facilities-title">
+          <h2 id="clinical-facilities-title">CLINICAL FACILITIES</h2>
+          <p>
+            Clinical facilities support healthcare education by giving students supervised, hands-on experience
+            and a chance to apply what they learn. They include hospitals, clinics, private practices, and research
+            facilities.
+          </p>
+          <p>
+            Students care for patients under qualified faculty supervision. The college has an attached general
+            multispecialty hospital and is officially attached to the Community Health Centre, Moodbidri, and
+            Mount Rosario Charitable Institute, Alangar (Old Age Home).
+          </p>
+        </section>
       </section>
       <SiteFooter />
     </main>
