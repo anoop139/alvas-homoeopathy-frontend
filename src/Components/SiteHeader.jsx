@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
+import './SiteHeader.css'
 import ahmcImage from '../Images/Logo.jpg'
 import backgroundImage from '../Images/Backgrond.png'
 

@@ -1,0 +1,6 @@
+.site-nav__link:not(.is-active):hover,
+.site-nav__link:not(.is-active):focus-visible,
+.site-nav__sublink:hover,
+.site-nav__sublink:focus-visible {
+  color: #f1cb83;
+}
