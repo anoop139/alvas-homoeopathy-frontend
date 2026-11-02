@@ -17,6 +17,8 @@ import FirstProfesnalBHMS from './Components/FirstProfesnalBHMS'
 import SecondProfesionalHtml from './Components/SecondProfesionalBHSM'
 import ThirdProfesionalHtml from './Components/ThirdProfesionalHtml'
 import FinalProfesionalHtml from './Components/FinalProfesionalBHMS'
+import Facilities from './Components/Facilities'
+import FacilityPlaceholder from './Components/FacilityPlaceholder'
 
 const pageTitles = {
   '/': "Alva's Homeopathic Medical College",
@@ -29,6 +31,13 @@ const pageTitles = {
   '/RoshanPinto': 'Dr. Herald Roshan Pinto',
   '/PraveenRaj': 'Dr. Praveen Raj',
   '/aef': 'About AEF',
+  '/facilities': 'Facilities',
+  '/facilities/general-infrastructures': 'General Infrastructures',
+  '/facilities/clinical-facilities': 'Clinical Facilities',
+  '/facilities/library': 'Library',
+  '/facilities/hostel': 'Hostel',
+  '/facilities/sports-specialty': 'Sports Specialty',
+  '/facilities/transportation': 'Transportation',
   '/course-admission/bhms-course': 'B.H.M.S Course',
   '/course-admission/admission-procedure': 'Admission Procedure',
   '/course-admission/first-professional-bhms-subjects': 'First Professional B.H.M.S. Subjects',
@@ -62,6 +71,10 @@ function App() {
         <Route path="/RoshanPinto" element={<RoshanPinto />} />
         <Route path="/PraveenRaj" element={<PraveenRaj />} />
         <Route path="/aef" element={<Aef />} />
+        <Route path="/facilities" element={<Facilities />} />
+        <Route path="/general-infrastructures" element={<Facilities />} />
+        {/* <Route path="/facilities/general-infrastructures" element={<GeneralInfrastructures />} /> */}
+        <Route path="/facilities/:facility" element={<FacilityPlaceholder />} />
         <Route path="/course-admission">
           <Route path="bhms-course" element={<BHMSCourse />} />
           <Route path="admission-procedure" element={<AdmissionProcedure />} />
@@ -76,3 +89,4 @@ function App() {
 }
 
 export default App
+
