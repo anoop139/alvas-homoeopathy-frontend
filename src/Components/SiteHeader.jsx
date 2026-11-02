@@ -27,12 +27,12 @@ const aboutLinks = [
 ]
 
 const facilitiesLinks = [
-  { label: 'General Infrastructures', to: '/facilities/general-infrastructures' },
-  { label: 'Clinical Facilities', to: '/facilities/clinical-facilities' },
-  { label: 'Library', to: '/facilities/library' },
-  { label: 'Hostel', to: '/facilities/hostel' },
-  { label: 'Sports Specialty', to: '/facilities/sports-specialty' },
-  { label: 'Transportation', to: '/facilities/transportation' },
+  { label: 'GENERAL INFRASTRUCTURES', to: '/facilities#general-infrastructures' },
+  { label: 'Clinical Facilities', to: '/facilities#clinical-facilities' },
+  { label: 'Library', to: '/facilities#library' },
+  { label: 'Hostel', to: '/facilities#hostel' },
+  { label: 'Sports Specialty', to: '/facilities#sports-specialty' },
+  { label: 'Transportation', to: '/facilities#transportation' },
 ]
 
 const courseLinks = [
@@ -71,7 +71,7 @@ function SiteHeader() {
     || (location.pathname === '/' && courseSectionHashes.includes(location.hash.slice(1)))
   const activeNavItem = ['/about-college', '/vision-mission', '/chairperson-message', '/principal-message', '/administration', '/aef'].includes(location.pathname)
     ? 'About us'
-    : location.pathname.startsWith('/facilities/')
+    : location.pathname === '/facilities' || location.pathname.startsWith('/facilities/') || location.pathname === '/general-infrastructures'
       ? 'Facilities'
     : isCoursePage
       ? 'Course - Admission'
@@ -105,7 +105,12 @@ function SiteHeader() {
     if (!location.hash) return
 
     const sectionId = decodeURIComponent(location.hash.slice(1))
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
+    const target = document.getElementById(sectionId)
+    if (target) {
+      const headerHeight = document.querySelector('.site-header')?.getBoundingClientRect().height ?? 96
+      const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 12
+      window.scrollTo({ top, behavior: 'auto' })
+    }
   }, [location.hash])
 
   const closeMenu = () => {
@@ -172,18 +177,30 @@ function SiteHeader() {
                 }}
               >
                 <summary
-                  className={`site-nav__link${activeNavItem === item.label ? ' is-active' : ''}`}
+                  className={`site-nav__link${activeNavItem === item.label || (item.menu === 'facilities' && isFacilitiesOpen) ? ' is-active' : ''}`}
                   onClick={(event) => {
+                    if (item.menu === 'facilities' && event.target.closest('a')) return
                     event.preventDefault()
                     if (item.menu === 'course') setIsCourseOpen((open) => !open)
                     else if (item.menu === 'facilities') setIsFacilitiesOpen((open) => !open)
                     else setIsAboutOpen((open) => !open)
                   }}
                 >
-                  {item.label}
+                  {item.menu === 'facilities' ? (
+                    <NavLink
+                      to="/facilities#general-infrastructures"
+                      style={{ color: activeNavItem === item.label || isFacilitiesOpen ? '#f1cb83' : 'inherit' }}
+                      onClick={closeMenu}
+                    >
+                      {item.label}
+                    </NavLink>
+                  ) : item.label}
                   <span className="site-nav__chevron" aria-hidden="true" />
                 </summary>
-                <div className={`site-nav__submenu${item.menu === 'course' ? '' : item.menu === 'facilities' ? ' site-nav__submenu--facilities' : ' site-nav__submenu--about'}`}>
+                <div
+                  className={`site-nav__submenu${item.menu === 'course' ? '' : item.menu === 'facilities' ? ' site-nav__submenu--facilities' : ' site-nav__submenu--about'}`}
+                  style={item.menu === 'facilities' ? { width: '240px' } : undefined}
+                >
                   {(item.menu === 'course' ? courseLinks : item.menu === 'facilities' ? facilitiesLinks : aboutLinks).map((link) => (
                     item.menu === 'course' && link.children ? (
                       <details
@@ -244,7 +261,22 @@ function SiteHeader() {
                       key={link.label}
                       className="site-nav__sublink"
                       to={link.to}
-                      onClick={closeMenu}
+                      onClick={() => {
+                        closeMenu()
+                        if (link.to === '/facilities#general-infrastructures') {
+                          const previousScrollRestoration = window.history.scrollRestoration
+                          window.history.scrollRestoration = 'manual'
+                          window.setTimeout(() => {
+                            const target = document.getElementById('general-infrastructures')
+                            if (target) {
+                              const headerHeight = document.querySelector('.site-header')?.getBoundingClientRect().height ?? 96
+                              const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 12
+                              window.scrollTo({ top, behavior: 'auto' })
+                            }
+                            window.history.scrollRestoration = previousScrollRestoration
+                          }, 150)
+                        }
+                      }}
                     >
                       {link.label}
                     </NavLink>

@@ -1,9 +1,12 @@
-import { useParams } from 'react-router-dom'
-import './GeneralInfrastructures.css'
+import { useEffect } from 'react'
+import { useLocation, useParams } from 'react-router-dom'
+import './Facilities.css'
+import Facilities from './Facilities'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
 
 const facilityTitles = {
+  'general-infrastructures': 'General Infrastructures',
   'clinical-facilities': 'Clinical Facilities',
   library: 'Library',
   hostel: 'Hostel',
@@ -13,15 +16,25 @@ const facilityTitles = {
 
 function FacilityPlaceholder() {
   const { facility } = useParams()
+  const location = useLocation()
   const title = facilityTitles[facility] ?? 'Facilities'
   const isClinicalFacilities = facility === 'clinical-facilities'
+
+  useEffect(() => {
+    const headingId = location.hash.slice(1)
+    if (headingId) {
+      document.getElementById(headingId)?.scrollIntoView()
+    }
+  }, [location])
+
+  if (facility === 'general-infrastructures') return <Facilities />
 
   return (
     <main className="facilities-page facilities-page--subroute">
       <SiteHeader />
       <section className="general-infrastructures" aria-labelledby="facility-placeholder-title">
         <header className="general-infrastructures__heading">
-          <h1 id="facility-placeholder-title">{title}</h1>
+          <h1 id={facility}>{title}</h1>
           {isClinicalFacilities ? (
             <p>Learn through supervised, hands-on experience in hospitals, clinics, and community health settings.</p>
           ) : (
