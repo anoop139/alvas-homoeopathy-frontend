@@ -9,7 +9,7 @@ const navItems = [
   { label: 'About us', href: '#about-college', hasDropdown: true },
   { label: 'Course - Admission', href: '#course', hasDropdown: true, menu: 'course' },
   { label: 'Facilities', href: '#facilities', hasDropdown: true, menu: 'facilities' },
-  { label: 'Hospital', href: '#hospital' },
+  { label: 'Hospital', href: '#hospital', hasDropdown: true, menu: 'hospital' },
   { label: 'Academics', href: '#course' },
   { label: 'Students Data', href: '#facilities' },
   { label: "Life @ Alva's", href: '#facilities' },
@@ -35,6 +35,12 @@ const facilitiesLinks = [
   { label: 'Transportation', to: '/facilities#transportation' },
 ]
 
+const hospitalLinks = [
+  { label: 'Hospital OPD', to: '/hospital/opd' },
+  { label: 'Hospital IPD', to: '/hospital/ipd' },
+  { label: 'Hospital camps', to: '/#hospital' },
+]
+
 const courseLinks = [
   {
     label: 'B.H.M.S Course',
@@ -58,6 +64,7 @@ function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isAboutOpen, setIsAboutOpen] = useState(false)
   const [isFacilitiesOpen, setIsFacilitiesOpen] = useState(false)
+  const [isHospitalOpen, setIsHospitalOpen] = useState(false)
   const [isCourseOpen, setIsCourseOpen] = useState(false)
   const [isBhmsOpen, setIsBhmsOpen] = useState(false)
   const [selectedNavItem, setSelectedNavItem] = useState('')
@@ -73,6 +80,8 @@ function SiteHeader() {
     ? 'About us'
     : location.pathname === '/facilities' || location.pathname.startsWith('/facilities/') || location.pathname === '/general-infrastructures'
       ? 'Facilities'
+    : location.pathname.startsWith('/hospital')
+      ? 'Hospital'
     : isCoursePage
       ? 'Course - Admission'
       : location.pathname === '/'
@@ -84,13 +93,14 @@ function SiteHeader() {
       : ''
 
   useEffect(() => {
-    if (!isAboutOpen && !isCourseOpen && !isFacilitiesOpen) return undefined
+    if (!isAboutOpen && !isCourseOpen && !isFacilitiesOpen && !isHospitalOpen) return undefined
 
     const closeAboutOnEscape = (event) => {
       if (event.key === 'Escape') {
         event.preventDefault()
         setIsAboutOpen(false)
         setIsFacilitiesOpen(false)
+        setIsHospitalOpen(false)
         setIsCourseOpen(false)
         setIsBhmsOpen(false)
         document.querySelector('#main-menu-links .site-nav__dropdown[open] summary')?.focus()
@@ -99,7 +109,7 @@ function SiteHeader() {
 
     document.addEventListener('keydown', closeAboutOnEscape)
     return () => document.removeEventListener('keydown', closeAboutOnEscape)
-  }, [isAboutOpen, isCourseOpen, isFacilitiesOpen])
+  }, [isAboutOpen, isCourseOpen, isFacilitiesOpen, isHospitalOpen])
 
   useEffect(() => {
     if (!location.hash) return
@@ -117,6 +127,7 @@ function SiteHeader() {
     setIsMenuOpen(false)
     setIsAboutOpen(false)
     setIsFacilitiesOpen(false)
+    setIsHospitalOpen(false)
     setIsCourseOpen(false)
     setIsBhmsOpen(false)
   }
@@ -158,11 +169,12 @@ function SiteHeader() {
             item.hasDropdown ? (
               <details
                 key={item.label}
-                className="site-nav__dropdown"
-                open={item.menu === 'course' ? isCourseOpen : item.menu === 'facilities' ? isFacilitiesOpen : isAboutOpen}
+                className={`site-nav__dropdown${item.menu === 'hospital' ? ' site-nav__dropdown--hospital' : ''}`}
+                open={item.menu === 'course' ? isCourseOpen : item.menu === 'facilities' ? isFacilitiesOpen : item.menu === 'hospital' ? isHospitalOpen : isAboutOpen}
                 onMouseEnter={() => {
                   if (item.menu === 'course') setIsCourseOpen(true)
                   else if (item.menu === 'facilities') setIsFacilitiesOpen(true)
+                  else if (item.menu === 'hospital') setIsHospitalOpen(true)
                   else setIsAboutOpen(true)
                 }}
                 onMouseLeave={() => {
@@ -171,18 +183,22 @@ function SiteHeader() {
                     setIsBhmsOpen(false)
                   } else if (item.menu === 'facilities') {
                     setIsFacilitiesOpen(false)
+                  } else if (item.menu === 'hospital') {
+                    setIsHospitalOpen(false)
                   } else {
                     setIsAboutOpen(false)
                   }
                 }}
               >
                 <summary
-                  className={`site-nav__link${activeNavItem === item.label || (item.menu === 'facilities' && isFacilitiesOpen) ? ' is-active' : ''}`}
+                  className={`site-nav__link${activeNavItem === item.label || (item.menu === 'facilities' && isFacilitiesOpen) || (item.menu === 'hospital' && isHospitalOpen) ? ' is-active' : ''}`}
+                  style={item.menu === 'hospital' && isHospitalOpen ? { color: '#f1cb83' } : undefined}
                   onClick={(event) => {
-                    if (item.menu === 'facilities' && event.target.closest('a')) return
+                    if ((item.menu === 'facilities' || item.menu === 'hospital') && event.target.closest('a')) return
                     event.preventDefault()
                     if (item.menu === 'course') setIsCourseOpen((open) => !open)
                     else if (item.menu === 'facilities') setIsFacilitiesOpen((open) => !open)
+                    else if (item.menu === 'hospital') setIsHospitalOpen(true)
                     else setIsAboutOpen((open) => !open)
                   }}
                 >
@@ -194,14 +210,21 @@ function SiteHeader() {
                     >
                       {item.label}
                     </NavLink>
+                  ) : item.menu === 'hospital' ? (
+                    <NavLink
+                      className={`site-nav__hospital-link${activeNavItem === 'Hospital' || isHospitalOpen ? ' is-active' : ''}`}
+                      to="/#hospital"
+                    >
+                      {item.label}
+                    </NavLink>
                   ) : item.label}
                   <span className="site-nav__chevron" aria-hidden="true" />
                 </summary>
                 <div
-                  className={`site-nav__submenu${item.menu === 'course' ? '' : item.menu === 'facilities' ? ' site-nav__submenu--facilities' : ' site-nav__submenu--about'}`}
+                  className={`site-nav__submenu${item.menu === 'course' ? '' : item.menu === 'facilities' ? ' site-nav__submenu--facilities' : item.menu === 'hospital' ? ' site-nav__submenu--about' : ' site-nav__submenu--about'}`}
                   style={item.menu === 'facilities' ? { width: '240px' } : undefined}
                 >
-                  {(item.menu === 'course' ? courseLinks : item.menu === 'facilities' ? facilitiesLinks : aboutLinks).map((link) => (
+                  {(item.menu === 'course' ? courseLinks : item.menu === 'facilities' ? facilitiesLinks : item.menu === 'hospital' ? hospitalLinks : aboutLinks).map((link) => (
                     item.menu === 'course' && link.children ? (
                       <details
                         key={link.label}
@@ -256,6 +279,15 @@ function SiteHeader() {
                           {link.hasChevron && <span className="site-nav__chevron" aria-hidden="true" />}
                         </NavLink>
                       )
+                    ) : item.menu === 'hospital' ? (
+                    <NavLink
+                      key={link.label}
+                      className="site-nav__sublink"
+                      to={link.to}
+                      onClick={closeMenu}
+                    >
+                      {link.label}
+                    </NavLink>
                     ) : (
                     <NavLink
                       key={link.label}
