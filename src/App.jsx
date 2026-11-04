@@ -21,6 +21,7 @@ import Facilities from './Components/Facilities'
 import FacilityPlaceholder from './Components/FacilityPlaceholder'
 import HospitalOpd from './Components/HospitalOpd'
 import HospitalIpd from './Components/HospitalIpd'
+import HospitalCampus from './Components/HospitalCampus'
 
 const pageTitles = {
   '/': "Alva's Homeopathic Medical College",
@@ -82,6 +83,7 @@ function App() {
         <Route path="/hospital">
         <Route path='opd' element={<HospitalOpd />} />
         <Route path='ipd' element={<HospitalIpd />} />
+        <Route path='campus' element={<HospitalCampus />} />
         </Route>
         {/* <Route path="/facilities/general-infrastructures" element={<GeneralInfrastructures />} /> */}
         <Route path="/facilities/:facility" element={<FacilityPlaceholder />} />
