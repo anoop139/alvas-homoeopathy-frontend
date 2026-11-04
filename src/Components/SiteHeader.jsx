@@ -38,7 +38,19 @@ const facilitiesLinks = [
 const hospitalLinks = [
   { label: 'Hospital OPD', to: '/hospital/opd' },
   { label: 'Hospital IPD', to: '/hospital/ipd' },
-  { label: 'Hospital camps', to: '/#hospital' },
+  {
+    label: 'Campus',
+    children: [
+      { label: 'General Health Camp', to: '/hospital/campus#general-health-camp' },
+      { label: 'Blood Donation Camp', to: '/hospital/campus#blood-donation-camp' },
+      { label: 'Mulky General Health Camp', to: '/hospital/campus#mulky-general-health-camp' },
+      { label: 'School Health Camp', to: '/hospital/campus#school-health-camp' },
+      { label: 'High School Health Camp', to: '/hospital/campus#high-school-health-camp' },
+      { label: 'Anganawady Health Camp', to: '/hospital/campus#anganawady-health-camp' },
+      { label: 'Government High School Health Camp', to: '/hospital/campus#government-high-school-health-camp' },
+      { label: 'Government School and Anganawady Camp', to: '/hospital/campus#government-school-anganawady-camp' },
+    ],
+  },
 ]
 
 const courseLinks = [
@@ -67,6 +79,7 @@ function SiteHeader() {
   const [isHospitalOpen, setIsHospitalOpen] = useState(false)
   const [isCourseOpen, setIsCourseOpen] = useState(false)
   const [isBhmsOpen, setIsBhmsOpen] = useState(false)
+  const [isCampusOpen, setIsCampusOpen] = useState(false)
   const [selectedNavItem, setSelectedNavItem] = useState('')
   const location = useLocation()
   const selectedItem = navItems.find((item) => item.label === selectedNavItem)
@@ -130,6 +143,7 @@ function SiteHeader() {
     setIsHospitalOpen(false)
     setIsCourseOpen(false)
     setIsBhmsOpen(false)
+    setIsCampusOpen(false)
   }
 
   return (
@@ -198,7 +212,7 @@ function SiteHeader() {
                     event.preventDefault()
                     if (item.menu === 'course') setIsCourseOpen((open) => !open)
                     else if (item.menu === 'facilities') setIsFacilitiesOpen((open) => !open)
-                    else if (item.menu === 'hospital') setIsHospitalOpen(true)
+                    else if (item.menu === 'hospital') setIsHospitalOpen((open) => !open)
                     else setIsAboutOpen((open) => !open)
                   }}
                 >
@@ -210,13 +224,6 @@ function SiteHeader() {
                     >
                       {item.label}
                     </NavLink>
-                  ) : item.menu === 'hospital' ? (
-                    <NavLink
-                      className={`site-nav__hospital-link${activeNavItem === 'Hospital' || isHospitalOpen ? ' is-active' : ''}`}
-                      to="/#hospital"
-                    >
-                      {item.label}
-                    </NavLink>
                   ) : item.label}
                   <span className="site-nav__chevron" aria-hidden="true" />
                 </summary>
@@ -225,34 +232,56 @@ function SiteHeader() {
                   style={item.menu === 'facilities' ? { width: '240px' } : undefined}
                 >
                   {(item.menu === 'course' ? courseLinks : item.menu === 'facilities' ? facilitiesLinks : item.menu === 'hospital' ? hospitalLinks : aboutLinks).map((link) => (
-                    item.menu === 'course' && link.children ? (
+                    (item.menu === 'course' || item.menu === 'hospital') && link.children ? (
                       <details
                         key={link.label}
                         className="site-nav__nested"
-                        open={isBhmsOpen}
-                        onMouseEnter={() => setIsBhmsOpen(true)}
-                        onMouseLeave={() => setIsBhmsOpen(false)}
+                        open={item.menu === 'course' ? isBhmsOpen : isCampusOpen}
+                        onMouseEnter={() => item.menu === 'course' ? setIsBhmsOpen(true) : setIsCampusOpen(true)}
+                        onMouseLeave={() => item.menu === 'course' ? setIsBhmsOpen(false) : setIsCampusOpen(false)}
                       >
                         <summary
                           className="site-nav__sublink site-nav__nested-summary"
                           onClick={(event) => {
                             event.preventDefault()
-                            setIsBhmsOpen((open) => !open)
+                            if (item.menu === 'course') setIsBhmsOpen((open) => !open)
+                            else setIsCampusOpen((open) => !open)
                           }}
                         >
-                          {link.label}
+                          {item.menu === 'hospital' ? (
+                            <a
+                              href="/hospital/campus#hospital-camps"
+                              onClick={(event) => {
+                                event.stopPropagation()
+                                closeMenu()
+                              }}
+                            >
+                              {link.label}
+                            </a>
+                          ) : link.label}
                           <span className="site-nav__chevron" aria-hidden="true" />
                         </summary>
                         <div className="site-nav__submenu site-nav__nested-menu">
                           {link.children.map((child) => (
-                            <NavLink
-                              key={child.label}
-                              className="site-nav__sublink"
-                              to={child.href}
-                              onClick={closeMenu}
-                            >
-                              {child.label}
-                            </NavLink>
+                            item.menu === 'hospital' ? (
+                              <a
+                                key={child.label}
+                                className="site-nav__sublink"
+                                href={child.to}
+                                onClick={closeMenu}
+                              >
+                                {child.label}
+                              </a>
+                            ) : (
+                              <NavLink
+                                key={child.label}
+                                className="site-nav__sublink"
+                                to={child.href}
+                                onClick={closeMenu}
+                              >
+                                {child.label}
+                              </NavLink>
+                            )
                           ))}
                         </div>
                       </details>
