@@ -3,9 +3,6 @@ import SiteFooter from './SiteFooter'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import './HospitalCampus.css'
-import hospitalCampImage1 from '../Images/Campus-img/hospital-camp-01.jpg'
-import hospitalCampImage2 from '../Images/Campus-img/hospital-camp-02.jpg'
-import hospitalCampImage3 from '../Images/Campus-img/hospital-camp-03.jpg'
 import hospitalCampBloodImage from '../Images/Campus-img/hospital-camp-blood.jpg'
 import hospitalCampMulkyImage1 from '../Images/Campus-img/hospital-camp-mulky-01.jpg'
 import hospitalCampMulkyImage2 from '../Images/Campus-img/hospital-camp-mulky-02.jpg'
@@ -19,6 +16,15 @@ import hospitalCampGovernmentSchoolImage1 from '../Images/Campus-img/hospital-ca
 import hospitalCampGovernmentSchoolImage2 from '../Images/Campus-img/hospital-camp-government-school-02.jpg'
 import hospitalCampSchoolAnganawadiImage1 from '../Images/Campus-img/hospital-camp-school-anganawadi-01.jpg'
 import hospitalCampSchoolAnganawadiImage2 from '../Images/Campus-img/hospital-camp-school-anganawadi-02.jpg'
+
+const generalHealthCampImages = [
+  'https://alvashomoeopathy.com/camps/c1.jpg',
+  'https://alvashomoeopathy.com/camps/c2.jpg',
+  'https://alvashomoeopathy.com/camps/c3.jpg',
+  'https://alvashomoeopathy.com/camps/c4.jpg',
+  'https://alvashomoeopathy.com/camps/c5.jpg',
+  'https://alvashomoeopathy.com/camps/c6.jpg',
+]
 
 const hospitalCampMoreInfoUrl = 'https://alvashomoeopathy.com/camps.html'
 
@@ -148,9 +154,13 @@ function HospitalCampus() {
                 </p>
                 {id === 'general-health-camp' && (
                   <div className="hospital-camp-card__gallery" aria-label="General health camp photos">
-                    <img src={hospitalCampImage1} alt="General health camp photo 1" />
-                    <img src={hospitalCampImage2} alt="General health camp photo 2" />
-                    <img src={hospitalCampImage3} alt="General health camp photo 3" />
+                    {generalHealthCampImages.map((image, imageIndex) => (
+                      <img
+                        key={image}
+                        src={image}
+                        alt={`General health camp photo ${imageIndex + 1}`}
+                      />
+                    ))}
                   </div>
                 )}
                 {id === 'blood-donation-camp' && (
