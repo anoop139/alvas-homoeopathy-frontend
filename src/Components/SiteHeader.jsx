@@ -10,7 +10,7 @@ const navItems = [
   { label: 'Course - Admission', href: '#course', hasDropdown: true, menu: 'course' },
   { label: 'Facilities', href: '#facilities', hasDropdown: true, menu: 'facilities' },
   { label: 'Hospital', href: '#hospital', hasDropdown: true, menu: 'hospital' },
-  { label: 'Academics', href: '#course' },
+  { label: 'Academics', href: '#course', hasDropdown: true, menu: 'academics' },
   { label: 'Students Data', href: '#facilities' },
   { label: "Life @ Alva's", href: '#facilities' },
   { label: 'Contact US', href: '#hospital', showChevron: false },
@@ -33,6 +33,34 @@ const facilitiesLinks = [
   { label: 'Hostel', to: '/facilities#hostel' },
   { label: 'Sports Specialty', to: '/facilities#sports-specialty' },
   { label: 'Transportation', to: '/facilities#transportation' },
+]
+
+const academicsLinks = [
+  {
+    label: 'Departments',
+    children: [
+      'Homoeopathic Materia Medica',
+      'Organon with Homoeopathic Philosophy and Fundamentals of Psychology',
+      'Homoeopathic Pharmacy',
+      'Homoeopathic Repertory & Case Taking',
+      'Human Anatomy',
+      'Human Physiology & Biochemistry',
+      'Forensic Medicine & Toxicology',
+      'Pathology & Microbiology',
+      'Community Medicine, Research Methodology & Biostatistics',
+      'Surgery',
+      'Gynaecology & Obstetrics',
+      'Practice Of Medicine With Essentials Of Pharmacology',
+      'Department of yoga',
+    ],
+  },
+  { label: 'Time Table', to: '/academics/time-table' },
+  { label: 'College Council', to: '/academics/college-council' },
+  'Examination Schedule',
+  'University Results',
+  'Library Data',
+  'Staff Research & Publications',
+  'Non teaching Staffs',
 ]
 
 const hospitalLinks = [
@@ -77,6 +105,8 @@ function SiteHeader() {
   const [isAboutOpen, setIsAboutOpen] = useState(false)
   const [isFacilitiesOpen, setIsFacilitiesOpen] = useState(false)
   const [isHospitalOpen, setIsHospitalOpen] = useState(false)
+  const [isAcademicsOpen, setIsAcademicsOpen] = useState(false)
+  const [isDepartmentsOpen, setIsDepartmentsOpen] = useState(false)
   const [isCourseOpen, setIsCourseOpen] = useState(false)
   const [isBhmsOpen, setIsBhmsOpen] = useState(false)
   const [isCampusOpen, setIsCampusOpen] = useState(false)
@@ -91,6 +121,8 @@ function SiteHeader() {
     || (location.pathname === '/' && courseSectionHashes.includes(location.hash.slice(1)))
   const activeNavItem = ['/about-college', '/vision-mission', '/chairperson-message', '/principal-message', '/administration', '/aef'].includes(location.pathname)
     ? 'About us'
+    : location.pathname.startsWith('/academics')
+      ? 'Academics'
     : location.pathname === '/facilities' || location.pathname.startsWith('/facilities/') || location.pathname === '/general-infrastructures'
       ? 'Facilities'
     : location.pathname.startsWith('/hospital')
@@ -106,7 +138,7 @@ function SiteHeader() {
       : ''
 
   useEffect(() => {
-    if (!isAboutOpen && !isCourseOpen && !isFacilitiesOpen && !isHospitalOpen) return undefined
+    if (!isAboutOpen && !isCourseOpen && !isFacilitiesOpen && !isHospitalOpen && !isAcademicsOpen && !isDepartmentsOpen) return undefined
 
     const closeAboutOnEscape = (event) => {
       if (event.key === 'Escape') {
@@ -114,6 +146,8 @@ function SiteHeader() {
         setIsAboutOpen(false)
         setIsFacilitiesOpen(false)
         setIsHospitalOpen(false)
+        setIsAcademicsOpen(false)
+        setIsDepartmentsOpen(false)
         setIsCourseOpen(false)
         setIsBhmsOpen(false)
         document.querySelector('#main-menu-links .site-nav__dropdown[open] summary')?.focus()
@@ -122,7 +156,7 @@ function SiteHeader() {
 
     document.addEventListener('keydown', closeAboutOnEscape)
     return () => document.removeEventListener('keydown', closeAboutOnEscape)
-  }, [isAboutOpen, isCourseOpen, isFacilitiesOpen, isHospitalOpen])
+  }, [isAboutOpen, isCourseOpen, isFacilitiesOpen, isHospitalOpen, isAcademicsOpen, isDepartmentsOpen])
 
   useEffect(() => {
     if (!location.hash) return
@@ -141,6 +175,8 @@ function SiteHeader() {
     setIsAboutOpen(false)
     setIsFacilitiesOpen(false)
     setIsHospitalOpen(false)
+    setIsAcademicsOpen(false)
+    setIsDepartmentsOpen(false)
     setIsCourseOpen(false)
     setIsBhmsOpen(false)
     setIsCampusOpen(false)
@@ -183,12 +219,13 @@ function SiteHeader() {
             item.hasDropdown ? (
               <details
                 key={item.label}
-                className={`site-nav__dropdown${item.menu === 'hospital' ? ' site-nav__dropdown--hospital' : ''}`}
-                open={item.menu === 'course' ? isCourseOpen : item.menu === 'facilities' ? isFacilitiesOpen : item.menu === 'hospital' ? isHospitalOpen : isAboutOpen}
+                className={`site-nav__dropdown${item.menu === 'hospital' ? ' site-nav__dropdown--hospital' : item.menu === 'academics' ? ' site-nav__dropdown--academics' : item.menu === 'facilities' ? ' site-nav__dropdown--facilities' : ''}`}
+                open={item.menu === 'course' ? isCourseOpen : item.menu === 'facilities' ? isFacilitiesOpen : item.menu === 'hospital' ? isHospitalOpen : item.menu === 'academics' ? isAcademicsOpen : isAboutOpen}
                 onMouseEnter={() => {
                   if (item.menu === 'course') setIsCourseOpen(true)
                   else if (item.menu === 'facilities') setIsFacilitiesOpen(true)
                   else if (item.menu === 'hospital') setIsHospitalOpen(true)
+                  else if (item.menu === 'academics') setIsAcademicsOpen(true)
                   else setIsAboutOpen(true)
                 }}
                 onMouseLeave={() => {
@@ -199,13 +236,15 @@ function SiteHeader() {
                     setIsFacilitiesOpen(false)
                   } else if (item.menu === 'hospital') {
                     setIsHospitalOpen(false)
+                  } else if (item.menu === 'academics') {
+                    setIsAcademicsOpen(false)
                   } else {
                     setIsAboutOpen(false)
                   }
                 }}
               >
                 <summary
-                  className={`site-nav__link${activeNavItem === item.label || (item.menu === 'facilities' && isFacilitiesOpen) || (item.menu === 'hospital' && isHospitalOpen) ? ' is-active' : ''}`}
+                  className={`site-nav__link${activeNavItem === item.label || (item.menu === 'facilities' && isFacilitiesOpen) || (item.menu === 'hospital' && isHospitalOpen) || (item.menu === 'academics' && isAcademicsOpen) ? ' is-active' : ''}`}
                   style={item.menu === 'hospital' && isHospitalOpen ? { color: '#f1cb83' } : undefined}
                   onClick={(event) => {
                     if ((item.menu === 'facilities' || item.menu === 'hospital') && event.target.closest('a')) return
@@ -213,6 +252,7 @@ function SiteHeader() {
                     if (item.menu === 'course') setIsCourseOpen((open) => !open)
                     else if (item.menu === 'facilities') setIsFacilitiesOpen((open) => !open)
                     else if (item.menu === 'hospital') setIsHospitalOpen((open) => !open)
+                    else if (item.menu === 'academics') setIsAcademicsOpen((open) => !open)
                     else setIsAboutOpen((open) => !open)
                   }}
                 >
@@ -228,10 +268,46 @@ function SiteHeader() {
                   <span className="site-nav__chevron" aria-hidden="true" />
                 </summary>
                 <div
-                  className={`site-nav__submenu${item.menu === 'course' ? '' : item.menu === 'facilities' ? ' site-nav__submenu--facilities' : item.menu === 'hospital' ? ' site-nav__submenu--about' : ' site-nav__submenu--about'}`}
-                  style={item.menu === 'facilities' ? { width: '240px' } : undefined}
+                  className={`site-nav__submenu${item.menu === 'course' ? '' : item.menu === 'facilities' ? ' site-nav__submenu--facilities' : item.menu === 'academics' ? ' site-nav__submenu--academics' : ' site-nav__submenu--about'}`}
                 >
-                  {(item.menu === 'course' ? courseLinks : item.menu === 'facilities' ? facilitiesLinks : item.menu === 'hospital' ? hospitalLinks : aboutLinks).map((link) => (
+                  {item.menu === 'academics' ? academicsLinks.map((link) => (
+                    typeof link === 'string' ? (
+                      <span key={link} className="site-nav__sublink">{link}</span>
+                    ) : link.to ? (
+                      <NavLink
+                        key={link.label}
+                        className="site-nav__sublink"
+                        to={link.to}
+                        onClick={closeMenu}
+                      >
+                        {link.label}
+                      </NavLink>
+                    ) : (
+                      <details
+                        key={link.label}
+                        className="site-nav__nested site-nav__nested--departments"
+                        open={isDepartmentsOpen}
+                        onMouseEnter={() => setIsDepartmentsOpen(true)}
+                        onMouseLeave={() => setIsDepartmentsOpen(false)}
+                      >
+                        <summary
+                          className="site-nav__sublink site-nav__nested-summary"
+                          onClick={(event) => {
+                            event.preventDefault()
+                            setIsDepartmentsOpen((open) => !open)
+                          }}
+                        >
+                          {link.label}
+                          <span className="site-nav__chevron" aria-hidden="true" />
+                        </summary>
+                        <div className="site-nav__submenu site-nav__nested-menu site-nav__nested-menu--departments">
+                          {link.children.map((department) => (
+                            <span key={department} className="site-nav__sublink">{department}</span>
+                          ))}
+                        </div>
+                      </details>
+                    )
+                  )) : (item.menu === 'course' ? courseLinks : item.menu === 'facilities' ? facilitiesLinks : item.menu === 'hospital' ? hospitalLinks : aboutLinks).map((link) => (
                     (item.menu === 'course' || item.menu === 'hospital') && link.children ? (
                       <details
                         key={link.label}
