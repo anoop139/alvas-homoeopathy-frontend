@@ -63,7 +63,7 @@ img {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 40;
+  z-index: 1000;
   padding-block: 10px;
   background: transparent;
   backdrop-filter: blur(16px);
@@ -76,7 +76,7 @@ img {
   align-items: center;
   justify-content: flex-end;
   gap: 24px;
-  width: min(100% - 40px, 1320px);
+  width: min(100% - 40px, 1400px);
   min-height: 72px;
   padding: 8px 18px;
   margin-inline: auto;
@@ -197,10 +197,9 @@ img {
   position: absolute;
   top: 100%;
   left: 0;
-  z-index: 2;
+  z-index: 1000;
   display: none;
-  width: calc(100% + 48px);
-  min-width: 0;
+  width: max-content;
   padding: 8px;
   flex-direction: column;
   gap: 2px;
@@ -211,7 +210,23 @@ img {
 }
 
 .site-nav__submenu--about {
-  width: max-content;
+  width: calc(100% + 32px);
+  min-width: 0;
+}
+
+.site-nav__submenu--about .site-nav__sublink {
+  white-space: normal;
+}
+
+.site-nav__submenu--facilities {
+  right: auto;
+  left: 0;
+  width: calc(100% + 32px);
+  min-width: 0;
+}
+
+.site-nav__submenu--facilities .site-nav__sublink {
+  white-space: normal;
 }
 
 .site-nav__sublink {
