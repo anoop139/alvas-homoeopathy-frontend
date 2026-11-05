@@ -22,6 +22,8 @@ import FacilityPlaceholder from './Components/FacilityPlaceholder'
 import HospitalOpd from './Components/HospitalOpd'
 import HospitalIpd from './Components/HospitalIpd'
 import HospitalCampus from './Components/HospitalCampus'
+import TimeTable from './Components/TimeTable'
+import CollegeCouncil from './Components/CollegeCouncil'
 
 const pageTitles = {
   '/': "Alva's Homeopathic Medical College",
@@ -50,6 +52,8 @@ const pageTitles = {
   '/course-admission/second-professional-bhms-subjects': 'Second Professional B.H.M.S. Subjects',
   '/course-admission/third-professional-bhms-subjects': 'Third Professional B.H.M.S. Subjects',
   '/course-admission/final-professional-bhms-subjects': 'Final Professional B.H.M.S. Subjects',
+  '/academics/time-table': 'Time Table',
+  '/academics/college-council': 'College Council',
 }
 
 function PageTitle() {
@@ -95,10 +99,13 @@ function App() {
           <Route path="third-professional-bhms-subjects" element={<ThirdProfesionalHtml />} />
           <Route path="final-professional-bhms-subjects" element={<FinalProfesionalHtml />} />
         </Route>
+        <Route path="/academics">
+          <Route path="time-table" element={<TimeTable />} />
+          <Route path="college-council" element={<CollegeCouncil />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )
 }
 
 export default App
-
