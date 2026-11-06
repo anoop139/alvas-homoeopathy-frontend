@@ -56,11 +56,11 @@ const academicsLinks = [
   },
   { label: 'Time Table', to: '/academics/time-table' },
   { label: 'College Council', to: '/academics/college-council' },
-  'Examination Schedule',
-  'University Results',
-  'Library Data',
-  'Staff Research & Publications',
-  'Non teaching Staffs',
+  { label: 'Examination Schedule', to: '/academics/examination-schedule' },
+  { label: 'University Results', to: '/academics/university-result' },
+  { label: 'Library Result', to: '/academics/library-result' },
+  { label: 'Staff Research & Publications', to: '/academics/staff-research-publications' },
+  { label: 'Non teaching Staffs', href: 'https://alvashomoeopathy.com/files/Non%20teaching%20Staff.pdf' },
 ]
 
 const hospitalLinks = [
@@ -113,6 +113,15 @@ function SiteHeader() {
   const [selectedNavItem, setSelectedNavItem] = useState('')
   const location = useLocation()
   const selectedItem = navItems.find((item) => item.label === selectedNavItem)
+  const isCurrentHashLink = (to) => `${location.pathname}${location.hash}` === to
+  const sublinkClassName = (to) => ({ isActive }) => {
+    const isHashLink = to.includes('#')
+    const isCurrentLink = isHashLink
+      ? isCurrentHashLink(to)
+      : isActive
+
+    return `site-nav__sublink${isCurrentLink ? ' is-active' : ''}`
+  }
   const courseSectionHashes = courseLinks.flatMap((link) => [
     ...(link.href ? [link.href] : []),
     ...(link.children ?? []).map((child) => child.href),
@@ -273,10 +282,21 @@ function SiteHeader() {
                   {item.menu === 'academics' ? academicsLinks.map((link) => (
                     typeof link === 'string' ? (
                       <span key={link} className="site-nav__sublink">{link}</span>
+                    ) : link.href ? (
+                      <a
+                        key={link.label}
+                        className="site-nav__sublink"
+                        href={link.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={closeMenu}
+                      >
+                        {link.label}
+                      </a>
                     ) : link.to ? (
                       <NavLink
                         key={link.label}
-                        className="site-nav__sublink"
+                        className={sublinkClassName(link.to)}
                         to={link.to}
                         onClick={closeMenu}
                       >
@@ -342,7 +362,7 @@ function SiteHeader() {
                             item.menu === 'hospital' ? (
                               <a
                                 key={child.label}
-                                className="site-nav__sublink"
+                                className={`site-nav__sublink${isCurrentHashLink(child.to) ? ' is-active' : ''}`}
                                 href={child.to}
                                 onClick={closeMenu}
                               >
@@ -351,7 +371,7 @@ function SiteHeader() {
                             ) : (
                               <NavLink
                                 key={child.label}
-                                className="site-nav__sublink"
+                                className={sublinkClassName(child.href)}
                                 to={child.href}
                                 onClick={closeMenu}
                               >
@@ -376,7 +396,7 @@ function SiteHeader() {
                       ) : (
                         <NavLink
                           key={link.label}
-                          className="site-nav__sublink"
+                          className={sublinkClassName(link.href)}
                           to={link.href}
                           onClick={closeMenu}
                         >
@@ -387,7 +407,7 @@ function SiteHeader() {
                     ) : item.menu === 'hospital' ? (
                     <NavLink
                       key={link.label}
-                      className="site-nav__sublink"
+                      className={sublinkClassName(link.to)}
                       to={link.to}
                       onClick={closeMenu}
                     >
@@ -396,7 +416,7 @@ function SiteHeader() {
                     ) : (
                     <NavLink
                       key={link.label}
-                      className="site-nav__sublink"
+                      className={sublinkClassName(link.to)}
                       to={link.to}
                       onClick={() => {
                         closeMenu()

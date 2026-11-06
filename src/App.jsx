@@ -24,6 +24,10 @@ import HospitalIpd from './Components/HospitalIpd'
 import HospitalCampus from './Components/HospitalCampus'
 import TimeTable from './Components/TimeTable'
 import CollegeCouncil from './Components/CollegeCouncil'
+import ExaminationSchedule from './Components/ExaminationSchedule'
+import LibraryResult from './Components/LibraryResult'
+import UniversityResult from './Components/UniversityResult'
+import StaffResearchPublications from './Components/StaffResearchPublications'
 
 const pageTitles = {
   '/': "Alva's Homeopathic Medical College",
@@ -54,6 +58,10 @@ const pageTitles = {
   '/course-admission/final-professional-bhms-subjects': 'Final Professional B.H.M.S. Subjects',
   '/academics/time-table': 'Time Table',
   '/academics/college-council': 'College Council',
+  '/academics/examination-schedule': 'Examination Schedule',
+  '/academics/library-result': 'Library Result',
+  '/academics/university-result': 'University Results',
+  '/academics/staff-research-publications': 'Staff Research & Publications',
 }
 
 function PageTitle() {
@@ -102,6 +110,10 @@ function App() {
         <Route path="/academics">
           <Route path="time-table" element={<TimeTable />} />
           <Route path="college-council" element={<CollegeCouncil />} />
+          <Route path="examination-schedule" element={<ExaminationSchedule />} />
+          <Route path="library-result" element={<LibraryResult />} />
+          <Route path="university-result" element={<UniversityResult />} />
+          <Route path="staff-research-publications" element={<StaffResearchPublications />} />
         </Route>
       </Routes>
     </BrowserRouter>
