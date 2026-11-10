@@ -40,7 +40,7 @@ const academicsLinks = [
     label: 'Departments',
     children: [
       { label: 'Homoeopathic Materia Medica', to: '/academics/departments/homoeopathic-materia-medica' },
-      'Organon with Homoeopathic Philosophy and Fundamentals of Psychology',
+      { label: 'Organon with Homoeopathic Philosophy and Fundamentals of Psychology', to: '/academics/departments/organon' },
       'Homoeopathic Pharmacy',
       'Homoeopathic Repertory & Case Taking',
       'Human Anatomy',
