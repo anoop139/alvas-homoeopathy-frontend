@@ -39,7 +39,7 @@ const academicsLinks = [
   {
     label: 'Departments',
     children: [
-      'Homoeopathic Materia Medica',
+      { label: 'Homoeopathic Materia Medica', to: '/academics/departments/homoeopathic-materia-medica' },
       'Organon with Homoeopathic Philosophy and Fundamentals of Psychology',
       'Homoeopathic Pharmacy',
       'Homoeopathic Repertory & Case Taking',
@@ -322,7 +322,18 @@ function SiteHeader() {
                         </summary>
                         <div className="site-nav__submenu site-nav__nested-menu site-nav__nested-menu--departments">
                           {link.children.map((department) => (
-                            <span key={department} className="site-nav__sublink">{department}</span>
+                            typeof department === 'string' ? (
+                              <span key={department} className="site-nav__sublink">{department}</span>
+                            ) : (
+                              <NavLink
+                                key={department.label}
+                                className={sublinkClassName(department.to)}
+                                to={department.to}
+                                onClick={closeMenu}
+                              >
+                                {department.label}
+                              </NavLink>
+                            )
                           ))}
                         </div>
                       </details>
