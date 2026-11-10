@@ -28,6 +28,7 @@ import ExaminationSchedule from './Components/ExaminationSchedule'
 import LibraryResult from './Components/LibraryResult'
 import UniversityResult from './Components/UniversityResult'
 import StaffResearchPublications from './Components/StaffResearchPublications'
+import MateriaMedica from './Components/MateriaMedica'
 
 const pageTitles = {
   '/': "Alva's Homeopathic Medical College",
@@ -62,6 +63,7 @@ const pageTitles = {
   '/academics/library-result': 'Library Result',
   '/academics/university-result': 'University Results',
   '/academics/staff-research-publications': 'Staff Research & Publications',
+  '/academics/departments/homoeopathic-materia-medica': 'Homoeopathic Materia Medica',
 }
 
 function PageTitle() {
@@ -114,6 +116,7 @@ function App() {
           <Route path="library-result" element={<LibraryResult />} />
           <Route path="university-result" element={<UniversityResult />} />
           <Route path="staff-research-publications" element={<StaffResearchPublications />} />
+          <Route path="departments/homoeopathic-materia-medica" element={<MateriaMedica />} />
         </Route>
       </Routes>
     </BrowserRouter>
