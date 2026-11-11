@@ -41,8 +41,8 @@ const academicsLinks = [
     children: [
       { label: 'Homoeopathic Materia Medica', to: '/academics/departments/homoeopathic-materia-medica' },
       { label: 'Organon with Homoeopathic Philosophy and Fundamentals of Psychology', to: '/academics/departments/organon' },
-      'Homoeopathic Pharmacy',
-      'Homoeopathic Repertory & Case Taking',
+      { label: 'Homoeopathic Pharmacy', to: '/academics/departments/homoeopathic-pharmacy' },
+      { label: 'Homoeopathic Repertory & Case Taking', to: '/academics/departments/homoeopathic-repertory-case-taking' },
       'Human Anatomy',
       'Human Physiology & Biochemistry',
       'Forensic Medicine & Toxicology',

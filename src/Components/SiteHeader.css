@@ -47,6 +47,10 @@
   white-space: normal;
 }
 
+.site-nav__nested--departments[open] > .site-nav__nested-summary {
+  color: #b88640;
+}
+
 @media (min-width: 981px) {
   .site-nav__dropdown--facilities > .site-nav__submenu {
     top: 100%;
