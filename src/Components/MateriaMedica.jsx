@@ -82,25 +82,30 @@ function MateriaMedica() {
             theoretical and practical knowledge.
           </p>
         </div>
-        <div className="materia-medica-faculty-gallery">
-          {facultyMembers.map(({ photo, ...faculty }, index) => (
-            <figure
-              className={`materia-medica-faculty-photo${index === 1 ? ' materia-medica-faculty-photo--cropped' : ''}`}
-              key={faculty.name}
-            >
-              <img src={photo} alt={faculty.name} />
-              <figcaption>{faculty.name}</figcaption>
-              <dl className="materia-medica-faculty-details">
-                {Object.entries(faculty).filter(([key]) => key !== 'name').map(([key, value]) => (
-                  <div key={key}>
-                    <dt>{key.replace(/([A-Z])/g, ' $1').replace(/^./, (letter) => letter.toUpperCase())}</dt>
-                    <dd>{value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </figure>
-          ))}
-        </div>
+        <section className="materia-medica-faculty-section" aria-labelledby="materia-medica-faculty-title">
+          <div className="materia-medica-faculty-heading-wrap">
+            <h2 className="materia-medica-faculty-heading" id="materia-medica-faculty-title">Faculty Details</h2>
+          </div>
+          <div className="materia-medica-faculty-gallery">
+            {facultyMembers.map(({ photo, ...faculty }, index) => (
+              <figure
+                className={`materia-medica-faculty-photo${index === 1 ? ' materia-medica-faculty-photo--cropped' : ''}`}
+                key={faculty.name}
+              >
+                <img src={photo} alt={faculty.name} />
+                <figcaption>{faculty.name}</figcaption>
+                <dl className="materia-medica-faculty-details">
+                  {Object.entries(faculty).filter(([key]) => key !== 'name').map(([key, value]) => (
+                    <div key={key}>
+                      <dt>{key.replace(/([A-Z])/g, ' $1').replace(/^./, (letter) => letter.toUpperCase())}</dt>
+                      <dd>{value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </figure>
+            ))}
+          </div>
+        </section>
       </section>
       <SiteFooter />
     </main>

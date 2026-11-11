@@ -126,30 +126,35 @@ function Organ() {
             communication and a thoughtful approach to patient care.
           </p>
         </div>
-        <div className="organ-faculty-gallery">
-          {facultyMembers.map(({ photo, ...faculty }) => (
-            <article className="organ-faculty-card" key={faculty.name}>
-              <img
-                className={faculty.name === 'Dr. Prajnya Alva M' ? 'organ-faculty-photo--prajnya' : undefined}
-                src={photo}
-                alt={faculty.name}
-              />
-              <h2>{faculty.name}</h2>
-              <dl className="organ-faculty-details">
-                {Object.entries(faculty).filter(([key]) => key !== 'name').map(([key, value]) => (
-                  <div key={key}>
-                    <dt>
-                      {key === 'registrationNumber'
-                        ? 'Registration No.'
-                        : key.replace(/([A-Z])/g, ' $1').replace(/^./, (letter) => letter.toUpperCase())}
-                    </dt>
-                    <dd>{value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </article>
-          ))}
-        </div>
+        <section className="organ-faculty-section" aria-labelledby="organ-faculty-title">
+          <div className="organ-faculty-heading-wrap">
+            <h2 className="organ-faculty-heading" id="organ-faculty-title">Faculty Details</h2>
+          </div>
+          <div className="organ-faculty-gallery">
+            {facultyMembers.map(({ photo, ...faculty }) => (
+              <article className="organ-faculty-card" key={faculty.name}>
+                <img
+                  className={faculty.name === 'Dr. Prajnya Alva M' ? 'organ-faculty-photo--prajnya' : undefined}
+                  src={photo}
+                  alt={faculty.name}
+                />
+                <h2>{faculty.name}</h2>
+                <dl className="organ-faculty-details">
+                  {Object.entries(faculty).filter(([key]) => key !== 'name').map(([key, value]) => (
+                    <div key={key}>
+                      <dt>
+                        {key === 'registrationNumber'
+                          ? 'Registration No.'
+                          : key.replace(/([A-Z])/g, ' $1').replace(/^./, (letter) => letter.toUpperCase())}
+                      </dt>
+                      <dd>{value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </article>
+            ))}
+          </div>
+        </section>
       </section>
       <SiteFooter />
     </main>
