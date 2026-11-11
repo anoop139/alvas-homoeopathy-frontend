@@ -1,0 +1,189 @@
+.homoeopathic-repertory-page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: linear-gradient(180deg, #f8faf9 0%, #f1f4f2 100%);
+}
+
+.homoeopathic-repertory-content {
+  display: flex;
+  width: min(100% - 48px, 1200px);
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: clamp(12px, 2vh, 20px) 0;
+  text-align: center;
+}
+
+.homoeopathic-repertory-content h1 {
+  width: 100%;
+  margin: 0;
+  padding: clamp(12px, 2vw, 20px);
+  border: 1px solid rgba(31, 76, 65, 0.12);
+  border-radius: 16px;
+  background: #f0edf7;
+  color: var(--forest-deep, #0d2a28);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  box-shadow: 0 12px 32px rgba(13, 42, 40, 0.08);
+}
+
+.homoeopathic-repertory-image {
+  display: block;
+  width: min(100%, 1103px);
+  max-width: 100%;
+  height: auto;
+  justify-self: center;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(13, 42, 40, 0.12);
+}
+
+.homoeopathic-repertory-intro {
+  display: grid;
+  box-sizing: border-box;
+  width: min(100%, 1100px);
+  grid-template-columns: 1fr;
+  margin-top: 0;
+  padding: clamp(16px, 2.5vw, 28px);
+  border-radius: 18px;
+  background: #eef4f0;
+}
+
+.homoeopathic-repertory-details {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 28px auto 0;
+  padding: clamp(20px, 3.5vw, 36px);
+  border: 1px solid rgba(31, 76, 65, 0.12);
+  border-radius: 14px;
+  background: #fff;
+  color: #43504b;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  text-align: left;
+  box-shadow: 0 12px 24px rgba(13, 42, 40, 0.06);
+}
+
+.homoeopathic-repertory-details p {
+  margin: 0;
+}
+
+.homoeopathic-repertory-faculty-section {
+  box-sizing: border-box;
+  width: min(100%, 1100px);
+  margin-top: 20px;
+  padding: clamp(12px, 2vw, 20px);
+  border: 1px solid rgba(31, 76, 65, 0.12);
+  border-radius: 18px;
+  background: #eaf1f5;
+  box-shadow: 0 12px 32px rgba(13, 42, 40, 0.08);
+}
+
+.homoeopathic-repertory-faculty-section > h2 {
+  margin: 0 0 12px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background: var(--forest-deep, #0d2a28);
+  color: #fff;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.45rem, 2.5vw, 1.8rem);
+}
+
+.homoeopathic-repertory-faculty-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 0.9fr) minmax(0, 1.2fr);
+  gap: 16px;
+}
+
+.homoeopathic-repertory-faculty-card {
+  overflow: hidden;
+  border: 1px solid rgba(31, 76, 65, 0.1);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(13, 42, 40, 0.1);
+  text-align: left;
+}
+
+.homoeopathic-repertory-faculty-card > img {
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.homoeopathic-repertory-faculty-card h3 {
+  margin: 0;
+  padding: 8px 12px;
+  background: #e8efeb;
+  color: var(--forest-deep, #0d2a28);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  text-align: center;
+}
+
+.homoeopathic-repertory-faculty-card dl {
+  display: grid;
+  gap: 5px;
+  margin: 0;
+  padding: 8px 12px 12px;
+}
+
+.homoeopathic-repertory-faculty-card dl > div {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 6px;
+}
+
+.homoeopathic-repertory-faculty-card dt {
+  color: var(--forest-deep, #0d2a28);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.homoeopathic-repertory-faculty-card dd {
+  margin: 0;
+  color: #43504b;
+  font-size: 0.8rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .homoeopathic-repertory-content {
+    width: calc(100% - 32px);
+  }
+
+  .homoeopathic-repertory-faculty-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .homoeopathic-repertory-faculty-card > img {
+    height: 280px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .homoeopathic-repertory-faculty-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-height: 800px) {
+  .homoeopathic-repertory-content {
+    padding-block: 4px;
+  }
+
+  .homoeopathic-repertory-content h1 {
+    padding: 8px;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+  }
+
+  .homoeopathic-repertory-intro {
+    width: min(100%, 900px);
+    padding: 12px;
+  }
+}
