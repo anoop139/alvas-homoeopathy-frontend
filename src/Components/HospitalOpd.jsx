@@ -10,19 +10,19 @@ const units = [
 ]
 
 const clinics = [
-  ['Moodbidri', 'Monday to Saturday', '9:00 AM – 5:00 PM'],
-  ['Niramaya', 'Monday, Wednesday, Friday', '9:00 AM – 5:00 PM'],
-  ['Pakshikere', 'Tuesday', '9:00 AM – 3:30 PM'],
-  ['Pakshikere Church', 'Tuesday', '9:00 AM – 3:30 PM'],
-  ['Hosangady', 'Friday', '9:00 AM – 1:00 PM'],
-  ['Hudco Colony', 'Wednesday', '9:00 AM – 1:00 PM'],
-  ['Kodyadka', 'Friday', '9:00 AM – 3:00 PM'],
-  ['Alangar', 'Thursday', '9:00 AM – 1:00 PM'],
-  ['Surathkal', '2nd and 4th Saturday', '9:00 AM – 1:00 PM'],
-  ['Iruvail', '2nd and 4th Friday', '9:00 AM – 1:00 PM'],
-  ['Puttige', 'Monday', '9:00 AM – 1:00 PM'],
-  ['Shirthady', 'Monday', '9:00 AM – 1:00 PM'],
-  ['Guddeyangady', 'Saturday', '9:00 AM – 1:00 PM'],
+  ['Moodbidri', 'Monday to Saturday', '9:00 AM â€“ 5:00 PM'],
+  ['Niramaya', 'Monday, Wednesday, Friday', '9:00 AM â€“ 5:00 PM'],
+  ['Pakshikere', 'Tuesday', '9:00 AM â€“ 3:30 PM'],
+  ['Pakshikere Church', 'Tuesday', '9:00 AM â€“ 3:30 PM'],
+  ['Hosangady', 'Friday', '9:00 AM â€“ 1:00 PM'],
+  ['Hudco Colony', 'Wednesday', '9:00 AM â€“ 1:00 PM'],
+  ['Kodyadka', 'Friday', '9:00 AM â€“ 3:00 PM'],
+  ['Alangar', 'Thursday', '9:00 AM â€“ 1:00 PM'],
+  ['Surathkal', '2nd and 4th Saturday', '9:00 AM â€“ 1:00 PM'],
+  ['Iruvail', '2nd and 4th Friday', '9:00 AM â€“ 1:00 PM'],
+  ['Puttige', 'Monday', '9:00 AM â€“ 1:00 PM'],
+  ['Shirthady', 'Monday', '9:00 AM â€“ 1:00 PM'],
+  ['Guddeyangady', 'Saturday', '9:00 AM â€“ 1:00 PM'],
   ['School Camps', '11 School on Rotation', ''],
 ]
 
@@ -80,7 +80,7 @@ function HospitalOpd() {
             <h2 id="central-title">Central OPD:</h2>
             <p className="opd-central__address">ADDRESS: Shobhavana Campus, Thenka Mijar, Moodbidri.</p>
           </div>
-          <div className="opd-units"><h3 className="opd-units__heading">Divisions:</h3>{units.map(([number, name]) => <article className="opd-unit" key={number}><span>UNIT – {number}:</span><h3>{name}</h3></article>)}</div>
+          <div className="opd-units"><h3 className="opd-units__heading">Divisions:</h3>{units.map(([number, name]) => <article className="opd-unit" key={number}><span>UNIT â€“ {number}:</span><h3>{name}</h3></article>)}</div>
         </section>
 
         <section className="opd-section opd-locations" id="clinic-locations" aria-labelledby="locations-title">
