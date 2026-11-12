@@ -33,6 +33,9 @@ import Organ from './Components/Organ'
 import HomoeopathicPharmacy from './Components/HomoeopathicPharmacy'
 import HomoeopathicRepertory from './Components/HomoeopathicRepertory'
 import HumanAnatomy from './Components/HumanAnatomy'
+import HumanPhysiologyBiochemistry from './Components/HumanPhysiologyBiochemistry'
+import ForensicMedicineToxicology from './Components/ForensicMedicineToxicology'
+import PathologyMicrobiology from './Components/PathologyMicrobiology'
 
 const pageTitles = {
   '/': "Alva's Homeopathic Medical College",
@@ -72,6 +75,9 @@ const pageTitles = {
   '/academics/departments/homoeopathic-pharmacy': 'Homoeopathic Pharmacy',
   '/academics/departments/homoeopathic-repertory-case-taking': 'Homoeopathic Repertory & Case Taking',
   '/academics/departments/human-anatomy': 'Human Anatomy',
+  '/academics/departments/human-physiology-biochemistry': 'Human Physiology & Biochemistry',
+  '/academics/departments/forensic-medicine-toxicology': 'Forensic Medicine & Toxicology',
+  '/academics/departments/pathology-microbiology': 'Pathology & Microbiology',
 }
 
 function PageTitle() {
@@ -129,6 +135,9 @@ function App() {
           <Route path="departments/homoeopathic-pharmacy" element={<HomoeopathicPharmacy />} />
           <Route path="departments/homoeopathic-repertory-case-taking" element={<HomoeopathicRepertory />} />
           <Route path="departments/human-anatomy" element={<HumanAnatomy />} />
+          <Route path="departments/human-physiology-biochemistry" element={<HumanPhysiologyBiochemistry />} />
+          <Route path="departments/forensic-medicine-toxicology" element={<ForensicMedicineToxicology />} />
+          <Route path="departments/pathology-microbiology" element={<PathologyMicrobiology />} />
         </Route>
       </Routes>
     </BrowserRouter>
