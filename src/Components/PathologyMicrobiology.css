@@ -1,0 +1,136 @@
+.pathology-microbiology-page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background:
+    radial-gradient(ellipse at 8% 0%, rgba(21, 112, 111, 0.08), transparent 34%),
+    linear-gradient(180deg, #f7f9fb 0%, #eef3f5 100%);
+}
+
+.pathology-microbiology-content {
+  display: flex;
+  width: min(100% - 48px, 1200px);
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: clamp(12px, 2vh, 24px) 0 40px;
+  text-align: center;
+}
+
+.pathology-microbiology-content h1 {
+  width: 100%;
+  margin: 0;
+  padding: clamp(14px, 2.4vw, 24px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 4px solid #56b5a5;
+  border-radius: 16px;
+  background: linear-gradient(120deg, #173b46 0%, #176b68 100%);
+  color: #fff;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  box-shadow: 0 14px 34px rgba(23, 59, 70, 0.18);
+}
+
+.pathology-microbiology-image {
+  display: block;
+  width: min(100%, 1000px);
+  height: auto;
+  margin-top: 28px;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 12px 32px rgba(38, 61, 98, 0.12);
+}
+
+.pathology-microbiology-details {
+  box-sizing: border-box;
+  width: min(100%, 900px);
+  margin-top: 28px;
+  padding: clamp(20px, 3.5vw, 36px);
+  border: 1px solid rgba(31, 75, 83, 0.12);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #263d50;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  text-align: left;
+  box-shadow: 0 12px 26px rgba(31, 59, 67, 0.06);
+}
+
+.pathology-microbiology-details p { margin: 0; }
+.pathology-microbiology-details p + p { margin-top: 18px; }
+
+.pathology-microbiology-faculty-section {
+  box-sizing: border-box;
+  width: min(100%, 1200px);
+  margin-top: 24px;
+  padding: clamp(14px, 2vw, 22px);
+  border: 1px solid rgba(31, 75, 83, 0.12);
+  border-radius: 18px;
+  background: linear-gradient(145deg, #ffffff, #edf4f3);
+  box-shadow: 0 12px 32px rgba(31, 59, 67, 0.07);
+}
+
+.pathology-microbiology-faculty-section > h2 {
+  margin: 0 0 18px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: linear-gradient(100deg, #173b46, #176b68);
+  color: #fff;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+}
+
+.pathology-microbiology-faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+}
+
+.pathology-microbiology-faculty-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(31, 75, 83, 0.12);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(31, 59, 67, 0.08);
+  text-align: left;
+}
+
+.pathology-microbiology-faculty-card > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
+  background: #edf4f3;
+}
+
+.pathology-microbiology-faculty-card h3 {
+  margin: 0;
+  padding: 10px 12px;
+  background: #edf4f3;
+  color: #173b46;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.pathology-microbiology-faculty-card dl { display: grid; gap: 7px; margin: 0; padding: 12px; }
+.pathology-microbiology-faculty-card dl > div { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 8px; }
+.pathology-microbiology-faculty-card dt { color: #176b68; font-size: 0.85rem; font-weight: 700; }
+.pathology-microbiology-faculty-card dd { margin: 0; color: #43504b; font-size: 0.85rem; line-height: 1.4; overflow-wrap: anywhere; }
+
+@media (max-width: 600px) {
+  .pathology-microbiology-content { width: calc(100% - 32px); }
+  .pathology-microbiology-image { height: clamp(200px, 38vh, 300px); }
+  .pathology-microbiology-faculty-grid { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .pathology-microbiology-faculty-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
