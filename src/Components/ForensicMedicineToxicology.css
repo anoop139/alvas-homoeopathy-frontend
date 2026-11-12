@@ -1,0 +1,160 @@
+.forensic-medicine-toxicology-page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: linear-gradient(180deg, #f3f7fa 0%, #edf3f5 100%);
+}
+
+.forensic-medicine-toxicology-content {
+  display: flex;
+  width: min(100% - 48px, 1200px);
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: clamp(12px, 2vh, 24px) 0 40px;
+  text-align: center;
+}
+
+.forensic-medicine-toxicology-content h1 {
+  width: 100%;
+  margin: 0;
+  padding: clamp(14px, 2.4vw, 24px);
+  border: 1px solid rgba(147, 197, 253, 0.5);
+  border-bottom: 4px solid #60a5fa;
+  border-radius: 16px;
+  background: linear-gradient(120deg, #263d62 0%, #315f85 100%);
+  color: #fff;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  box-shadow: 0 12px 32px rgba(38, 61, 98, 0.16);
+}
+
+.forensic-medicine-toxicology-image {
+  display: block;
+  width: min(100%, 1000px);
+  height: auto;
+  margin-top: 28px;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(38, 61, 98, 0.12);
+}
+
+.forensic-medicine-toxicology-details {
+  box-sizing: border-box;
+  width: min(100%, 900px);
+  margin-top: 28px;
+  padding: clamp(20px, 3.5vw, 36px);
+  border: 1px solid rgba(49, 95, 133, 0.14);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #263d50;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  text-align: left;
+  box-shadow: 0 12px 24px rgba(38, 61, 98, 0.07);
+}
+
+.forensic-medicine-toxicology-details p {
+  margin: 0;
+}
+
+.forensic-medicine-toxicology-faculty-section {
+  box-sizing: border-box;
+  width: min(100%, 1100px);
+  margin-top: 24px;
+  padding: clamp(14px, 2vw, 22px);
+  border: 1px solid rgba(49, 95, 133, 0.14);
+  border-radius: 18px;
+  background: linear-gradient(145deg, #f8fbfd, #e6eff5);
+  box-shadow: 0 12px 32px rgba(38, 61, 98, 0.08);
+}
+
+.forensic-medicine-toxicology-faculty-section > h2 {
+  margin: 0 0 18px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: #263d62;
+  color: #fff;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+}
+
+.forensic-medicine-toxicology-faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+}
+
+.forensic-medicine-toxicology-faculty-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(49, 95, 133, 0.14);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(38, 61, 98, 0.08);
+  text-align: left;
+}
+
+.forensic-medicine-toxicology-faculty-card > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  object-position: center;
+  background: #edf3f7;
+}
+
+.forensic-medicine-toxicology-faculty-card h3 {
+  margin: 0;
+  padding: 10px 12px;
+  background: #edf3f7;
+  color: #263d62;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.forensic-medicine-toxicology-faculty-card dl {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 12px;
+}
+
+.forensic-medicine-toxicology-faculty-card dl > div {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 8px;
+}
+
+.forensic-medicine-toxicology-faculty-card dt {
+  color: #263d62;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.forensic-medicine-toxicology-faculty-card dd {
+  margin: 0;
+  color: #43504b;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .forensic-medicine-toxicology-content {
+    width: calc(100% - 32px);
+  }
+
+  .forensic-medicine-toxicology-details {
+    font-size: 1rem;
+  }
+
+  .forensic-medicine-toxicology-faculty-grid {
+    grid-template-columns: 1fr;
+  }
+}
