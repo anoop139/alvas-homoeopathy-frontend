@@ -30,6 +30,9 @@ import UniversityResult from './Components/UniversityResult'
 import StaffResearchPublications from './Components/StaffResearchPublications'
 import MateriaMedica from './Components/MateriaMedica'
 import Organ from './Components/Organ'
+import HomoeopathicPharmacy from './Components/HomoeopathicPharmacy'
+import HomoeopathicRepertory from './Components/HomoeopathicRepertory'
+import HumanAnatomy from './Components/HumanAnatomy'
 
 const pageTitles = {
   '/': "Alva's Homeopathic Medical College",
@@ -66,6 +69,9 @@ const pageTitles = {
   '/academics/staff-research-publications': 'Staff Research & Publications',
   '/academics/departments/homoeopathic-materia-medica': 'Homoeopathic Materia Medica',
   '/academics/departments/organon': 'Organon with Homoeopathic Philosophy and Fundamentals of Psychology',
+  '/academics/departments/homoeopathic-pharmacy': 'Homoeopathic Pharmacy',
+  '/academics/departments/homoeopathic-repertory-case-taking': 'Homoeopathic Repertory & Case Taking',
+  '/academics/departments/human-anatomy': 'Human Anatomy',
 }
 
 function PageTitle() {
@@ -120,6 +126,9 @@ function App() {
           <Route path="staff-research-publications" element={<StaffResearchPublications />} />
           <Route path="departments/homoeopathic-materia-medica" element={<MateriaMedica />} />
           <Route path="departments/organon" element={<Organ />} />
+          <Route path="departments/homoeopathic-pharmacy" element={<HomoeopathicPharmacy />} />
+          <Route path="departments/homoeopathic-repertory-case-taking" element={<HomoeopathicRepertory />} />
+          <Route path="departments/human-anatomy" element={<HumanAnatomy />} />
         </Route>
       </Routes>
     </BrowserRouter>
