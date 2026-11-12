@@ -43,7 +43,7 @@ const academicsLinks = [
       { label: 'Organon with Homoeopathic Philosophy and Fundamentals of Psychology', to: '/academics/departments/organon' },
       { label: 'Homoeopathic Pharmacy', to: '/academics/departments/homoeopathic-pharmacy' },
       { label: 'Homoeopathic Repertory & Case Taking', to: '/academics/departments/homoeopathic-repertory-case-taking' },
-      'Human Anatomy',
+      { label: 'Human Anatomy', to: '/academics/departments/human-anatomy' },
       'Human Physiology & Biochemistry',
       'Forensic Medicine & Toxicology',
       'Pathology & Microbiology',
