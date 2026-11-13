@@ -36,6 +36,8 @@ import HumanAnatomy from './Components/HumanAnatomy'
 import HumanPhysiologyBiochemistry from './Components/HumanPhysiologyBiochemistry'
 import ForensicMedicineToxicology from './Components/ForensicMedicineToxicology'
 import PathologyMicrobiology from './Components/PathologyMicrobiology'
+import CommunityMedicine from './Components/CommunityMedicine'
+import Surgery from './Components/Surgery'
 
 const pageTitles = {
   '/': "Alva's Homeopathic Medical College",
@@ -78,6 +80,8 @@ const pageTitles = {
   '/academics/departments/human-physiology-biochemistry': 'Human Physiology & Biochemistry',
   '/academics/departments/forensic-medicine-toxicology': 'Forensic Medicine & Toxicology',
   '/academics/departments/pathology-microbiology': 'Pathology & Microbiology',
+  '/academics/departments/community-medicine-research-methodology-biostatistics': 'Community Medicine, Research Methodology & Biostatistics',
+  '/academics/departments/surgery': 'Surgery',
 }
 
 function PageTitle() {
@@ -138,6 +142,8 @@ function App() {
           <Route path="departments/human-physiology-biochemistry" element={<HumanPhysiologyBiochemistry />} />
           <Route path="departments/forensic-medicine-toxicology" element={<ForensicMedicineToxicology />} />
           <Route path="departments/pathology-microbiology" element={<PathologyMicrobiology />} />
+          <Route path="departments/community-medicine-research-methodology-biostatistics" element={<CommunityMedicine />} />
+          <Route path="departments/surgery" element={<Surgery />} />
         </Route>
       </Routes>
     </BrowserRouter>
