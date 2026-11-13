@@ -1,0 +1,170 @@
+.department-of-yoga-page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background:
+    radial-gradient(ellipse at 10% 0%, rgba(68, 105, 137, 0.1), transparent 36%),
+    linear-gradient(180deg, #f5f8fb 0%, #e9eff5 100%);
+}
+
+.department-of-yoga-content {
+  display: flex;
+  width: min(100% - 48px, 1200px);
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: clamp(16px, 3vh, 32px) 0 40px;
+}
+
+.department-of-yoga-heading {
+  width: 100%;
+  text-align: center;
+}
+
+.department-of-yoga-heading h1 {
+  box-sizing: border-box;
+  width: min(100%, 1000px);
+  margin: 0 auto;
+  padding: clamp(10px, 1.6vw, 16px);
+  border-bottom: 4px solid #9ec7b8;
+  border-radius: 16px;
+  background: linear-gradient(120deg, #142a26 0%, #285344 100%);
+  color: #fff;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  box-shadow: 0 10px 26px rgba(20, 42, 38, 0.18);
+}
+
+.department-of-yoga-image {
+  display: block;
+  width: min(100%, 1000px);
+  height: auto;
+  margin-top: 24px;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(38, 61, 98, 0.12);
+}
+
+.department-of-yoga-details {
+  box-sizing: border-box;
+  width: min(100%, 1100px);
+  margin-top: 20px;
+  padding: 22px clamp(20px, 4vw, 44px);
+  border: 1px solid rgba(31, 75, 83, 0.12);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #263d50;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  box-shadow: 0 12px 26px rgba(31, 59, 67, 0.06);
+}
+
+.department-of-yoga-details p {
+  margin: 0;
+}
+
+.department-of-yoga-faculty {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 22px;
+  padding: clamp(14px, 2vw, 22px);
+  border: 1px solid rgba(31, 75, 83, 0.12);
+  border-radius: 18px;
+  background: linear-gradient(145deg, #fff, #edf2f6);
+  box-shadow: 0 12px 32px rgba(31, 59, 67, 0.07);
+}
+
+.department-of-yoga-faculty > h2 {
+  margin: 0 0 18px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: linear-gradient(100deg, #24364b, #36536b);
+  color: #fff;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  text-align: center;
+}
+
+.department-of-yoga-faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+}
+
+.department-of-yoga-faculty-card {
+  overflow: hidden;
+  border: 1px solid rgba(31, 75, 83, 0.12);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(31, 59, 67, 0.08);
+}
+
+.department-of-yoga-faculty-card > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  background: #edf2f6;
+}
+
+.department-of-yoga-faculty-card > .department-of-yoga-faculty-photo--thejaksha {
+  object-position: center 20%;
+  filter: brightness(0.88) contrast(1.12) saturate(0.92);
+}
+
+.department-of-yoga-faculty-card h3 {
+  margin: 0;
+  padding: 14px 12px;
+  background: #eaf0f4;
+  color: #24364b;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.department-of-yoga-faculty-card dl {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding: 14px;
+}
+
+.department-of-yoga-faculty-card dl > div {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 8px;
+}
+
+.department-of-yoga-faculty-card dt {
+  color: #36536b;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.department-of-yoga-faculty-card dd {
+  margin: 0;
+  color: #43504b;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 700px) {
+  .department-of-yoga-content {
+    width: calc(100% - 32px);
+  }
+
+  .department-of-yoga-faculty-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 960px) {
+  .department-of-yoga-faculty-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
