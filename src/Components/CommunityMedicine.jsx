@@ -1,7 +1,7 @@
 import './CommunityMedicine.css'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
-import departmentImage from './community-medicine.jpg'
+import departmentImage from '../Images/community-medicine.jpg'
 import bibiAsmaPhoto from '../Images/BIBIASMA.jpg'
 import sudhamathiPhoto from '../Images/sudamathi.jpeg'
 import sharathPhoto from '../Images/sharathmandhica.jpeg'
