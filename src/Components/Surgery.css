@@ -31,20 +31,127 @@
   box-shadow: 0 10px 26px rgba(25, 43, 61, 0.16);
 }
 
-.surgery-content p {
+.surgery-image {
+  display: block;
+  width: min(100%, 1000px);
+  height: auto;
+  margin-top: 28px;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 12px 32px rgba(38, 61, 98, 0.12);
+}
+
+.surgery-details {
   box-sizing: border-box;
   width: min(100%, 1100px);
-  margin: 28px 0 0;
-  padding: clamp(20px, 3.5vw, 36px);
+  margin-top: 12px;
+  padding: 18px clamp(24px, 4vw, 44px) clamp(24px, 3vw, 36px);
   border: 1px solid rgba(31, 75, 83, 0.12);
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.92);
   color: #263d50;
   font-size: 1.05rem;
   line-height: 1.85;
+  text-align: left;
   box-shadow: 0 12px 26px rgba(31, 59, 67, 0.06);
+}
+
+.surgery-details p {
+  margin: 0;
+}
+
+.surgery-details p + p {
+  margin-top: 18px;
+}
+
+.surgery-faculty {
+  box-sizing: border-box;
+  width: min(100%, 1200px);
+  margin-top: 14px;
+  padding: clamp(14px, 2vw, 22px);
+  border: 1px solid rgba(31, 75, 83, 0.12);
+  border-radius: 18px;
+  background: linear-gradient(145deg, #fff, #f2eee9);
+  box-shadow: 0 12px 32px rgba(31, 59, 67, 0.07);
+}
+
+.surgery-faculty > h2 {
+  margin: 0 0 18px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: linear-gradient(100deg, #3f3b37, #78624f);
+  color: #fff;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+}
+
+.surgery-faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+}
+
+.surgery-faculty-card {
+  overflow: hidden;
+  border: 1px solid rgba(31, 75, 83, 0.12);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(31, 59, 67, 0.08);
+  text-align: left;
+}
+
+.surgery-faculty-card > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  background: #f2eee9;
+}
+
+.surgery-faculty-card h3 {
+  margin: 0;
+  padding: 12px;
+  background: #f2eee9;
+  color: #3f3b37;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.surgery-faculty-card dl {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 12px;
+}
+
+.surgery-faculty-card dl > div {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: 8px;
+}
+
+.surgery-faculty-card dt {
+  color: #5d4e41;
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+.surgery-faculty-card dd {
+  margin: 0;
+  color: #43504b;
+  font-size: .85rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 600px) {
   .surgery-content { width: calc(100% - 32px); }
+  .surgery-faculty-grid { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .surgery-faculty-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
