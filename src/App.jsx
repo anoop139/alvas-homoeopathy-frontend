@@ -37,7 +37,10 @@ import HumanPhysiologyBiochemistry from './Components/HumanPhysiologyBiochemistr
 import ForensicMedicineToxicology from './Components/ForensicMedicineToxicology'
 import PathologyMicrobiology from './Components/PathologyMicrobiology'
 import CommunityMedicine from './Components/CommunityMedicine'
+import GynaecologyObstetrics from './Components/GynaecologyObstetrics'
+import PracticeOfMedicine from './Components/PracticeOfMedicine'
 import Surgery from './Components/Surgery'
+import DepartmentOfYoga from './Components/DepartmentOfYoga'
 
 const pageTitles = {
   '/': "Alva's Homeopathic Medical College",
@@ -82,6 +85,9 @@ const pageTitles = {
   '/academics/departments/pathology-microbiology': 'Pathology & Microbiology',
   '/academics/departments/community-medicine-research-methodology-biostatistics': 'Community Medicine, Research Methodology & Biostatistics',
   '/academics/departments/surgery': 'Surgery',
+  '/academics/departments/gynaecology-obstetrics': 'Gynaecology & Obstetrics',
+  '/academics/departments/practice-of-medicine-with-essentials-of-pharmacology': 'Practice Of Medicine With Essentials Of Pharmacology',
+  '/academics/departments/yoga': 'Department of Yoga',
 }
 
 function PageTitle() {
@@ -144,6 +150,9 @@ function App() {
           <Route path="departments/pathology-microbiology" element={<PathologyMicrobiology />} />
           <Route path="departments/community-medicine-research-methodology-biostatistics" element={<CommunityMedicine />} />
           <Route path="departments/surgery" element={<Surgery />} />
+          <Route path="departments/gynaecology-obstetrics" element={<GynaecologyObstetrics />} />
+          <Route path="departments/practice-of-medicine-with-essentials-of-pharmacology" element={<PracticeOfMedicine />} />
+          <Route path="departments/yoga" element={<DepartmentOfYoga />} />
         </Route>
       </Routes>
     </BrowserRouter>
