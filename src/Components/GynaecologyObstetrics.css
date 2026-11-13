@@ -1,0 +1,152 @@
+.gynaecology-obstetrics-page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: linear-gradient(180deg, #f6f2ea 0%, #eef5f2 100%);
+}
+
+.gynaecology-obstetrics-content {
+  display: flex;
+  width: min(100% - 48px, 1200px);
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: clamp(12px, 2vh, 24px) 0 40px;
+  text-align: center;
+}
+
+.gynaecology-obstetrics-content h1 {
+  box-sizing: border-box;
+  width: min(100%, 1000px);
+  margin: 0;
+  padding: clamp(10px, 1.6vw, 16px);
+  border-radius: 16px;
+  background: linear-gradient(120deg, #55304f 0%, #8b527b 100%);
+  color: #fff;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.65rem, 3.8vw, 2.7rem);
+  font-weight: 700;
+  line-height: 1.05;
+  box-shadow: 0 10px 26px rgba(55, 39, 57, 0.16);
+}
+
+.gynaecology-obstetrics-image {
+  display: block;
+  width: min(100%, 1000px);
+  height: auto;
+  margin-top: 28px;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 12px 32px rgba(55, 39, 57, 0.12);
+}
+
+.gynaecology-obstetrics-details {
+  box-sizing: border-box;
+  width: min(100%, 1100px);
+  margin-top: 12px;
+  padding: 18px clamp(24px, 4vw, 44px) clamp(24px, 3vw, 36px);
+  border: 1px solid rgba(31, 75, 83, 0.12);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #263d50;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  text-align: left;
+  box-shadow: 0 12px 26px rgba(31, 59, 67, 0.06);
+}
+
+.gynaecology-obstetrics-details p { margin: 0; }
+.gynaecology-obstetrics-details p + p { margin-top: 18px; }
+
+.gynaecology-obstetrics-faculty {
+  box-sizing: border-box;
+  width: min(100%, 1200px);
+  margin-top: 14px;
+  padding: clamp(14px, 2vw, 22px);
+  border: 1px solid rgba(31, 75, 83, 0.12);
+  border-radius: 18px;
+  background: linear-gradient(145deg, #fff, #f2edf2);
+  box-shadow: 0 12px 32px rgba(55, 39, 57, 0.07);
+}
+
+.gynaecology-obstetrics-faculty > h2 {
+  margin: 0 0 18px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: linear-gradient(100deg, #55304f, #8b527b);
+  color: #fff;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+}
+
+.gynaecology-obstetrics-faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+}
+
+.gynaecology-obstetrics-faculty-card {
+  overflow: hidden;
+  border: 1px solid rgba(55, 39, 57, 0.12);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(55, 39, 57, 0.08);
+  text-align: left;
+}
+
+.gynaecology-obstetrics-faculty-card > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  background: #f2edf2;
+}
+
+.gynaecology-obstetrics-faculty-card h3 {
+  margin: 0;
+  padding: 12px;
+  background: #f2edf2;
+  color: #55304f;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.gynaecology-obstetrics-faculty-card dl {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 12px;
+}
+
+.gynaecology-obstetrics-faculty-card dl > div {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: 8px;
+}
+
+.gynaecology-obstetrics-faculty-card dt {
+  color: #6b4263;
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+.gynaecology-obstetrics-faculty-card dd {
+  margin: 0;
+  color: #43504b;
+  font-size: .85rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .gynaecology-obstetrics-content { width: calc(100% - 32px); }
+  .gynaecology-obstetrics-faculty-grid { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .gynaecology-obstetrics-faculty-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
