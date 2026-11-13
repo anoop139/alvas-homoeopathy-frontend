@@ -19,16 +19,17 @@
 }
 
 .pathology-microbiology-content h1 {
-  width: 100%;
+  box-sizing: border-box;
+  width: min(100%, 1000px);
   margin: 0;
-  padding: clamp(14px, 2.4vw, 24px);
+  padding: clamp(10px, 1.6vw, 16px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: 4px solid #56b5a5;
   border-radius: 16px;
   background: linear-gradient(120deg, #173b46 0%, #176b68 100%);
   color: #fff;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(1.65rem, 3.8vw, 2.7rem);
   font-weight: 700;
   line-height: 1.05;
   box-shadow: 0 14px 34px rgba(23, 59, 70, 0.18);
@@ -46,7 +47,7 @@
 
 .pathology-microbiology-details {
   box-sizing: border-box;
-  width: min(100%, 900px);
+  width: min(100%, 1100px);
   margin-top: 28px;
   padding: clamp(20px, 3.5vw, 36px);
   border: 1px solid rgba(31, 75, 83, 0.12);

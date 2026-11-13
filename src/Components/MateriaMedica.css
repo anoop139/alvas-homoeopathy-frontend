@@ -30,9 +30,10 @@
 }
 
 .materia-medica-content h1 {
-  width: 100%;
+  box-sizing: border-box;
+  width: min(100%, 1000px);
   margin: 0;
-  padding: clamp(14px, 2.4vw, 24px);
+  padding: clamp(10px, 1.6vw, 16px);
   border: 1px solid rgba(236, 201, 123, 0.55);
   border-bottom: 4px solid #e6bb62;
   border-radius: 16px;
@@ -41,7 +42,7 @@
     linear-gradient(120deg, #17463d 0%, #26745a 100%);
   color: #fff;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-size: clamp(1.65rem, 3.8vw, 2.7rem);
   font-weight: 700;
   line-height: 1.05;
   box-shadow: 0 12px 32px rgba(23, 70, 61, 0.18);
@@ -49,7 +50,7 @@
 
 .materia-medica-details {
   box-sizing: border-box;
-  width: min(100%, 900px);
+  width: min(100%, 1100px);
   margin-top: 28px;
   padding: clamp(20px, 3.5vw, 36px);
   border: 1px solid rgba(184, 134, 64, 0.18);

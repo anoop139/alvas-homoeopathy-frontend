@@ -26,9 +26,10 @@
 }
 
 .homoeopathic-pharmacy-content h1 {
-  width: 100%;
+  box-sizing: border-box;
+  width: min(100%, 1000px);
   margin: 0;
-  padding: clamp(14px, 2.4vw, 24px);
+  padding: clamp(10px, 1.6vw, 16px);
   border: 1px solid rgba(255, 207, 159, 0.48);
   border-bottom: 4px solid #f0b768;
   border-radius: 16px;
@@ -37,7 +38,7 @@
     linear-gradient(120deg, #62364a 0%, #914b48 100%);
   color: #fff;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-size: clamp(1.65rem, 3.8vw, 2.7rem);
   font-weight: 700;
   line-height: 1.05;
   box-shadow: 0 12px 32px rgba(98, 54, 74, 0.18);
@@ -56,7 +57,7 @@
 
 .homoeopathic-pharmacy-details {
   box-sizing: border-box;
-  width: min(100%, 800px);
+  width: min(100%, 1100px);
   margin: 16px auto 0;
   padding: clamp(20px, 3.5vw, 36px);
   border-radius: 14px;
