@@ -41,6 +41,9 @@ import GynaecologyObstetrics from './Components/GynaecologyObstetrics'
 import PracticeOfMedicine from './Components/PracticeOfMedicine'
 import Surgery from './Components/Surgery'
 import DepartmentOfYoga from './Components/DepartmentOfYoga'
+import StudentList from './Components/StudentList'
+import StudentsCouncil from './Components/StudentsCouncil'
+import StudentAwardsAchievements from './Components/StudentAwardsAchievements'
 
 const pageTitles = {
   '/': "Alva's Homeopathic Medical College",
@@ -69,6 +72,9 @@ const pageTitles = {
   '/course-admission/second-professional-bhms-subjects': 'Second Professional B.H.M.S. Subjects',
   '/course-admission/third-professional-bhms-subjects': 'Third Professional B.H.M.S. Subjects',
   '/course-admission/final-professional-bhms-subjects': 'Final Professional B.H.M.S. Subjects',
+  '/students-data/student-list': 'Student List',
+  '/students-data/students-council': 'Students Council',
+  '/students-data/student-awards-achievements': 'Student Awards & Achievements',
   '/academics/time-table': 'Time Table',
   '/academics/college-council': 'College Council',
   '/academics/examination-schedule': 'Examination Schedule',
@@ -112,6 +118,11 @@ function App() {
         <Route path="/chairperson-message" element={<ChairpersonMessage />} />
         <Route path="/principal-message" element={<PrincipalMessage />} />
         <Route path="/administration" element={<Administration />} />
+        <Route path="/students-data">
+          <Route path="student-list" element={<StudentList />} />
+          <Route path="students-council" element={<StudentsCouncil />} />
+          <Route path="student-awards-achievements" element={<StudentAwardsAchievements />} />
+        </Route>
         <Route path="/PrajnyaAlvaM" element={<PrajnyaAlvaM />} />
         <Route path="/RoshanPinto" element={<RoshanPinto />} />
         <Route path="/PraveenRaj" element={<PraveenRaj />} />
