@@ -11,7 +11,7 @@ const navItems = [
   { label: 'Facilities', href: '#facilities', hasDropdown: true, menu: 'facilities' },
   { label: 'Hospital', href: '#hospital', hasDropdown: true, menu: 'hospital' },
   { label: 'Academics', href: '#course', hasDropdown: true, menu: 'academics' },
-  { label: 'Students Data', href: '#facilities' },
+  { label: 'Students Data', href: '#students-data', hasDropdown: true, menu: 'students' },
   { label: "Life @ Alva's", href: '#facilities' },
   { label: 'Contact US', href: '#hospital', showChevron: false },
   { label: 'Bulletin', href: '#course', showChevron: false },
@@ -33,6 +33,13 @@ const facilitiesLinks = [
   { label: 'Hostel', to: '/facilities#hostel' },
   { label: 'Sports Specialty', to: '/facilities#sports-specialty' },
   { label: 'Transportation', to: '/facilities#transportation' },
+]
+
+const studentsLinks = [
+  { label: 'Student List', to: '/students-data/student-list' },
+  { label: 'Students Council', to: '/students-data/students-council' },
+  { label: 'Student Awards & Achievements', to: '/students-data/student-awards-achievements' },
+  { label: 'Alumni', to: '/students-data/alumni' },
 ]
 
 const academicsLinks = [
@@ -106,6 +113,7 @@ function SiteHeader() {
   const [isFacilitiesOpen, setIsFacilitiesOpen] = useState(false)
   const [isHospitalOpen, setIsHospitalOpen] = useState(false)
   const [isAcademicsOpen, setIsAcademicsOpen] = useState(false)
+  const [isStudentsOpen, setIsStudentsOpen] = useState(false)
   const [isDepartmentsOpen, setIsDepartmentsOpen] = useState(false)
   const [isCourseOpen, setIsCourseOpen] = useState(false)
   const [isBhmsOpen, setIsBhmsOpen] = useState(false)
@@ -130,6 +138,8 @@ function SiteHeader() {
     || (location.pathname === '/' && courseSectionHashes.includes(location.hash.slice(1)))
   const activeNavItem = ['/about-college', '/vision-mission', '/chairperson-message', '/principal-message', '/administration', '/aef'].includes(location.pathname)
     ? 'About us'
+    : location.pathname.startsWith('/students-data')
+      ? 'Students Data'
     : location.pathname.startsWith('/academics')
       ? 'Academics'
     : location.pathname === '/facilities' || location.pathname.startsWith('/facilities/') || location.pathname === '/general-infrastructures'
@@ -147,7 +157,7 @@ function SiteHeader() {
       : ''
 
   useEffect(() => {
-    if (!isAboutOpen && !isCourseOpen && !isFacilitiesOpen && !isHospitalOpen && !isAcademicsOpen && !isDepartmentsOpen) return undefined
+    if (!isAboutOpen && !isCourseOpen && !isFacilitiesOpen && !isHospitalOpen && !isAcademicsOpen && !isStudentsOpen && !isDepartmentsOpen) return undefined
 
     const closeAboutOnEscape = (event) => {
       if (event.key === 'Escape') {
@@ -156,6 +166,7 @@ function SiteHeader() {
         setIsFacilitiesOpen(false)
         setIsHospitalOpen(false)
         setIsAcademicsOpen(false)
+        setIsStudentsOpen(false)
         setIsDepartmentsOpen(false)
         setIsCourseOpen(false)
         setIsBhmsOpen(false)
@@ -165,7 +176,7 @@ function SiteHeader() {
 
     document.addEventListener('keydown', closeAboutOnEscape)
     return () => document.removeEventListener('keydown', closeAboutOnEscape)
-  }, [isAboutOpen, isCourseOpen, isFacilitiesOpen, isHospitalOpen, isAcademicsOpen, isDepartmentsOpen])
+  }, [isAboutOpen, isCourseOpen, isFacilitiesOpen, isHospitalOpen, isAcademicsOpen, isStudentsOpen, isDepartmentsOpen])
 
   useEffect(() => {
     if (!location.hash) return
@@ -185,6 +196,7 @@ function SiteHeader() {
     setIsFacilitiesOpen(false)
     setIsHospitalOpen(false)
     setIsAcademicsOpen(false)
+    setIsStudentsOpen(false)
     setIsDepartmentsOpen(false)
     setIsCourseOpen(false)
     setIsBhmsOpen(false)
@@ -229,12 +241,13 @@ function SiteHeader() {
               <details
                 key={item.label}
                 className={`site-nav__dropdown${item.menu === 'hospital' ? ' site-nav__dropdown--hospital' : item.menu === 'academics' ? ' site-nav__dropdown--academics' : item.menu === 'facilities' ? ' site-nav__dropdown--facilities' : ''}`}
-                open={item.menu === 'course' ? isCourseOpen : item.menu === 'facilities' ? isFacilitiesOpen : item.menu === 'hospital' ? isHospitalOpen : item.menu === 'academics' ? isAcademicsOpen : isAboutOpen}
+                open={item.menu === 'course' ? isCourseOpen : item.menu === 'facilities' ? isFacilitiesOpen : item.menu === 'hospital' ? isHospitalOpen : item.menu === 'academics' ? isAcademicsOpen : item.menu === 'students' ? isStudentsOpen : isAboutOpen}
                 onMouseEnter={() => {
                   if (item.menu === 'course') setIsCourseOpen(true)
                   else if (item.menu === 'facilities') setIsFacilitiesOpen(true)
                   else if (item.menu === 'hospital') setIsHospitalOpen(true)
                   else if (item.menu === 'academics') setIsAcademicsOpen(true)
+                  else if (item.menu === 'students') setIsStudentsOpen(true)
                   else setIsAboutOpen(true)
                 }}
                 onMouseLeave={() => {
@@ -247,13 +260,15 @@ function SiteHeader() {
                     setIsHospitalOpen(false)
                   } else if (item.menu === 'academics') {
                     setIsAcademicsOpen(false)
+                  } else if (item.menu === 'students') {
+                    setIsStudentsOpen(false)
                   } else {
                     setIsAboutOpen(false)
                   }
                 }}
               >
                 <summary
-                  className={`site-nav__link${activeNavItem === item.label || (item.menu === 'facilities' && isFacilitiesOpen) || (item.menu === 'hospital' && isHospitalOpen) || (item.menu === 'academics' && isAcademicsOpen) ? ' is-active' : ''}`}
+                  className={`site-nav__link${activeNavItem === item.label || (item.menu === 'facilities' && isFacilitiesOpen) || (item.menu === 'hospital' && isHospitalOpen) || (item.menu === 'academics' && isAcademicsOpen) || (item.menu === 'students' && isStudentsOpen) ? ' is-active' : ''}`}
                   style={item.menu === 'hospital' && isHospitalOpen ? { color: '#f1cb83' } : undefined}
                   onClick={(event) => {
                     if ((item.menu === 'facilities' || item.menu === 'hospital') && event.target.closest('a')) return
@@ -262,6 +277,7 @@ function SiteHeader() {
                     else if (item.menu === 'facilities') setIsFacilitiesOpen((open) => !open)
                     else if (item.menu === 'hospital') setIsHospitalOpen((open) => !open)
                     else if (item.menu === 'academics') setIsAcademicsOpen((open) => !open)
+                    else if (item.menu === 'students') setIsStudentsOpen((open) => !open)
                     else setIsAboutOpen((open) => !open)
                   }}
                 >
@@ -338,7 +354,7 @@ function SiteHeader() {
                         </div>
                       </details>
                     )
-                  )) : (item.menu === 'course' ? courseLinks : item.menu === 'facilities' ? facilitiesLinks : item.menu === 'hospital' ? hospitalLinks : aboutLinks).map((link) => (
+                  )) : (item.menu === 'course' ? courseLinks : item.menu === 'facilities' ? facilitiesLinks : item.menu === 'hospital' ? hospitalLinks : item.menu === 'students' ? studentsLinks : aboutLinks).map((link) => (
                     (item.menu === 'course' || item.menu === 'hospital') && link.children ? (
                       <details
                         key={link.label}
