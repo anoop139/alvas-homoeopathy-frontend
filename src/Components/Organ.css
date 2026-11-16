@@ -75,7 +75,7 @@
   padding: 18px 18px 22px;
   border: 1px solid rgba(31, 76, 65, 0.12);
   border-radius: 18px;
-  background: linear-gradient(145deg, #f8fbf9, #e5eeea);
+  background: #fff;
   box-shadow: 0 12px 32px rgba(13, 42, 40, 0.08);
 }
 
@@ -117,7 +117,7 @@
   overflow: hidden;
   border: 1px solid rgba(31, 76, 65, 0.12);
   border-radius: 18px;
-  background: linear-gradient(145deg, #f8fbf9, #e5eeea);
+  background: #fff;
   box-shadow: 0 12px 32px rgba(13, 42, 40, 0.08);
   text-align: left;
 }

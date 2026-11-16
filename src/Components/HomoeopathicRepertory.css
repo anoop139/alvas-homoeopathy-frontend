@@ -79,7 +79,7 @@
   padding: clamp(12px, 2vw, 20px);
   border: 1px solid rgba(31, 76, 65, 0.12);
   border-radius: 18px;
-  background: #eaf1f5;
+  background: #fff;
   box-shadow: 0 12px 32px rgba(13, 42, 40, 0.08);
 }
 
