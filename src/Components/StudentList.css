@@ -88,8 +88,118 @@
   font-size: 1.1rem;
 }
 
+.council-content {
+  align-items: stretch;
+}
+
+.council-page {
+  background:
+    radial-gradient(ellipse at 8% 10%, rgba(195, 214, 203, 0.72), transparent 36%),
+    linear-gradient(135deg, #dfe9e3 0%, #edf1ee 52%, #e9e6dc 100%);
+  background-attachment: fixed;
+}
+
+.council-content > h1 {
+  align-self: center;
+  padding: 10px 8px 14px;
+  border: 1px solid #cbd8d1;
+  border-radius: 10px;
+  background: #f8faf8;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 5px 16px rgba(23, 61, 53, 0.06);
+}
+
+.council-year {
+  box-sizing: border-box;
+  width: min(100%, 1000px);
+  margin: 18px auto 0;
+  padding: clamp(18px, 3vw, 30px);
+  border: 1px solid #d8c9ae;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 5px 18px rgba(20, 43, 36, 0.045);
+}
+
+.council-year h2 {
+  margin: 0 0 20px;
+  color: #243b33;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+.council-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #d8c9ae;
+  border-radius: 6px;
+}
+
+.council-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  color: #26332e;
+  text-align: left;
+}
+
+.council-table th,
+.council-table td {
+  padding: 13px 16px;
+  border: 1px solid #e1d6c3;
+  vertical-align: top;
+}
+
+.council-table th {
+  background: #24483e;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.council-table tbody tr:nth-child(even) {
+  background: #f7f9f8;
+}
+
+.council-table tbody tr:hover {
+  background: #eef4f1;
+}
+
+.council-table td:first-child {
+  width: 38%;
+  color: #29483e;
+  font-weight: 700;
+}
+
+.council-table td span {
+  display: block;
+}
+
+.council-poster {
+  display: block;
+  width: min(100%, 800px);
+  height: auto;
+  margin: 24px auto 0;
+  border: 1px solid #d8c9ae;
+  border-radius: 6px;
+}
+
 @media (max-width: 600px) {
   .student-list-batches {
     grid-template-columns: 1fr;
+  }
+
+  .council-table th,
+  .council-table td {
+    min-width: 110px;
+    padding: 10px;
   }
 }
