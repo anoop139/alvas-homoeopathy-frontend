@@ -1,0 +1,127 @@
+.alumni-page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background:
+    radial-gradient(ellipse at 8% 10%, rgba(195, 214, 203, 0.72), transparent 36%),
+    linear-gradient(135deg, #dfe9e3 0%, #edf1ee 52%, #e9e6dc 100%);
+}
+
+.alumni-content {
+  box-sizing: border-box;
+  display: flex;
+  width: min(100% - 16px, 1700px);
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin: 0 auto;
+  padding: 12px 20px 16px;
+}
+
+.alumni-content h1 {
+  box-sizing: border-box;
+  width: min(100%, 900px);
+  margin: 0;
+  padding: 12px 18px;
+  border: 1px solid #cbd8d1;
+  border-radius: 10px;
+  background: #f8faf8;
+  color: #173d35;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  text-align: center;
+  box-shadow: 0 5px 16px rgba(23, 61, 53, 0.06);
+}
+
+.alumni-carousel {
+  position: relative;
+  box-sizing: border-box;
+  width: min(100%, 1600px);
+  padding: 12px;
+  border: 1px solid #d8c9ae;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(20, 43, 36, 0.1);
+}
+
+.alumni-carousel-image {
+  display: block;
+  width: 100%;
+  height: clamp(220px, calc(100svh - 320px), 820px);
+  border-radius: 6px;
+  background: #f5f6f4;
+  object-fit: contain;
+}
+
+.alumni-carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 14px;
+  color: #43504b;
+  font-weight: 700;
+}
+
+.alumni-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  transform: translateY(-50%);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  background: rgba(23, 61, 53, 0.82);
+  color: #fff;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
+}
+
+.alumni-carousel-arrow--previous {
+  left: 28px;
+}
+
+.alumni-carousel-arrow--next {
+  right: 28px;
+}
+
+.alumni-carousel-arrow:hover,
+.alumni-carousel-arrow:focus-visible {
+  background: #173d35;
+}
+
+@media (max-width: 600px) {
+  .alumni-content {
+    gap: 12px;
+    padding: 10px 12px 12px;
+  }
+
+  .alumni-carousel {
+    padding: 10px;
+  }
+
+  .alumni-carousel-image {
+    height: clamp(220px, calc(100svh - 440px), 580px);
+  }
+
+  .alumni-carousel-arrow {
+    width: 38px;
+    height: 38px;
+  }
+
+  .alumni-carousel-arrow--previous {
+    left: 18px;
+  }
+
+  .alumni-carousel-arrow--next {
+    right: 18px;
+  }
+}
