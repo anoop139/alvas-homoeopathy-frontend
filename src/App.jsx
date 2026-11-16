@@ -44,6 +44,7 @@ import DepartmentOfYoga from './Components/DepartmentOfYoga'
 import StudentList from './Components/StudentList'
 import StudentsCouncil from './Components/StudentsCouncil'
 import StudentAwardsAchievements from './Components/StudentAwardsAchievements'
+import Alumni from './Components/Alumni'
 
 const pageTitles = {
   '/': "Alva's Homeopathic Medical College",
@@ -75,6 +76,7 @@ const pageTitles = {
   '/students-data/student-list': 'Student List',
   '/students-data/students-council': 'Students Council',
   '/students-data/student-awards-achievements': 'Student Awards & Achievements',
+  '/students-data/alumni': 'Alumni',
   '/academics/time-table': 'Time Table',
   '/academics/college-council': 'College Council',
   '/academics/examination-schedule': 'Examination Schedule',
@@ -122,6 +124,7 @@ function App() {
           <Route path="student-list" element={<StudentList />} />
           <Route path="students-council" element={<StudentsCouncil />} />
           <Route path="student-awards-achievements" element={<StudentAwardsAchievements />} />
+          <Route path="alumni" element={<Alumni />} />
         </Route>
         <Route path="/PrajnyaAlvaM" element={<PrajnyaAlvaM />} />
         <Route path="/RoshanPinto" element={<RoshanPinto />} />
