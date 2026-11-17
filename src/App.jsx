@@ -45,6 +45,8 @@ import StudentList from './Components/StudentList'
 import StudentsCouncil from './Components/StudentsCouncil'
 import StudentAwardsAchievements from './Components/StudentAwardsAchievements'
 import Alumni from './Components/Alumni'
+import Events from './Components/Events'
+import LifePlaceholder from './Components/LifePlaceholder'
 
 const pageTitles = {
   '/': "Alva's Homeopathic Medical College",
@@ -77,6 +79,10 @@ const pageTitles = {
   '/students-data/students-council': 'Students Council',
   '/students-data/student-awards-achievements': 'Student Awards & Achievements',
   '/students-data/alumni': 'Alumni',
+  '/life/events': 'Events',
+  '/life/celebrations': 'Celebrations',
+  '/life/sports': 'Sports',
+  '/life/nss': 'NSS',
   '/academics/time-table': 'Time Table',
   '/academics/college-council': 'College Council',
   '/academics/examination-schedule': 'Examination Schedule',
@@ -146,6 +152,12 @@ function App() {
           <Route path="second-professional-bhms-subjects" element={<SecondProfesionalHtml />} />
           <Route path="third-professional-bhms-subjects" element={<ThirdProfesionalHtml />} />
           <Route path="final-professional-bhms-subjects" element={<FinalProfesionalHtml />} />
+        </Route>
+        <Route path="/life">
+          <Route path="events" element={<Events />} />
+          <Route path="celebrations" element={<LifePlaceholder title="Celebrations" />} />
+          <Route path="sports" element={<LifePlaceholder title="Sports" />} />
+          <Route path="nss" element={<LifePlaceholder title="NSS" />} />
         </Route>
         <Route path="/academics">
           <Route path="time-table" element={<TimeTable />} />
