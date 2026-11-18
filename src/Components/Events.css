@@ -12,8 +12,15 @@
 
 .events-content > h1 {
   margin: 0 0 30px;
-  color: #174f48;
+  padding: 24px 20px;
+  border-radius: 12px;
+  background: linear-gradient(120deg, #123d37 0%, #1d6255 58%, #287566 100%);
+  box-shadow: 0 12px 28px rgb(18 61 55 / 16%);
+  color: #fff;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(2rem, 4vw, 2.7rem);
+  font-weight: 600;
+  letter-spacing: .015em;
   line-height: 1.15;
   text-align: center;
 }
