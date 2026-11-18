@@ -13,7 +13,7 @@ const navItems = [
   { label: 'Academics', href: '#course', hasDropdown: true, menu: 'academics' },
   { label: 'Students Data', href: '#students-data', hasDropdown: true, menu: 'students' },
   { label: "Life @ Alva's", href: '#life', hasDropdown: true, menu: 'life' },
-  { label: 'Contact US', href: '#hospital', showChevron: false },
+  { label: 'Contact US', href: '#contact', showChevron: false },
   { label: 'Bulletin', href: '#course', showChevron: false },
 ]
 
