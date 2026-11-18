@@ -157,6 +157,15 @@
   text-align: center;
 }
 
+.events-archive--empty {
+  background: transparent;
+  color: #202b35;
+}
+
+.events-archive--empty .events-eyebrow {
+  color: #687a7b;
+}
+
 .events-eyebrow {
   margin: 0 0 6px;
   color: #d2e5df;
@@ -184,6 +193,84 @@
   font-size: .9rem;
 }
 
+.provenio-archive-button {
+  margin-top: 22px;
+  border-color: #fff;
+  background: #fff;
+  color: #174f48;
+}
+
+.provenio-archive-button:hover,
+.provenio-archive-button:focus-visible {
+  border-color: #d2e5df;
+  background: #d2e5df;
+  color: #123e38;
+}
+
+.provenio-archive-button:disabled {
+  cursor: not-allowed;
+  opacity: .65;
+}
+
+.provenio-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+  background: yellow;
+  text-align: left;
+}
+
+.provenio-photo-section + .provenio-photo-section {
+  margin-top: 32px;
+}
+
+.provenio-photo-section h3 {
+  margin: 8px 0 0;
+  color: #fff;
+  font-size: 1.35rem;
+  text-align: center;
+}
+
+.provenio-photo-archive {
+  display: grid;
+  grid-template-rows: 0fr;
+  margin-top: 0;
+  margin-bottom: 0;
+  opacity: 0;
+  transition:
+    grid-template-rows 700ms cubic-bezier(.22, 1, .36, 1),
+    margin 700ms cubic-bezier(.22, 1, .36, 1),
+    opacity 450ms ease;
+}
+
+.provenio-photo-archive.is-open {
+  grid-template-rows: 1fr;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  opacity: 1;
+}
+
+.provenio-photo-archive__inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .provenio-photo-archive {
+    transition: none;
+  }
+}
+
+.provenio-photo-grid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 8px;
+  background: #e7eded;
+  object-fit: cover;
+}
+
 @media (max-width: 600px) {
   .events-content {
     width: min(100% - 28px, 1120px);
@@ -203,4 +290,47 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
   }
+
+  .provenio-photo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+}
+.provenio-archive-button {
+  display: block !important;
+  width: max-content;
+  margin: 20px auto 0 auto !important;
+  background-color: #ffffff !important;
+  color: #0b3c29 !important;
+  border: 2px solid #ffffff !important;
+  padding: 12px 24px !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  z-index: 10 !important;
+  position: relative !important;
+}
+
+.provenio-archive-button:hover {
+  background-color: #f1f5f9 !important;
+}
+
+.provenio-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+  margin-top: 25px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+
+.provenio-photo-grid img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }

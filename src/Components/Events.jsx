@@ -33,6 +33,35 @@ import motherTinctureImage2 from '../Images/mother-tincture2.jpg'
 import toolKitImage1 from '../Images/tool-kit1.jpg'
 import toolKitImage2 from '../Images/tool-kit2.jpg'
 
+const provenioImages = Object.entries(import.meta.glob('../Images/provenio/*.{jpg,jpeg,png}', { eager: true, query: '?url', import: 'default' }))
+  .sort(([firstPath], [secondPath]) => {
+    const sectionOrder = ['PO-', 'D1S1-', 'OF-', 'PiP-', 'CU-', 'D2S1-', 'D2S2-', 'VL-']
+    const firstName = firstPath.split('/').pop()
+    const secondName = secondPath.split('/').pop()
+    const firstSection = sectionOrder.findIndex((prefix) => firstName.startsWith(prefix))
+    const secondSection = sectionOrder.findIndex((prefix) => secondName.startsWith(prefix))
+
+    if (firstSection !== secondSection) return firstSection - secondSection
+    return Number(firstName.match(/-(\d+)/)?.[1]) - Number(secondName.match(/-(\d+)/)?.[1])
+  })
+  .map(([path, imageUrl]) => ({ path, imageUrl }))
+
+const provenioSections = [
+  { title: 'Inauguration', prefix: 'PO-' },
+  { title: 'DAY 1, session 1 - guest speaker', prefix: 'D1S1-' },
+  { title: 'OPEN FORUM', prefix: 'OF-' },
+  { title: 'POSTER PRESENTATION', prefix: 'PiP-' },
+  { title: 'Cultural show', prefix: 'CU-' },
+  { title: 'DAY 2, session 1 - guest speaker', prefix: 'D2S1-' },
+  { title: 'DAY 2, session 2 - guest speaker', prefix: 'D2S2-' },
+  { title: 'Valedictory', prefix: 'VL-' },
+].map((section) => ({
+  ...section,
+  images: provenioImages.filter(({ path }) => path.split('/').pop().startsWith(section.prefix)),
+})).filter((section) => section.images.length > 0)
+
+const hasProvenioPhotos = provenioSections.length > 0
+
 const eventImages = {
   'rise-webinar.jpg': riseWebinarImage,
   'fdp1.jpg': fdpImage1,
@@ -121,6 +150,8 @@ const events = [
 
 function Events() {
   const [expandedEvents, setExpandedEvents] = useState({})
+  const [provenioArchiveExpanded, setProvenioArchiveExpanded] = useState(false)
+  const [provenioArchiveLoaded, setProvenioArchiveLoaded] = useState(false)
 
   const toggleEvent = (title) => {
     setExpandedEvents((current) => ({ ...current, [title]: !current[title] }))
@@ -166,6 +197,40 @@ function Events() {
           <p className="events-eyebrow">National Homoeopathic Conference 2023</p>
           <h2 id="provenio-title">Provenio 2.0</h2>
           <div className="provenio-topics">{['Inauguration', 'Guest speaker sessions', 'Open forum', 'Poster presentation', 'Cultural show', 'Valedictory'].map((topic) => <span key={topic}>{topic}</span>)}</div>
+          {hasProvenioPhotos && (
+            <div
+              id="provenio-photo-grid"
+              className={`provenio-photo-archive${provenioArchiveExpanded ? ' is-open' : ''}`}
+              aria-label="Provenio 2.0 conference photos"
+              aria-hidden={!provenioArchiveExpanded}
+            >
+              <div className="provenio-photo-archive__inner">
+                {provenioArchiveLoaded && provenioSections.filter((section) => section.images.length > 0).map((section) => (
+                  <section className="provenio-photo-section" key={section.prefix} aria-label={section.title}>
+                    <h3>{section.title}</h3>
+                    <div className="provenio-photo-grid">
+                      {section.images.map(({ path, imageUrl }, index) => (
+                        <img key={path} src={imageUrl} alt={`${section.title} photo ${index + 1}`} loading="lazy" />
+                      ))}
+                    </div>
+                  </section>
+                ))}
+              </div>
+            </div>
+          )}
+          <button
+            className="event-more-button provenio-archive-button"
+            type="button"
+            aria-expanded={provenioArchiveExpanded && hasProvenioPhotos}
+            aria-controls={hasProvenioPhotos ? 'provenio-photo-grid' : undefined}
+            disabled={!hasProvenioPhotos}
+            onClick={() => {
+              setProvenioArchiveLoaded(true)
+              setProvenioArchiveExpanded((expanded) => !expanded)
+            }}
+          >
+            {!hasProvenioPhotos ? 'No Provenio photos available' : provenioArchiveExpanded ? 'Hide photos' : 'View Provenio 2.0 Photo Archive (152 photos)'}
+          </button>
         </section>
       </section>
       <SiteFooter />
