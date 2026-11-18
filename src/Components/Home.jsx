@@ -1,8 +1,21 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import headingImage from '../Images/Heading.jpg'
 import rankHoldersImage from '../Images/RankeHolderjpg.jpg'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
+import './HomeFeatures.css'
+
+const celebrationImages = Object.fromEntries(
+  Object.entries(import.meta.glob('../Images/celebrations/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' }))
+    .map(([path, imageUrl]) => [path.split('/').pop(), imageUrl]),
+)
+
+const recentActivities = [
+  { title: 'World Mosquito Day', date: 'August 2025', image: 'mosquito.jpg' },
+  { title: "Doctor's Day", date: 'July 2024', image: 'dd1.jpg' },
+  { title: 'Traditional Day', date: 'June 2024', image: 'trd1.jpg' },
+]
 
 const featureCards = [
   {
@@ -30,6 +43,8 @@ const campusHighlights = [
 ]
 
 function Home() {
+  const [activeTopic, setActiveTopic] = useState(null)
+
   return (
     <main id="home" className="home-page">
       <SiteHeader />
@@ -48,9 +63,15 @@ function Home() {
             <p className="hero-banner__tagline">
               Inspiring compassionate care through quality education, clinical learning, and a value-driven campus culture.
             </p>
-            <div className="hero-banner__actions">
-              <a className="button hero-banner__cta hero-banner__cta--ghost" href="#about-college">Know More</a>
-            </div>
+      <nav className="home-topic-nav section-wrap" aria-label="College information">
+        <p className="home-topic-nav__hint">Click here to see overview</p>
+        <div className="home-topic-nav__tabs">
+          <button type="button" onClick={() => setActiveTopic('about')}>About College</button>
+          <button type="button" onClick={() => setActiveTopic('vision')}>Vision &amp; Mission</button>
+          <button type="button" onClick={() => setActiveTopic('activities')}>Recent Activities</button>
+          <button type="button" onClick={() => setActiveTopic('contact')}>Contact Us</button>
+        </div>
+      </nav>
             <ul className="hero-banner__metrics" aria-label="College highlights">
               <li>
                 <strong>20+</strong>
@@ -70,6 +91,62 @@ function Home() {
         </div>
       </section>
 
+      {activeTopic && (
+        <div className="home-dialog-backdrop" onClick={() => setActiveTopic(null)}>
+          <section
+            className="home-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="home-topic-dialog-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button className="home-dialog__close" type="button" aria-label="Close section" onClick={() => setActiveTopic(null)}>
+              &times;
+            </button>
+            <p className="section-kicker">
+              {activeTopic === 'vision' ? 'Our Foundation' : activeTopic === 'activities' ? "Life at Alva's" : activeTopic === 'contact' ? 'Visit us' : 'About Alva’s'}
+            </p>
+            <h2 id="home-topic-dialog-title">
+              {activeTopic === 'vision' ? 'Vision & Mission' : activeTopic === 'activities' ? 'Recent Activities' : activeTopic === 'contact' ? 'Contact Us' : 'About College'}
+            </h2>
+            {activeTopic === 'vision' && (
+              <>
+                <div className="home-vision__content">
+                  <article><h3>Vision</h3><p>To impart quality education, moral values, social concern and patriotism to students and mould them into excellent professionals and credible citizens. To establish a centre of excellence through world-class education and research, preparing competent and ethically strong graduates.</p></article>
+                  <article><h3>Mission</h3><p>To provide holistic education, excellent infrastructure and a supportive academic environment at affordable costs, fostering centres of excellence, intellectual growth and the total development of every student.</p></article>
+                </div>
+                <Link className="text-link" to="/vision-mission" onClick={() => setActiveTopic(null)}>See more</Link>
+              </>
+            )}
+            {activeTopic === 'about' && (
+              <div className="home-dialog__about">
+                <p>As the world becomes more conscious about health and wellbeing, people are exploring gentle and effective approaches to care. Alva’s Homoeopathic Medical College supports this interest through education, clinical learning, and a value-driven campus culture.</p>
+                <Link className="text-link" to="/about-college" onClick={() => setActiveTopic(null)}>See more</Link>
+              </div>
+            )}
+            {activeTopic === 'activities' && (
+              <>
+                <div className="home-activity__grid">
+                  {recentActivities.map(({ title, date, image }) => <article className="home-activity__card" key={title}><img src={celebrationImages[image]} alt={`${title} at Alva's Homoeopathic Medical College`} /><div><p>{date}</p><h3>{title}</h3></div></article>)}
+                </div>
+                <Link className="text-link" to="/life/celebrations" onClick={() => setActiveTopic(null)}>See more</Link>
+              </>
+            )}
+            {activeTopic === 'contact' && (
+              <div className="home-dialog__about">
+                <address>Alva's Homoeopathic Medical College,<br />NH-13, Shobhavana Campus,<br />Mijar, Moodubidire, Mangalore,<br />Dakshina Kannada, Karnataka 574225, India</address>
+                <p><a href="tel:+917090639555">+91 70906 39555</a><br /><a href="mailto:ahmc@alvas.org">ahmc@alvas.org</a></p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Alva%27s+Homoeopathic+Medical+College%2C+Mijar%2C+Moodubidire" target="_blank" rel="noreferrer">Get directions</a>
+              </div>
+            )}
+          </section>
+        </div>
+      )}
+
+
+
+
+
       <section className="status-strip">
         <div className="section-wrap status-strip__inner">
           <div>
@@ -83,6 +160,10 @@ function Home() {
           </div>
         </div>
       </section>
+
+
+
+
 
       <section className="rank-holders-section" aria-labelledby="rank-holders-title">
         <div className="section-wrap">
@@ -104,23 +185,18 @@ function Home() {
           <p className="section-kicker">About College</p>
           <h2>Education shaped by knowledge, compassion, and purpose.</h2>
         </div>
+
         <div className="about-section__contents">
           <div className="about-section__lead">
             <p>
-              At Alva's Homeopathic Medical College, we believe healthcare education must be rooted in empathy,
-              scientific thinking, and a deep sense of responsibility toward patients and communities.
+              As economy is growing, and world is getting flatter, people all over the world are becoming more and more
+              conscious about their health &amp; wellbeing. This has driven a larger chunk of population towards exploring
+              the use of alternative means of curing aliments, which can be effective yet gentle on their body. Yes, you
+              guessed it right it was this vacuum which has placed homoeopathy as the second most popular mode of
+              therapeutic intervention practiced worldwide, according to WHO.
             </p>
-            <a className="text-link" href="#hospital">Explore our approach <span aria-hidden="true">→</span></a>
+            <Link className="text-link" to="/about-college">See more</Link>
           </div>
-
-          <article className="message-card">
-            <span className="message-card__label">Chairman's Message</span>
-            <p>
-              “Welcome to Alva's! Our mission is to provide world-class education infused with cultural values,
-              shaping students into compassionate professionals who serve society.”
-            </p>
-            <Link to="/chairperson-message">Know More</Link>
-          </article>
 
           <article className="message-card message-card--alt">
             <span className="message-card__label">Principal's Message</span>
@@ -133,6 +209,43 @@ function Home() {
         </div>
       </section>
 
+
+
+
+
+      <section id="home-vision" className="home-vision section-wrap" aria-labelledby="home-vision-title">
+        <div className="home-vision__heading">
+          <p className="section-kicker">Our Foundation</p>
+          <h2 id="home-vision-title">Vision &amp; Mission</h2>
+        </div>
+        <div className="home-vision__content">
+          <article>
+            <h3>Vision</h3>
+            <p>To impart quality education, moral values, social concern and patriotism to students and mould them into excellent professionals and credible citizens. To establish a centre of excellence through world-class education and research, preparing competent and ethically strong graduates.</p>
+          </article>
+          <article>
+            <h3>Mission</h3>
+            <p>To provide holistic education, excellent infrastructure and a supportive academic environment at affordable costs, fostering centres of excellence, intellectual growth and the total development of every student.</p>
+          </article>
+          <a className="text-link" href="/vision-mission">See more</a>
+        </div>
+      </section>
+
+      <section id="home-activities" className="home-activity section-wrap" aria-labelledby="home-activity-title">
+        <div className="section-heading">
+          <p className="section-kicker">Life at Alva's</p>
+          <h2 id="home-activity-title">Recent Activities</h2>
+        </div>
+        <div className="home-activity__grid">
+          {recentActivities.map(({ title, date, image }) => (
+            <article className="home-activity__card" key={title}>
+              <img src={celebrationImages[image]} alt={`${title} at Alva's Homoeopathic Medical College`} loading="lazy" />
+              <div><p>{date}</p><h3>{title}</h3></div>
+            </article>
+          ))}
+        </div>
+        <a className="text-link" href="/life/celebrations">See more</a>
+      </section>
       <section id="course" className="program-section">
         <div className="section-wrap program-section__inner">
           <div className="program-section__copy">
