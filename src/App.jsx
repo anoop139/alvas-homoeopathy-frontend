@@ -1,4 +1,4 @@
-import './App.css'
+﻿import './App.css'
 import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Home from './Components/Home'
@@ -46,7 +46,10 @@ import StudentsCouncil from './Components/StudentsCouncil'
 import StudentAwardsAchievements from './Components/StudentAwardsAchievements'
 import Alumni from './Components/Alumni'
 import Events from './Components/Events'
-import LifePlaceholder from './Components/LifePlaceholder'
+
+import Celebration from './Components/Celebration'
+import Sports from './Components/Sports'
+import NSS from './Components/NSS'
 
 const pageTitles = {
   '/': "Alva's Homeopathic Medical College",
@@ -155,9 +158,9 @@ function App() {
         </Route>
         <Route path="/life">
           <Route path="events" element={<Events />} />
-          <Route path="celebrations" element={<LifePlaceholder title="Celebrations" />} />
-          <Route path="sports" element={<LifePlaceholder title="Sports" />} />
-          <Route path="nss" element={<LifePlaceholder title="NSS" />} />
+          <Route path="celebrations" element={<Celebration />} />
+          <Route path="sports" element={<Sports />} />
+          <Route path="nss" element={<NSS />} />
         </Route>
         <Route path="/academics">
           <Route path="time-table" element={<TimeTable />} />
@@ -178,7 +181,7 @@ function App() {
           <Route path="departments/surgery" element={<Surgery />} />
           <Route path="departments/gynaecology-obstetrics" element={<GynaecologyObstetrics />} />
           <Route path="departments/practice-of-medicine-with-essentials-of-pharmacology" element={<PracticeOfMedicine />} />
-          <Route path="departments/yoga" element={<DepartmentOfYoga />} />
+            <Route path="departments/yoga" element={<DepartmentOfYoga />} />
         </Route>
       </Routes>
     </BrowserRouter>
@@ -186,3 +189,5 @@ function App() {
 }
 
 export default App
+
+
