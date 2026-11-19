@@ -1,0 +1,143 @@
+.educational-tours-page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: #f5f7f8;
+  color: #202b35;
+}
+
+.educational-tours-page__content {
+  display: grid;
+  width: min(1120px, calc(100% - 40px));
+  flex: 1;
+  align-content: start;
+  gap: 24px;
+  margin: 0 auto;
+  padding: 42px 0 72px;
+}
+
+.educational-tours-page__heading {
+  padding: 24px 20px 26px;
+  border-radius: 12px;
+  background: linear-gradient(120deg, #123d37 0%, #1d6255 58%, #287566 100%);
+  box-shadow: 0 12px 28px rgb(18 61 55 / 16%);
+  text-align: center;
+}
+
+.educational-tours-page__heading h1 {
+  margin: 0;
+  color: #fff;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  font-weight: 600;
+  letter-spacing: .015em;
+  line-height: 1.15;
+}
+
+.educational-tours-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.educational-tours-nav a,
+.educational-tour__button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  border-radius: 8px;
+  background: #174f48;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.educational-tours-nav a:hover,
+.educational-tour__button:hover {
+  transform: translateY(-1px);
+  background: #103d37;
+}
+
+.educational-tours-nav a:focus-visible,
+.educational-tour__button:focus-visible {
+  outline: 3px solid #8bb9a9;
+  outline-offset: 3px;
+}
+
+.educational-tours-list {
+  display: grid;
+  gap: 24px;
+  scroll-margin-top: 100px;
+}
+
+.educational-tour {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  padding: 28px;
+  border: 1px solid #e1e8e5;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 28px rgb(24 52 45 / 6%);
+  text-align: center;
+}
+
+.educational-tour h2 {
+  margin: 0;
+  color: #174f48;
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  line-height: 1.35;
+}
+
+.educational-tour__gallery {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.educational-tour__gallery img {
+  display: block;
+  min-width: 0;
+  flex: 0 1 calc((100% - 14px) / 2);
+  max-width: calc((100% - 14px) / 2);
+  height: clamp(220px, 30vw, 360px);
+  border-radius: 10px;
+  background: #e8eeeb;
+  object-fit: cover;
+}
+
+.educational-tour__gallery img:only-child {
+  flex-basis: min(100%, 680px);
+  max-width: min(100%, 680px);
+}
+
+@media (max-width: 600px) {
+  .educational-tours-page__content {
+    width: min(100% - 28px, 1120px);
+    padding-top: 30px;
+  }
+
+  .educational-tours-page__heading {
+    padding: 21px 16px 23px;
+  }
+
+  .educational-tour {
+    gap: 14px;
+    padding: 20px 16px;
+  }
+
+  .educational-tour__gallery {
+    gap: 10px;
+  }
+
+  .educational-tour__gallery img {
+    flex-basis: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+}
