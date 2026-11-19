@@ -1,4 +1,4 @@
-﻿import './App.css'
+import './App.css'
 import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Home from './Components/Home'
@@ -50,6 +50,7 @@ import Events from './Components/Events'
 import Celebration from './Components/Celebration'
 import Sports from './Components/Sports'
 import NSS from './Components/NSS'
+import EducationalTours from './Components/EducationalTours'
 
 const pageTitles = {
   '/': "Alva's Homeopathic Medical College",
@@ -86,6 +87,7 @@ const pageTitles = {
   '/life/celebrations': 'Celebrations',
   '/life/sports': 'Sports',
   '/life/nss': 'NSS',
+  '/life/educational-tours': 'Educational Tours',
   '/academics/time-table': 'Time Table',
   '/academics/college-council': 'College Council',
   '/academics/examination-schedule': 'Examination Schedule',
@@ -161,6 +163,7 @@ function App() {
           <Route path="celebrations" element={<Celebration />} />
           <Route path="sports" element={<Sports />} />
           <Route path="nss" element={<NSS />} />
+          <Route path="educational-tours" element={<EducationalTours />} />
         </Route>
         <Route path="/academics">
           <Route path="time-table" element={<TimeTable />} />
