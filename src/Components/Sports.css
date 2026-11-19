@@ -17,22 +17,21 @@
 }
 
 .sports-page__heading {
+  padding: 24px 20px 26px;
+  border-radius: 12px;
+  background: linear-gradient(120deg, #123d37 0%, #1d6255 58%, #287566 100%);
+  box-shadow: 0 12px 28px rgb(18 61 55 / 16%);
   text-align: center;
-}
-
-.sports-page__eyebrow {
-  margin: 0 0 8px;
-  color: #577a70;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
 }
 
 .sports-page__heading h1 {
   margin: 0;
-  color: #174f48;
+  color: #fff;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(2rem, 4vw, 2.7rem);
+  font-weight: 600;
+  letter-spacing: .015em;
+  line-height: 1.15;
 }
 
 .sports-event {
@@ -118,6 +117,10 @@
   .sports-page__content {
     gap: 22px;
     padding: 32px 16px 44px;
+  }
+
+  .sports-page__heading {
+    padding: 21px 16px 23px;
   }
 
   .sports-event {

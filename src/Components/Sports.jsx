@@ -83,7 +83,6 @@ function Sports() {
       <SiteHeader />
       <section className="sports-page__content" aria-labelledby="sports-title">
         <header className="sports-page__heading">
-          <p className="sports-page__eyebrow">Life at Alva's</p>
           <h1 id="sports-title">Sports</h1>
         </header>
 
