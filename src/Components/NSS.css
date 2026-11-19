@@ -1,0 +1,260 @@
+.nss-page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: #f5f7f8;
+  color: #202b35;
+}
+
+.nss-page__content {
+  display: grid;
+  width: min(1160px, 100%);
+  flex: 1;
+  align-content: start;
+  gap: 28px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+}
+
+.nss-page__heading {
+  padding: 24px 20px 26px;
+  border-radius: 12px;
+  background: linear-gradient(120deg, #123d37 0%, #1d6255 58%, #287566 100%);
+  box-shadow: 0 12px 28px rgb(18 61 55 / 16%);
+  text-align: center;
+}
+
+.nss-page__heading h1 {
+  margin: 0;
+  color: #fff;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  font-weight: 600;
+  letter-spacing: .015em;
+  line-height: 1.15;
+}
+
+.nss-event-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.nss-event-nav a {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border: 1px solid #d8e4de;
+  border-radius: 999px;
+  background: #fff;
+  color: #174f48;
+  font-size: 0.9rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.nss-event-nav a:hover {
+  border-color: #174f48;
+  background: #edf5f1;
+}
+
+.nss-event-list {
+  display: grid;
+  gap: 24px;
+}
+
+.nss-event {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  padding: 28px;
+  border: 1px solid #e1e8e5;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 28px rgb(24 52 45 / 6%);
+  scroll-margin-top: 100px;
+}
+
+.nss-event__header {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.nss-event__header h2 {
+  max-width: 850px;
+  margin: 0;
+  color: #174f48;
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.nss-event__details {
+  display: grid;
+  gap: 3px;
+  color: #52615f;
+  font-size: 0.95rem;
+}
+
+.nss-event__details p {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.nss-event__table-wrap {
+  width: min(100%, 760px);
+  overflow-x: auto;
+  border: 1px solid #e0e7e7;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.nss-event__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.nss-event__table th,
+.nss-event__table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e6ebeb;
+  color: #48565e;
+  line-height: 1.55;
+  vertical-align: top;
+}
+
+.nss-event__table tr:last-child th,
+.nss-event__table tr:last-child td {
+  border-bottom: 0;
+}
+
+.nss-event__table th {
+  width: 150px;
+  background: #f4f8f7;
+  color: #244f49;
+  font-weight: 650;
+}
+
+.nss-event__copy {
+  width: 100%;
+  max-width: 900px;
+  color: #52615f;
+  line-height: 1.7;
+}
+
+.nss-event__copy p {
+  margin: 0 0 12px;
+}
+
+.nss-event__copy p:last-child {
+  margin-bottom: 0;
+}
+
+.nss-event__copy ul {
+  margin: 0 0 12px;
+  padding-left: 22px;
+  text-align: left;
+}
+
+.nss-gallery {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.nss-gallery img {
+  display: block;
+  min-width: 0;
+  flex: 0 1 calc((100% - 28px) / 3);
+  max-width: calc((100% - 28px) / 3);
+  height: 240px;
+  border-radius: 10px;
+  background: #e8eeeb;
+  object-fit: cover;
+}
+
+.nss-event__button {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 22px;
+  border-radius: 8px;
+  background: #174f48;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.nss-event__button:hover {
+  transform: translateY(-1px);
+  background: #103d37;
+}
+
+.nss-event__button:focus-visible,
+.nss-event-nav a:focus-visible {
+  outline: 3px solid #8bb9a9;
+  outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .nss-page__content {
+    gap: 22px;
+    padding: 32px 16px 44px;
+  }
+
+  .nss-page__heading {
+    padding: 21px 16px 23px;
+  }
+
+  .nss-event {
+    gap: 14px;
+    padding: 20px 16px;
+  }
+
+  .nss-event__table th,
+  .nss-event__table td {
+    padding: 10px;
+  }
+
+  .nss-event__table th {
+    width: 100px;
+  }
+
+  .nss-gallery {
+    gap: 10px;
+  }
+
+  .nss-gallery img {
+    flex-basis: calc((100% - 10px) / 2);
+    max-width: calc((100% - 10px) / 2);
+    height: 190px;
+  }
+}
+
+@media (max-width: 460px) {
+  .nss-gallery {
+    gap: 10px;
+  }
+
+  .nss-gallery img {
+    flex-basis: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .nss-event-nav a {
+    flex: 1 1 calc(50% - 10px);
+    font-size: 0.85rem;
+  }
+}
