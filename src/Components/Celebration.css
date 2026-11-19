@@ -105,6 +105,17 @@ html {
   line-height: 1.7;
 }
 
+.celebration-card__details {
+  margin: 14px 0 0;
+  padding-left: 22px;
+  color: #48565e;
+  line-height: 1.65;
+}
+
+.celebration-card__details li + li {
+  margin-top: 8px;
+}
+
 .celebration-card__report-link {
   display: flex;
   width: fit-content;
@@ -147,6 +158,17 @@ html {
   border-radius: 8px;
   background: #e7eded;
   object-fit: cover;
+}
+
+.celebration-card__missing-image {
+  display: grid;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  place-items: center;
+  border-radius: 8px;
+  background: #e7eded;
+  color: #687a7b;
+  font-size: .9rem;
 }
 
 @media (max-width: 600px) {
