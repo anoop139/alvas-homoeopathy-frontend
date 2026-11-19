@@ -96,56 +96,116 @@ const eventImages = {
 
 const events = [
   {
-    title: 'RISE Webinar by CCRH',
-    date: '21 November 2024', images: ['rise-webinar.jpg'],
-    summary: 'A research webinar on clinical trial phases, preclinical studies, and other research study designs.',
+    title: 'RISE WEBINAR BY CCRH',
+    date: '21/11/2024',
+    images: ['rise-webinar.jpg'],
     table: [
-      ['Topic', 'Designing a research study – III: clinical trial phases, preclinical study, and other study designs, including quasi-experimental, factorial, N of 1, and pre- and post-study designs.'],
+      ['Topic', 'Designing a research study- III, Clinical Trial – Phases, Preclinical study and other study designs (Quasi experimental, Factorial, N of 1, Pre and Post study)'],
       ['Speaker', 'Dr. Hima Bindu, Research Officer, CCRH'],
-      ['Time', '2:00 PM–3:30 PM'],
-      ['Student attendees', '145 (65 male, 80 female)'],
-      ['Staff attendees', '8 (2 male, 6 female)'],
+      ['Date', '21/11/2024'],
+      ['Time', '2:00 PM to 3:30 PM'],
+      ['Total Students Attendees', '145'],
+      ['Male Students', '65'],
+      ['Female Students', '80'],
+      ['Staff (Male)', '02'],
+      ['Staff (Female)', '06'],
     ],
   },
   {
-    title: 'Faculty Development Program: Mastering Instrumentation in Biomedical Research',
-    date: '22–23 August 2024',
+    title: 'Faculty development program on “Mastering Instrumentation in Biomedical Research”',
+    date: 'August 22–23, 2024',
     images: ['fdp1.jpg', 'fdp2.jpg', 'fdp3.jpg', 'fdp4.jpg', 'fdp5.jpg'],
-    description: 'A two-day faculty development program at Sanidya Hall, St. Aloysius College, Mangalore, organized by the School of Life Sciences, St. Aloysius College, in collaboration with Alva’s Homoeopathic Medical College.',
     details: [
-      'Day 1 included workshops on UV-Vis spectrophotometry, plant DNA isolation, DPPH free radical scavenging assay, and thin layer chromatography.',
-      'Day 2 covered polymerase chain reaction (PCR) and agarose gel electrophoresis, followed by the valedictory function.',
-      'The hands-on sessions helped participants build practical skills in biomedical research instrumentation.',
-    ],
-    additionalDetails: [
-      'Day 1, 22 August: Breakfast was served from 8:45–9:10 AM. The inaugural session began at 9:15 AM in Sanidya Hall.',
-      'Welcome address: Mr. Sreejesh P.C., convenor and program coordinator, and Head of the Biotechnology Department. Inaugural address: Rev. Dr. Praveen Martis SJ, Vice Chancellor, St. Aloysius College. Opening remarks: Dr. Herald Roshan Pinto, Principal, AHMC. Vote of thanks: Dr. Jiji George, Organizing Secretary.',
-      '10:00 AM–1:15 PM workshop: participants attended sessions in the Biotechnology and Microbiology laboratories. Mr. Sreejesh P.C. led sessions on characterization of bioactives in homoeopathic medicine using a UV-Vis spectrophotometer, and isolation of DNA from plants.',
-      'After lunch (1:15–2:15 PM), Dr. Nagaraj led the DPPH free radical scavenging assay and thin layer chromatography session from 2:15–4:45 PM. High tea and the conclusion of Day 1 followed at 4:45 PM.',
-      'Day 2, 23 August: after breakfast, sessions from 9:00 AM–3:30 PM covered polymerase chain reaction (PCR), led by Dr. Jiji George, and agarose gel electrophoresis, led by Dr. Santhosh Goveas.',
-      'High tea was at 3:30 PM. The valedictory function ran from 3:50–4:30 PM, presided over by Pro Vice Chancellor Rev. Dr. Melwyn D’Cunha. Dr. Shreelalitha Suvarna gave the welcome address; Dr. Adarsha Gowda gave the opening remarks.',
-      'Feedback was given by Dr. Sudhamathi and Dr. Indu O.S. Certificates were distributed by Rev. Dr. Melwyn D’Cunha and Dr. Herald Roshan Pinto. Dr. Nagaraj delivered the vote of thanks, followed by the National Anthem at 4:30 PM.',
-      'The hands-on sessions provided practical experience and theoretical knowledge in biomedical research instrumentation.',
+      'Dates: August 22–23, 2024',
+      'Venue: Sanidya Hall, St. Aloysius College, Mangalore',
+      'Organized by: School of Life Sciences, St. Aloysius College, Mangalore, in collaboration with Alva’s Homoeopathic Medical College (AHMC), Mangalore',
+      'DAY 1: AUGUST 22, 2024',
+      '8:45 - 9:10 AM: Breakfast',
+      'Inaugural Session (9:15 AM). Venue: Sanidya Hall',
+      'Welcome Address: Mr. Sreejesh P.C., Convenor and Program Coordinator of FDP, HoD of Biotechnology Department',
+      'Inaugural Address: Rev. Dr. Praveen Martis SJ, Vice Chancellor, St. Aloysius College',
+      'Opening Remarks: Dr. Herald Roshan Pinto, Principal, AHMC',
+      'Vote of Thanks: Dr. Jiji George, Organizing Secretary',
+      '10:00 AM - 1:15 PM: Workshop. Participants were divided into two batches and attended sessions in the Biotechnology and Microbiology labs.',
+      'Batch 1: Characterization of Bioactives in Homoeopathic Medicine Using UV-Vis Spectrophotometer. Resource person: Mr. Sreejesh P.C., Assistant Professor, Stage III, Dept. of Biotechnology, St. Aloysius College. Details: Principle explanation, demonstration, and hands-on experience. Participants had the opportunity to clear doubts.',
+      'Isolation of DNA from Plants. Resource person: Mr. Sreejesh P.C., Assistant Professor, Stage III, Dept. of Biotechnology, St. Aloysius College. Details: Practical session where participants isolated DNA in small groups.',
+      '1:15 - 2:15 PM: Lunch Break. 2:15 - 4:45 PM: DPPH Free Radical Scavenging Assay and Thin Layer Chromatography. Resource person: Dr. Nagaraj, Assistant Professor, Dept. of Microbiology. Details: Theory followed by hands-on experience.',
+      '4:45 PM: High Tea and Conclusion of Day 1',
+      'DAY 2: AUGUST 23, 2024',
+      '8:45 - 9:00 AM: Breakfast. 9:00 AM - 3:30 PM: Polymerase Chain Reaction (PCR). Resource person: Dr. Jiji George, Assistant Professor, Stage III, Dept. of Biotechnology, St. Aloysius College.',
+      'Agarose Gel Electrophoresis. Resource person: Dr. Santhosh Goveas, Assistant Professor, Stage III, Dept. of Biotechnology, St. Aloysius College.',
+      '3:30 - 3:45 PM: High Tea',
+      '3.50 - 4:30 PM: Valedictory Function. Presided by: Pro VC, Rev. Dr Melwyn D’Cunha',
+      'Welcome Address: Dr. Shreelalitha Suvarna, Co convener, FDP',
+      'Opening Remarks: Dr Adarsha Gowda, chairperson of entrepreneurship and consultancy cell, St Aloysius',
+      'Presidential remarks: Rev Dr Melwyn D’Cunha',
+      'Feedback: Dr. Sudhamathi, Professor, AHMC and Dr. Indu O S, Associate Professor and Coordinator of Research Committee, AHMC',
+      'Certificate Distribution: Rev Dr Melwyn D’Cunha and Dr. Herald Roshan Pinto',
+      'Vote of Thanks: Dr Nagaraj, Co organizing secretary, FDP',
+      '4:30 PM: National Anthem',
+      'The FDP was successfully conducted with active participation from all staff members. The sessions provided valuable hands-on experience and theoretical knowledge, enhancing the skills of the participants in biomedical research instrumentation.',
     ],
   },
   {
-    title: 'Fire and Safety Mock Drill', date: '31 May 2024', images: ['fire2.jpg', 'fire-sw20.jpg', 'fire3.jpg', 'fire-sw10.jpg'],
-    description: 'The college conducted a fire and safety mock drill with Thaksheel Fire and Safety Equipment in association with the Hindustan Institute of Safety Management. The drill prepared staff, workers, and students for fire emergencies, evacuation, and rescue operations.',
-    details: ['Venue: Alva’s Homoeopathic Medical College', 'Fire and safety officers Mr. Harish H.P. and Mr. Nobert Rodrigues led the awareness session and drill.', 'The college fire and safety committee, staff, and student council monitored the evacuation exercise.'],
+    title: 'Workshop on the Topic “Fire and safety mock drill”',
+    date: '31/05/2024',
+    images: ['fire2.jpg', 'fire-sw20.jpg', 'fire3.jpg', 'fire-sw10.jpg'],
+    description: 'FIRE AND SAFETY MOCK DRILL CONDUCTED ON 31/5/2024. Alvas Homoeopathic Medical College conducted fire and safety mock drill on 31/05/2024 by Thaksheel fire and safety equipments in association with Hindustan Institute of Safety Management, Manglore, Karnataka, a branch of NIFS. Fire and safety officer Mr Harish HP and Mr Nobert Rodrigues along with their staffs gave awareness and mock drill on fire accident for faculty staff and workers. All faculty participated in the drill. Date – 31/05/2024. Name of the event-Fire and safety mock drill. Venue – AHMC. Mock drill was carried out in college to prepare the staffs and students for the fire risk reduction programme. The purpose to organise mock drill was to check the readiness of staff, workers and students to face any fire emergency and also to make students and staff aware about fire fighting rescue operation. A group of teachers and students volunteered to guide and assist the students in the mock fire and evacuation drill. The fire and safety mock drill was conducted in the assembly area. Mock drill was monitored by fire and safety committee chairperson, members and student council of Alvas Homoeopathic Medical College.',
   },
   {
-    title: 'Clinical Meeting', date: '24 April 2024', images: ['clinical1.jpg', 'clinical2.jpg'],
-    description: 'Final-year students discussed a case they had prepared under the guidance of intern Ms. Rajalakshmi. The group worked through the case from diagnosis to remedy selection. Dr. Shriraksha B. and Dr. Sasitharan moderated the meeting, which concluded with Phosphorus as the prescribed remedy.',
-    details: ['Venue: Final-year classroom', 'An evaluation report was collected from participants at the end of the meeting.'],
+    title: 'Workshop on the Topic Clinical Meeting April 2024',
+    date: '24 April 2024',
+    images: ['clinical1.jpg', 'clinical2.jpg'],
+    description: 'A clinical meeting was conducted on 24th of April in final year classroom at 11:00 AM. The case was distributed among students priorly and all had individually worked out according to the directives given by the guide Ms Rajalakshmi (Intern). All directives were discussed well, starting from disease diagnosis till the final choice of remedy. The meeting was moderated by Dr Shriraksha B and Dr Sasitharan. The case discussion was concluded by the guide and Phosphorus was the remedy prescribed. Evaluation report was taken from all the participants at the end of the clinical meeting.',
   },
-  { title: 'CME: Homoeopathic Approach in Paediatric Cases and Hair Loss', date: '2 July 2023', images: ['paediatric1.jpg', 'paediatric2.jpg', 'paediatric3.jpg'], description: 'The CME covered how to reach the similimum in paediatric cases, microscopic assessment of hair, different types of hair loss, and homoeopathic management.', details: ['Speaker: Dr. Sanjay Panicker', 'Audience: Faculty, students, and interns', 'Time: 10:00 AM–2:00 PM'] },
-  { title: 'CME: Secrets to Build a Roaring Clinical Practice', date: '18 June 2023', images: ['clinical-practice1.jpg', 'clinical-practice2.jpg'], description: 'A continuing medical education session on building a successful clinical practice.', details: ['Speaker: Dr. Alex Kurian', 'Audience: Faculty and interns', 'Time: 9:00 AM–2:00 PM'] },
-  { title: 'CME: Clinical Tips for Beginners', date: '4 May 2023', images: ['clinical-tips1.jpg', 'clinical-tips2.jpg'], description: 'A CME session sharing clinical tips for beginners.', details: ['Speaker: Dr. Shreepad Hegde', 'Audience: Faculty, students, and interns', 'Time: 11:30 AM–4:30 PM'] },
-  { title: 'CME: Homoeopathic Approach in Special Children', date: '2 April 2023', images: ['special-children1.jpg', 'special-children2.jpg'], description: 'A continuing medical education session on the homoeopathic approach to caring for special children.', details: ['Speaker: Dr. Guruprasad M.N.', 'Audience: Faculty, students, and interns', 'Time: 11:00 AM–1:00 PM'] },
-  { title: 'CME: Clinic and Clinical Tips', date: '26 March 2023', images: ['clinic-tips1.jpg', 'clinic-tips2.jpg'], description: 'A continuing medical education session on clinic practice and clinical tips.', details: ['Speaker: Dr. Aneesh Kumar S.', 'Time: 10:00 AM–12:00 PM'] },
-  { title: 'Session: Mental Health—Challenges and Needs', date: '25 February 2023', images: ['mental-health1.jpg', 'mental-health2.jpg'], description: 'A session exploring mental health challenges and needs.', details: ['Speaker: Dr. Manas', 'Audience: Students and faculty', 'Time: 9:00 AM–1:00 PM'] },
-  { title: 'CME: Clinical Tips for Beginners and Use of Mother Tincture in Daily Practice', date: '12 February 2023', images: ['mother-tincture1.jpg', 'mother-tincture2.jpg'], description: 'A CME session on beginner clinical tips and the use of mother tincture in daily practice.', details: ['Speaker: Dr. Ambily B.', 'Audience: Faculty and interns', 'Time: 10:00 AM–12:00 PM'] },
-  { title: 'Workshop: Building a Homoeopathic Tool Kit—An Indo-German Perspective', date: '21 January 2023', images: ['tool-kit1.jpg', 'tool-kit2.jpg'], description: 'A workshop presenting an Indo-German perspective on building a homoeopathic tool kit.', details: ['Speaker: Dr. Nicola Coutinho', 'Audience: Faculty, students, and interns', 'Time: 9:00 AM–4:00 PM'] },
+  {
+    title: 'CME on the Topics “How to reach similimum in paediatric cases & Video microscopic assessment of Hair, different types of Hair loss and Homoeopathic management”',
+    date: '02/07/2023',
+    images: ['paediatric1.jpg', 'paediatric2.jpg', 'paediatric3.jpg'],
+    description: 'on 02/07/2023 by Dr Sanjay Panicker for Faculty, Students and Interns from 10am-2pm.',
+  },
+  {
+    title: 'CME on the topic “Secrets to build a roaring Clinical Practice”',
+    date: '18/06/2023',
+    images: ['clinical-practice1.jpg', 'clinical-practice2.jpg'],
+    description: 'on 18/06/2023 by Dr Alex Kurian for Faculty and Interns from 9am-2pm.',
+  },
+  {
+    title: 'CME on the topic “Clinical Tips for Beginners”',
+    date: '04/05/2023',
+    images: ['clinical-tips1.jpg', 'clinical-tips2.jpg'],
+    description: 'on 04/05/2023 by Dr Shreepad Hegde for Faculty, Students and Interns from 11.30am-4.30pm.',
+  },
+  {
+    title: 'CME on the topic “Homoeopathic Approach in Special Children”',
+    date: '02/04/2023',
+    images: ['special-children1.jpg', 'special-children2.jpg'],
+    description: 'on 02/04/2023 by Dr Guruprasad M N for Faculty, Students and Interns from 11.00am-1.00pm.',
+  },
+  {
+    title: 'CME on the topic “Clinic and Clinical Tips”',
+    date: '26/03/2023',
+    images: ['clinic-tips1.jpg', 'clinic-tips2.jpg'],
+    description: 'on 26/03/2023 by Dr Aneesh Kumar S for Faculty and Interns from 10.00am-12.00pm.',
+  },
+  {
+    title: 'Session on the topic “Mental Health- Challenges and Needs”',
+    date: '25/02/2023',
+    images: ['mental-health1.jpg', 'mental-health2.jpg'],
+    description: 'by Dr Manas on 25/02/2023 from 9.00am to 1.00pm for Students and Faculty.',
+  },
+  {
+    title: 'CME on the topic “Clinical tips for beginners and use of Mother Tincture in Daily Practice”',
+    date: '12/02/2023',
+    images: ['mother-tincture1.jpg', 'mother-tincture2.jpg'],
+    description: 'on 12/02/2023 by Dr Ambily B for Faculty and Interns from 10.00am-12.00pm.',
+  },
+  {
+    title: 'Workshop on the Topic “Building a Homoeopathic Tool Kit - an Indo-German perspective”',
+    date: '21/01/2023',
+    images: ['tool-kit1.jpg', 'tool-kit2.jpg'],
+    description: 'on 21/01/2023 by Dr Nicola Coutinho for Faculty, Students and Interns from 9.00am-4.00pm.',
+  },
 ]
 
 function Events() {
@@ -195,7 +255,7 @@ function Events() {
         </div>
         <section className="events-archive" aria-labelledby="provenio-title">
           <p className="events-eyebrow">National Homoeopathic Conference 2023</p>
-          <h2 id="provenio-title">Provenio 2.0</h2>
+          <h2 id="provenio-title">Provenio</h2>
           <div className="provenio-topics">{['Inauguration', 'Guest speaker sessions', 'Open forum', 'Poster presentation', 'Cultural show', 'Valedictory'].map((topic) => <span key={topic}>{topic}</span>)}</div>
           {hasProvenioPhotos && (
             <div
@@ -231,6 +291,9 @@ function Events() {
           >
             {!hasProvenioPhotos ? 'No Provenio photos available' : provenioArchiveExpanded ? 'Hide photos' : 'View Provenio 2.0 Photo Archive (152 photos)'}
           </button>
+          <a className="provenio-report-link" href="https://alvashomoeopathy.com/files/PROVENIO%202.0.pdf" target="_blank" rel="noreferrer">
+            View Provenio Report
+          </a>
         </section>
       </section>
       <SiteFooter />

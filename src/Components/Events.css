@@ -229,6 +229,19 @@
   opacity: .65;
 }
 
+.provenio-report-link {
+  display: inline-block;
+  margin-top: 14px;
+  color: #fff;
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+
+.provenio-report-link:focus-visible {
+  outline: 3px solid #d2e5df;
+  outline-offset: 3px;
+}
+
 .provenio-photo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
