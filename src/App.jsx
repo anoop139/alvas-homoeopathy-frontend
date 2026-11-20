@@ -51,6 +51,7 @@ import Celebration from './Components/Celebration'
 import Sports from './Components/Sports'
 import NSS from './Components/NSS'
 import EducationalTours from './Components/EducationalTours'
+import ContactUs from './Components/ContactUs'
 
 const pageTitles = {
   '/': "Alva's Homeopathic Medical College",
@@ -87,6 +88,9 @@ const pageTitles = {
   '/life/celebrations': 'Celebrations',
   '/life/sports': 'Sports',
   '/life/nss': 'NSS',
+  '/contact': 'Contact Us',
+  '/contactus': 'Contact Us',
+  '/Contactus.html': 'Contact Us',
   '/life/educational-tours': 'Educational Tours',
   '/academics/time-table': 'Time Table',
   '/academics/college-council': 'College Council',
@@ -158,6 +162,8 @@ function App() {
           <Route path="third-professional-bhms-subjects" element={<ThirdProfesionalHtml />} />
           <Route path="final-professional-bhms-subjects" element={<FinalProfesionalHtml />} />
         </Route>
+        <Route path="/nss.html" element={<NSS />} />
+        
         <Route path="/life">
           <Route path="events" element={<Events />} />
           <Route path="celebrations" element={<Celebration />} />
@@ -165,6 +171,8 @@ function App() {
           <Route path="nss" element={<NSS />} />
           <Route path="educational-tours" element={<EducationalTours />} />
         </Route>
+            <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/academics">
           <Route path="time-table" element={<TimeTable />} />
           <Route path="college-council" element={<CollegeCouncil />} />
@@ -186,11 +194,15 @@ function App() {
           <Route path="departments/practice-of-medicine-with-essentials-of-pharmacology" element={<PracticeOfMedicine />} />
             <Route path="departments/yoga" element={<DepartmentOfYoga />} />
         </Route>
+    
       </Routes>
     </BrowserRouter>
   )
 }
 
 export default App
+
+
+
 
 
