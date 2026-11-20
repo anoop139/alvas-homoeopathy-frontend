@@ -83,6 +83,25 @@
   text-transform: uppercase;
 }
 
+.contact-card--phone,
+.contact-card--email,
+.contact-card--address {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.contact-card--phone a,
+.contact-card--email a {
+  margin-block: auto;
+}
+
+.contact-card--address address {
+  margin-block: auto;
+}
+
 .contact-card h2 {
   margin: 7px 0 9px;
   color: #173f39;

@@ -21,12 +21,12 @@ function ContactUs() {
           <span>We’re here to help with your questions.</span>
         </header>
         <div className="contact-page__details">
-          <article className="contact-card">
+          <article className="contact-card contact-card--phone">
             <span className="contact-card__label">Call us</span>
             <h2>Phone</h2>
             <a href="tel:+917090639555">+91 70906 39555</a>
           </article>
-          <article className="contact-card">
+          <article className="contact-card contact-card--email">
             <span className="contact-card__label">Write to us</span>
             <h2>Email</h2>
             <a href="mailto:ahmc@alvas.org">ahmc@alvas.org</a>
