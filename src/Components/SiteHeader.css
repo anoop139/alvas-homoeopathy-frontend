@@ -15,6 +15,10 @@
   color: #f1cb83 !important;
 }
 
+.site-nav__link.is-active {
+  color: #f1cb83;
+}
+
 .site-nav__submenu--academics {
   width: 200px;
   padding-left: 4px;
