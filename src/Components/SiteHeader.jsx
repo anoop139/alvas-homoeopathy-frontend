@@ -13,7 +13,7 @@ const navItems = [
   { label: 'Academics', href: '#course', hasDropdown: true, menu: 'academics' },
   { label: 'Students Data', href: '#students-data', hasDropdown: true, menu: 'students' },
   { label: "Life @ Alva's", href: '#life', hasDropdown: true, menu: 'life' },
-  { label: 'Contact US', href: '#contact', showChevron: false },
+  { label: 'Contact US', href: 'contactus', showChevron: false },
   { label: 'Bulletin', href: '#course', showChevron: false },
 ]
 
@@ -47,6 +47,7 @@ const lifeLinks = [
   { label: 'Celebrations', to: '/life/celebrations' },
   { label: 'Sports', to: '/life/sports' },
   { label: 'NSS', to: '/life/nss' },
+  { label: 'Educational Tours', to: '/life/educational-tours' },
 ]
 
 const academicsLinks = [
@@ -144,7 +145,9 @@ function SiteHeader() {
   ]).map((href) => href.split('#')[1]).filter(Boolean)
   const isCoursePage = location.pathname.startsWith('/course-admission')
     || (location.pathname === '/' && courseSectionHashes.includes(location.hash.slice(1)))
-  const activeNavItem = ['/about-college', '/vision-mission', '/chairperson-message', '/principal-message', '/administration', '/aef'].includes(location.pathname)
+  const activeNavItem = ['/contact', '/contactus', '/contact-us', '/Contactus.html'].includes(location.pathname)
+    ? 'Contact US'
+    : ['/about-college', '/vision-mission', '/chairperson-message', '/principal-message', '/administration', '/aef'].includes(location.pathname)
     ? 'About us'
     : location.pathname.startsWith('/students-data')
       ? 'Students Data'
@@ -511,3 +514,4 @@ function SiteHeader() {
 export default SiteHeader
                       
             
+
