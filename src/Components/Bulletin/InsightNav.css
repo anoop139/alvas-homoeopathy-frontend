@@ -1,0 +1,60 @@
+.insight-nav-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  padding: 1rem max(1.25rem, calc((100% - 1160px) / 2)) 1rem 1.25rem;
+  background: #fff;
+  box-shadow: 0 3px 16px rgba(24, 53, 47, 0.1);
+}
+
+.insight-nav-brand {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  text-decoration: none;
+}
+
+.insight-nav-brand img {
+  display: block;
+  width: 112px;
+  height: auto;
+}
+
+.insight-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 1.8vw, 1.75rem);
+}
+
+.insight-nav a {
+  color: #264b43;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.insight-nav a:hover,
+.insight-nav a:focus-visible,
+.insight-nav a[aria-current="page"] {
+  color: #a47736;
+}
+
+@media (max-width: 600px) {
+  .insight-nav-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .insight-nav {
+    position: static;
+    transform: none;
+    flex-wrap: wrap;
+  }
+}
