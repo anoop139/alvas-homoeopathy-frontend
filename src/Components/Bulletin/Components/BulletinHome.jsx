@@ -44,7 +44,18 @@ function BulletinHome() {
     const navigation = performance.getEntriesByType('navigation')[0]
     const savedScrollY = sessionStorage.getItem(scrollStorageKey)
     if (navigation?.type === 'reload' && savedScrollY !== null) {
-      requestAnimationFrame(() => window.scrollTo(0, Number(savedScrollY)))
+      const feedbackForm = document.getElementById('feedback-form')
+      const savedY = Number(savedScrollY)
+      const formTop = feedbackForm?.getBoundingClientRect().top + window.scrollY
+      const formBottom = formTop + (feedbackForm?.offsetHeight ?? 0)
+      const wasViewingForm = feedbackForm && savedY < formBottom && savedY + window.innerHeight > formTop
+
+      if (wasViewingForm) {
+        requestAnimationFrame(() => {
+          const isMobile = window.matchMedia('(max-width: 700px)').matches
+          window.scrollTo(0, isMobile ? formTop : savedY)
+        })
+      }
     }
 
     let frame = null
