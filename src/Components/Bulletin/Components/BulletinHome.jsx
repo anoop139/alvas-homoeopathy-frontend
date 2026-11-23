@@ -1,4 +1,5 @@
 import './BulletinHome.css'
+import BulletinFooter from './BulletinFooter'
 import { useEffect, useState } from 'react'
 import quarterlyIcon from './bulletinImg/quarterly.png'
 import eventsIcon from './bulletinImg/events.png'
@@ -204,11 +205,7 @@ function BulletinHome() {
           <button className="bulletin-button" type="submit">Submit feedback</button>
         </form>
       </section>
-      <footer id="footer" className="bulletin-footer">
-        <strong>Alva’s Homoeopathic Medical College</strong>
-        <span>Mijar, Shobhavan Campus, Moodbidri, Mangalore – 574225</span>
-        <span>Developed by C.K Developers</span>
-      </footer>
+      <BulletinFooter />
     </div>
   )
 }
