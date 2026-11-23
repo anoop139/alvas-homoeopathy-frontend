@@ -7,8 +7,8 @@ const insightHome = 'https://alvashomoeopathy.com/Insight/Home.html'
 
 const links = [
   { label: 'Home', to: '/bulletin/bulletinHome' },
-  { label: 'About', href: `${insightHome}#about` },
-  { label: 'Editions', href: 'https://alvashomoeopathy.com/Insight/Editions.html' },
+  { label: 'About', to: '/bulletin/bulletinAbout' },
+  { label: 'Editors', to: '/bulletin/editions' },
   { label: 'Our Editor', href: `${insightHome}#editor` },
   { label: 'Contact Us', href: 'https://alvashomoeopathy.com/Insight/Contact-us.html' },
 ]
