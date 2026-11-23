@@ -14,7 +14,7 @@ const navItems = [
   { label: 'Students Data', href: '#students-data', hasDropdown: true, menu: 'students' },
   { label: "Life @ Alva's", href: '#life', hasDropdown: true, menu: 'life' },
   { label: 'Contact US', href: 'contactus', showChevron: false },
-  { label: 'Bulletin', href: '#course', showChevron: false },
+  { label: 'Bulletin', href: 'bulletin', showChevron: false },
 ]
 
 const aboutLinks = [
@@ -147,6 +147,8 @@ function SiteHeader() {
     || (location.pathname === '/' && courseSectionHashes.includes(location.hash.slice(1)))
   const activeNavItem = ['/contact', '/contactus', '/contact-us', '/Contactus.html'].includes(location.pathname)
     ? 'Contact US'
+    : location.pathname.startsWith('/bulletin')
+    ? 'Bulletin'
     : ['/about-college', '/vision-mission', '/chairperson-message', '/principal-message', '/administration', '/aef'].includes(location.pathname)
     ? 'About us'
     : location.pathname.startsWith('/students-data')
@@ -488,6 +490,18 @@ function SiteHeader() {
                 </div>
               </details>
             ) : (
+              item.external ? (
+                <a
+                  key={item.label}
+                  className="site-nav__link"
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={closeMenu}
+                >
+                  {item.label}
+                </a>
+              ) : (
               <NavLink
                 key={item.label}
                 className={`site-nav__link${activeNavItem === item.label ? ' is-active' : ''}`}
@@ -503,6 +517,7 @@ function SiteHeader() {
                   <span className="site-nav__chevron" aria-hidden="true" />
                 )}
               </NavLink>
+              )
             ),
           )}
         </nav>
