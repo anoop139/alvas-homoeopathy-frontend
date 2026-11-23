@@ -1,6 +1,7 @@
 import './BulletinAbout.css'
 import editorPortrait from '../../../Images/InsightChiefEditor.png'
 import aboutImage from '../../../Images/InsightAbout.jpg'
+import BulletinFooter from './BulletinFooter'
 
 function BulletinAbout() {
   return (
@@ -66,14 +67,7 @@ function BulletinAbout() {
           Bulletin enquiries: <a href="mailto:ebulletinahmc@gmail.com">ebulletinahmc@gmail.com</a>
         </p>
       </div>
-      <footer className="bulletin-about__footer">
-        <p className="bulletin-about__college">Alva’s Homoeopathic Medical College</p>
-        <address>Mijar, Shobhavan Campus, Moodbidri, Mangalore – 574225</address>
-        <div className="bulletin-about__developer">
-          <p className="bulletin-about__credit">Developed by C.K Developers</p>
-          <p className="bulletin-about__developer-email">Email: ck.offical.manager@gamil.com</p>
-        </div>
-      </footer>
+      <BulletinFooter />
     </section>
   )
 }
