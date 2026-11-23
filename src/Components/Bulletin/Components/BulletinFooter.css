@@ -1,0 +1,32 @@
+.bulletin-shared-footer {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  width: 100vw;
+  margin: auto 0 0 50%;
+  padding: 1.5rem clamp(1.5rem, 8vw, 7rem);
+  transform: translateX(-50%);
+  background: #253b2c;
+  color: #fff;
+  text-align: center;
+}
+
+.bulletin-shared-footer p { margin: 0.25rem auto; }
+.bulletin-shared-footer__college { grid-column: 1; margin-left: 0 !important; color: #fff; font-weight: 700; text-align: left; }
+.bulletin-shared-footer address { grid-column: 1; margin: 0; font-style: normal; line-height: 1.7; text-align: left; }
+.bulletin-shared-footer__developer { grid-column: 2; grid-row: 1 / 3; align-self: center; text-align: right; }
+.bulletin-shared-footer__developer p { margin: 0.25rem 0; }
+.bulletin-shared-footer__email { font-size: 0.9rem; }
+.bulletin-shared-footer a { color: inherit; }
+
+.bulletin-about .bulletin-shared-footer p { max-width: none; margin: 0.25rem 0; line-height: 1.5; }
+.bulletin-about .bulletin-shared-footer a { color: #fff; }
+
+@media (max-width: 700px) {
+  .bulletin-shared-footer { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.25rem 1rem; }
+  .bulletin-shared-footer address,
+  .bulletin-shared-footer__college,
+  .bulletin-shared-footer__developer { grid-column: 1; grid-row: auto; text-align: center; }
+  .bulletin-shared-footer__email { overflow-wrap: anywhere; }
+}
