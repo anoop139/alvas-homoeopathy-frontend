@@ -1,13 +1,19 @@
 import InsightNav from './InsightNav'
-import { Navigate, Outlet, useLocation } from 'react-router-dom'
+import BulletinHome from './Components/BulletinHome'
+import { useEffect } from 'react'
+import { Navigate, useLocation } from 'react-router-dom'
 
 function Bulletin() {
   const { pathname } = useLocation()
 
+  useEffect(() => {
+    document.title = 'Bulletin Home'
+  }, [pathname])
+
   return (
     <main>
       <InsightNav />
-      {pathname === '/bulletin' ? <Navigate to="/bulletin/bulletinHome" replace /> : <Outlet />}
+      {pathname === '/bulletin' ? <Navigate to="/bulletin/bulletinHome" replace /> : <BulletinHome />}
     </main>
   )
 }
