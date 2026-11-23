@@ -317,7 +317,6 @@
 .bulletin-feedback-form .bulletin-form-fields label {
   color: #f4f6f2;
 }
-
 .bulletin-contact .bulletin-feedback-form .bulletin-feedback-success {
   display: table;
   max-width: 100%;
@@ -325,7 +324,7 @@
   padding: 1.25rem 1.5rem;
   border-radius: 8px;
   background: #fff;
-  color: #264b43;
+  color: #218838;
   font-size: 1.05rem;
   font-weight: 700;
   text-align: center;
@@ -390,7 +389,21 @@
 
 @media (max-width: 700px) {
   .bulletin-hero {
+    min-height: 0;
     grid-template-columns: 1fr;
+  }
+
+  .bulletin-hero-content {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .bulletin-hero h1 {
+    font-size: clamp(2.75rem, 12vw, 4rem);
+  }
+
+  .bulletin-hero-copy {
+    font-size: 1rem;
+    line-height: 1.6;
   }
 
   .bulletin-hero-image {
@@ -402,6 +415,12 @@
   .bulletin-contact {
     grid-template-columns: 1fr;
     gap: 1rem;
+    padding: 2.5rem 1rem;
+  }
+
+  .bulletin-contact > div,
+  .bulletin-contact > address {
+    padding: 1.25rem;
   }
 
   .bulletin-features {
@@ -410,6 +429,7 @@
 
   .bulletin-feature {
     min-height: 0;
+    padding: 1.5rem 1.25rem;
   }
 
   .bulletin-feature-number {
@@ -426,5 +446,78 @@
 
   .bulletin-message-field {
     grid-column: auto;
+  }
+
+  .bulletin-feedback-form {
+    padding: 1rem;
+  }
+
+  .bulletin-form-fields input,
+  .bulletin-form-fields textarea {
+    font-size: 16px;
+  }
+
+  .bulletin-contact .bulletin-feedback-form .bulletin-feedback-success {
+    display: block;
+    padding: 1rem;
+  }
+
+  .bulletin-feedback-form .bulletin-button {
+    width: 100%;
+  }
+
+  .bulletin-footer {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .bulletin-home,
+  .bulletin-contact {
+    overflow-x: clip;
+  }
+
+  .bulletin-contact {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding-inline: 16px;
+  }
+
+  .bulletin-feedback-form,
+  .bulletin-feedback-form * {
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .bulletin-feedback-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 20px 16px;
+  }
+
+  .bulletin-feedback-form > *,
+  .bulletin-form-fields > * {
+    min-width: 0;
+  }
+
+  .bulletin-form-fields input,
+  .bulletin-form-fields textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .bulletin-contact-item,
+  .bulletin-contact-item a {
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 }
