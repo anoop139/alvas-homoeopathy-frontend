@@ -1,18 +1,3 @@
-.bulletin-crew__placeholder {
-  display: grid;
-  min-height: 60vh;
-  padding: 2rem;
-  place-items: center;
-  background: #f7f8f4;
-  color: #26352d;
-  text-align: center;
-}
-
-.bulletin-crew__placeholder p {
-  margin: 0;
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
-}
-
 .bulletin-crew {
   min-height: 65vh;
   background: #f7f8f4;
@@ -20,9 +5,11 @@
 }
 
 .bulletin-crew__hero {
-  padding: clamp(3rem, 8vw, 6rem) 1.5rem 3rem;
-  text-align: center;
-  background: linear-gradient(135deg, #e9f0e6, #f7f8f4 70%);
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+  align-items: center;
+  min-height: 420px;
+  background: #edf2e9;
 }
 
 .bulletin-crew__eyebrow {
@@ -34,6 +21,19 @@
   text-transform: uppercase;
 }
 
+.bulletin-crew__hero-image {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.bulletin-crew__hero-copy {
+  max-width: 560px;
+  padding: 3rem clamp(1.5rem, 5vw, 4rem);
+  text-align: left;
+}
+
 .bulletin-crew__hero h1 {
   margin: 0;
   color: #29422d;
@@ -41,46 +41,95 @@
   font-size: clamp(2.2rem, 5vw, 3.6rem);
 }
 
-.bulletin-crew__hero > p:last-child {
-  max-width: 560px;
-  margin: 1rem auto 0;
+.bulletin-crew__hero-copy > p:not(.bulletin-crew__eyebrow) {
+  margin: 1rem 0 0;
   line-height: 1.7;
+}
+
+.bulletin-crew__link {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  margin-top: 1.25rem;
+  color: #315f3e;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: .82rem;
+  letter-spacing: .08em;
+}
+
+.bulletin-crew__team {
+  padding: 3.5rem 0 4.5rem;
+  text-align: center;
+}
+
+.bulletin-crew__team h2 {
+  position: relative;
+  margin: 0 0 .5rem;
+  padding: 1.5rem 1rem;
+  color: #fff;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  letter-spacing: .02em;
+  background: linear-gradient(120deg, #29422d, #456846 58%, #718c4c);
+  box-shadow: 0 10px 24px rgb(38 53 45 / 12%);
 }
 
 .bulletin-crew__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 1.2rem;
-  width: min(100% - 3rem, 1050px);
+  grid-template-columns: repeat(auto-fit, minmax(190px, 220px));
+  justify-content: center;
+  gap: 1.25rem;
+  width: min(100% - 3rem, 1100px);
   margin: 0 auto;
-  padding: 2.5rem 0 4rem;
+  padding-top: 2rem;
 }
 
 .bulletin-crew__card {
-  padding: 1.6rem 1rem;
+  padding: 0 0 1.25rem;
+  overflow: hidden;
   border: 1px solid #e0e7dc;
-  border-radius: 1rem;
+  border-radius: .75rem;
   background: #fff;
   text-align: center;
   box-shadow: 0 8px 24px rgb(38 53 45 / 5%);
 }
 
-.bulletin-crew__initials {
-  display: grid;
-  width: 3.5rem;
-  height: 3.5rem;
-  margin: 0 auto 1rem;
-  place-items: center;
-  border-radius: 50%;
-  background: #e9f0e6;
-  color: #58743e;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 1.2rem;
-  font-weight: 700;
+@media (prefers-reduced-motion: no-preference) {
+  .bulletin-crew__card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 600ms ease, transform 600ms cubic-bezier(.2, .7, .2, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .bulletin-crew__card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.bulletin-crew__card h2 {
-  margin: 0;
+@media (prefers-reduced-motion: reduce) {
+  .bulletin-crew__card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.bulletin-crew__portrait {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 4.6;
+  margin-bottom: 1.1rem;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.bulletin-crew__card h3 {
+  margin: 0 1rem;
   color: #29422d;
   font-size: 1.05rem;
 }
@@ -92,6 +141,11 @@
 }
 
 @media (max-width: 520px) {
+  .bulletin-crew__hero { grid-template-columns: 1fr; }
+  .bulletin-crew__hero-image { height: 260px; }
+  .bulletin-crew__hero-copy { padding: 2rem 1.25rem; text-align: center; }
   .bulletin-crew__grid { width: min(100% - 2rem, 1050px); grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
-  .bulletin-crew__card { padding: 1.25rem .6rem; }
+  .bulletin-crew__card { padding-bottom: 1rem; }
+  .bulletin-crew__card h3 { margin: 0 .5rem; font-size: .95rem; }
+  .bulletin-crew__card p { font-size: .82rem; }
 }
