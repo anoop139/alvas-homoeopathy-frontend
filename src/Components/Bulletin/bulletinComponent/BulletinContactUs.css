@@ -1,0 +1,14 @@
+.bulletin-contact-placeholder {
+  display: grid;
+  min-height: 60vh;
+  padding: 2rem;
+  place-items: center;
+  background: #f7f8f4;
+  color: #26352d;
+  text-align: center;
+}
+
+.bulletin-contact-placeholder p {
+  margin: 0;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+}
