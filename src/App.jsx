@@ -53,9 +53,6 @@ import NSS from './Components/NSS'
 import EducationalTours from './Components/EducationalTours'
 import ContactUs from './Components/ContactUs'
 import Bulletin from './Components/Bulletin/Bulletin'
-import BulletinHome from './Components/Bulletin/Components/BulletinHome'
-import BulletinAbout from './Components/Bulletin/Components/BulletinAbout'
-import BuletinEditors from './Components/Bulletin/Components/BuletinEditors'
 
 const pageTitles = {
   '/': "Alva's Homeopathic Medical College",
@@ -181,12 +178,7 @@ function App() {
         </Route>
             <Route path="/contactus" element={<ContactUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/bulletin" element={<Bulletin />}>
-          <Route index element={<BulletinHome />} />
-          <Route path="bulletinHome" element={<BulletinHome />} />
-          <Route path="bulletinAbout" element={<BulletinAbout />} />
-          <Route path="editions" element={<BuletinEditors />} />
-        </Route>
+        <Route path="/bulletin/*" element={<Bulletin />} />
         <Route path="/academics">
           <Route path="time-table" element={<TimeTable />} />
           <Route path="college-council" element={<CollegeCouncil />} />
