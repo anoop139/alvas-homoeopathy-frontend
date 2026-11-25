@@ -9,7 +9,7 @@ const crew = [
   { name: 'Thejashwini R', role: 'Junior Writer' },
   { name: 'Kundan Singh', role: 'Junior Writer' },
   { name: 'Tejashwini S', role: 'Junior Designer' },
-  { name: 'Zufhana', role: 'Junior Writer' },
+  { name: 'Zuhana', role: 'Junior Writer' },
   { name: 'Rameeza', role: 'Junior Writer' },
 ]
 
