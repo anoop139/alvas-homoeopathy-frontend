@@ -3,8 +3,6 @@ import alvasEducationLogo from '../../Images/AlvasEducation.jpg'
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
-const insightHome = 'https://alvashomoeopathy.com/Insight/Home.html'
-
 const links = [
   { label: 'Home', to: '/bulletin/bulletinHome' },
   { label: 'About', to: '/bulletin/bulletinAbout' },
@@ -18,9 +16,13 @@ function InsightNav() {
 
   return (
     <header className="insight-nav-header">
-      <a className="insight-nav-brand" href={insightHome}>
+      <NavLink
+        className="insight-nav-brand"
+        to="/"
+        title="Back to Alva's Homeopathy College"
+      >
         <img src={alvasEducationLogo} alt="Alva's Education Foundation" />
-      </a>
+      </NavLink>
       <button
         className="insight-nav-toggle"
         type="button"
