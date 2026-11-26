@@ -37,7 +37,19 @@
 .opd-units__heading { grid-column: 1 / -1; margin: 0 0 8px; color: var(--opd-ink); font-family: Georgia, 'Times New Roman', serif; font-size: 1.6rem; font-weight: 500; text-align: center; }
 .opd-central__intro h2, .opd-section__heading h2 { margin: 0; color: var(--opd-ink); font-family: Georgia, 'Times New Roman', serif; font-size: clamp(2.25rem, 4vw, 3rem); font-weight: 500; letter-spacing: -.035em; }
 .opd-central__intro > p:not(.opd-eyebrow) { color: var(--opd-muted); line-height: 1.8; }
-.opd-central__intro > .opd-central__address { font-size: 1.15rem; }
+.opd-central__intro > .opd-central__address {
+  position: relative;
+  margin: 24px 0 0;
+  padding: 22px 24px 22px 28px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: linear-gradient(120deg, #f4f8f3 0%, #e8f0e9 100%);
+  box-shadow: 0 12px 28px rgba(24, 59, 50, .08);
+  color: #315344;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.75;
+}
 .opd-address { display: flex; gap: 13px; margin-top: 28px; padding-top: 21px; border-top: 1px solid #e5e6df; color: var(--opd-muted); font-size: .91rem; line-height: 1.7; }
 .opd-address > span { color: #b28a48; font-size: 1.4rem; }
 .opd-address strong { color: var(--opd-ink); }
