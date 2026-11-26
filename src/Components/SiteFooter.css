@@ -1,3 +1,7 @@
+.site-footer {
+  font-size: 0.9rem;
+}
+
 .site-footer__contact-grid {
   box-sizing: border-box;
   width: 100%;
@@ -48,7 +52,7 @@
   margin: 0;
   color: #fff;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .site-footer__contact-toggle {
@@ -63,7 +67,7 @@
   background: rgba(255, 255, 255, 0.08);
   color: #fff;
   font: inherit;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 700;
   text-align: left;
   cursor: pointer;
