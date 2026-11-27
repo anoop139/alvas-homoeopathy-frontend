@@ -139,6 +139,7 @@ function SiteHeader() {
 
     return `site-nav__sublink${isCurrentLink ? ' is-active' : ''}`
   }
+
   const courseSectionHashes = courseLinks.flatMap((link) => [
     ...(link.href ? [link.href] : []),
     ...(link.children ?? []).map((child) => child.href),
