@@ -1,7 +1,7 @@
 import './ChairpersonMessage.css'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
-import ChairPerson from '../Images/chairPerson.jpg'
+import ChairPerson from '../Images/ChairPerson.jpg'
 function ChairpersonMessage() {
   return (
     <main className="chairperson-message-page">
