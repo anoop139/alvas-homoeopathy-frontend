@@ -1,0 +1,357 @@
+.hospital-campus-page {
+  min-height: 100vh;
+  background: #f8f7f3;
+  color: #173b35;
+}
+
+.hospital-campus-hero {
+  display: flex;
+  min-height: 360px;
+  align-items: center;
+  padding: 72px max(7vw, 24px);
+  background: linear-gradient(115deg, #17483e, #28745c);
+  color: #fff;
+}
+
+.hospital-campus-hero__content {
+  width: min(100%, 900px);
+  margin: 0 auto;
+}
+
+.hospital-camp-card__gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.hospital-camp-card__gallery--single {
+  grid-template-columns: 1fr;
+}
+
+ .hospital-camp-card__gallery--single img {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.hospital-camp-card__gallery img {
+  display: block;
+  width: 100%;
+  height: clamp(220px, 30vw, 340px);
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+#mulky-general-health-camp .hospital-camp-card__gallery {
+  grid-template-columns: repeat(2, minmax(0, 1.1fr));
+  gap: 12px;
+}
+
+#mulky-general-health-camp .hospital-camp-card__gallery img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+#school-health-camp .hospital-camp-card__gallery {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+}
+
+#school-health-camp .hospital-camp-card__gallery img {
+  height: auto;
+  object-fit: contain;
+}
+
+#high-school-health-camp .hospital-camp-card__gallery img {
+  width: 100%;
+  height: 380px;
+  object-fit: contain;
+}
+
+#high-school-health-camp .hospital-camp-card__gallery {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+#high-school-health-camp .hospital-camp-card__gallery img:nth-child(2) {
+  object-fit: fill;
+}
+
+#anganawady-health-camp .hospital-camp-card__gallery {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+#anganawady-health-camp .hospital-camp-card__gallery img {
+  height: auto;
+  object-fit: contain;
+}
+
+#government-high-school-health-camp .hospital-camp-card__gallery {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+#government-high-school-health-camp .hospital-camp-card__gallery img {
+  height: 380px;
+  object-fit: cover;
+}
+
+#government-school-anganawady-camp .hospital-camp-card__gallery {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+#government-school-anganawady-camp .hospital-camp-card__gallery img {
+  height: auto;
+  object-fit: contain;
+}
+
+.hospital-campus-hero__eyebrow,
+.hospital-campus-content__intro > span {
+  color: #d9b969;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.hospital-campus-hero h1 {
+  margin: 14px 0;
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
+  line-height: 1.05;
+}
+
+.hospital-campus-hero__content > div > p:last-child {
+  max-width: 620px;
+  margin: 0;
+  color: #e8f0eb;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.hospital-campus-content {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 72px 0 88px;
+}
+
+.hospital-campus-content__intro {
+  max-width: 720px;
+  margin-bottom: 36px;
+}
+
+.hospital-campus-content__intro > span {
+  color: #a17c2d;
+}
+
+.hospital-campus-content__intro h2 {
+  margin: 12px 0;
+  color: #173b35;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+}
+
+.hospital-campus-content__intro p,
+.hospital-campus-card p {
+  color: #56645e;
+  line-height: 1.75;
+}
+
+.hospital-campus-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.hospital-campus-card {
+  padding: 30px;
+  border: 1px solid #e5e4dc;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgb(23 59 53 / 5%);
+}
+
+.hospital-campus-card__number {
+  color: #b3934d;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.hospital-campus-card h3 {
+  margin: 12px 0 8px;
+  font-size: 1.35rem;
+}
+
+.hospital-campus-card p {
+  min-height: 56px;
+}
+
+.hospital-campus-card a {
+  display: inline-block;
+  margin-top: 8px;
+  color: #17684f;
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.hospital-camps {
+  padding: 48px max(24px, calc((100% - 1120px) / 2)) 56px;
+  background: #edf1ec;
+  scroll-margin-top: 110px;
+}
+
+.hospital-camps__heading {
+  max-width: 720px;
+  margin: 0 auto 22px;
+}
+
+.hospital-camps__heading > span {
+  color: #a17c2d;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.hospital-camps__heading h2 {
+  margin: 12px 0;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+}
+
+.hospital-camps__heading p {
+  color: #56645e;
+  line-height: 1.7;
+}
+
+.hospital-camps__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.hospital-camp-card {
+  padding: 20px;
+  border: 1px solid #e1e5dc;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.hospital-camp-card h3 {
+  margin: 10px 0;
+  text-align: center;
+}
+
+#general-health-camp h3 {
+  text-align: center;
+}
+
+#general-health-camp p {
+  text-align: center;
+}
+
+.hospital-camp-card p {
+  color: #56645e;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.hospital-camp-card__details {
+  width: min(100%, 760px);
+  max-width: 760px;
+  margin: 0 auto 12px;
+  border: 2px solid #cbd5cc;
+  border-collapse: collapse;
+  border-radius: 6px;
+  color: #56645e;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.hospital-camp-card__details th,
+.hospital-camp-card__details td {
+  padding: 8px 12px;
+  border: 1px solid #e1e5dc;
+  text-align: center;
+}
+
+.hospital-camp-card__details th {
+  color: #173b35;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .hospital-camp-card__details th,
+  .hospital-camp-card__details td {
+    padding: 7px 8px;
+  }
+}
+
+.hospital-camp-card__reference {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 0 auto 12px;
+  color: #56645e;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.hospital-camp-card__more-info {
+  display: inline;
+  margin: 0;
+  color: #17684f;
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.hospital-camp-card .hospital-camp-card__meta {
+  margin: 4px 0;
+  font-size: 0.92rem;
+}
+
+.hospital-camps__source {
+  display: block;
+  width: fit-content;
+  margin: 28px auto 0;
+  color: #17684f;
+  font-weight: 700;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 640px) {
+  .hospital-campus-hero {
+    min-height: 300px;
+  }
+
+  .hospital-campus-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .hospital-camps__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hospital-camp-card__gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hospital-camp-card__gallery img:last-child {
+    grid-column: 1 / -1;
+    width: 50%;
+    justify-self: center;
+  }
+
+  #school-health-camp .hospital-camp-card__gallery {
+    grid-template-columns: 1fr;
+  }
+
+  #school-health-camp .hospital-camp-card__gallery img:last-child {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .hospital-campus-card p {
+    min-height: 0;
+  }
+}

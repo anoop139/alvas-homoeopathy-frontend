@@ -1,0 +1,261 @@
+.time-table-page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background:
+    radial-gradient(ellipse at 8% 10%, rgba(196, 162, 91, 0.16), transparent 34%),
+    linear-gradient(145deg, #fffdf8 0%, #f7f0df 54%, #fbf8ef 100%);
+}
+
+.time-table-content {
+  width: 100%;
+  flex: 1;
+  margin: 0 auto;
+  padding: 4px 0 12px;
+}
+
+.time-table-heading {
+  margin: 0 auto 8px;
+  text-align: center;
+}
+
+.time-table-eyebrow {
+  margin: 0 0 10px;
+  color: var(--brick);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.time-table-heading h1 {
+  margin: 0;
+  color: var(--forest-deep);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.time-table-description {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.time-table-viewer {
+  overflow: hidden;
+  border: 1px solid rgba(20, 63, 57, 0.12);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 24px 60px rgba(13, 42, 40, 0.12);
+}
+.time-table-viewer__toolbar {
+  display: flex;
+  min-height: 70px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 20px;
+  border-bottom: 1px solid rgba(20, 63, 57, 0.1);
+}
+
+.time-table-viewer__page-count,
+.time-table-viewer__actions {
+  display: flex;
+  align-items: center;
+}
+
+.time-table-viewer__page-count {
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.time-table-viewer__page-number {
+  color: var(--forest-deep);
+  font-size: 1.15rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.time-table-viewer__actions {
+  gap: 8px;
+}
+
+.time-table-viewer__arrow,
+.time-table-viewer__open,
+.time-table-viewer__sheet {
+  min-height: 40px;
+  border: 1px solid rgba(20, 63, 57, 0.14);
+  color: var(--forest-deep);
+  background: #fff;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.time-table-viewer__arrow {
+  width: 40px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.time-table-viewer__arrow:hover:not(:disabled),
+.time-table-viewer__sheet:hover {
+  border-color: var(--forest);
+  background: var(--forest-soft);
+}
+
+.time-table-viewer__arrow:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.time-table-viewer__open {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.time-table-viewer__open:hover {
+  border-color: var(--forest);
+  color: #fff;
+  background: var(--forest-deep);
+}
+
+.time-table-viewer__canvas {
+  display: grid;
+  min-height: 0;
+  place-items: center;
+  padding: 0 16px;
+  background:
+    linear-gradient(45deg, rgba(20, 63, 57, 0.025) 25%, transparent 25%, transparent 75%, rgba(20, 63, 57, 0.025) 75%),
+    linear-gradient(45deg, rgba(20, 63, 57, 0.025) 25%, transparent 25%, transparent 75%, rgba(20, 63, 57, 0.025) 75%),
+    #f5f7f5;
+  background-position: 0 0, 8px 8px;
+  background-size: 16px 16px;
+}
+
+.time-table-viewer__image-frame {
+  position: relative;
+  width: calc(100% - 32px);
+}
+
+.time-table-viewer__pagination {
+  display: flex;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.time-table-page-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid rgba(20, 63, 57, 0.12);
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(13, 42, 40, 0.12);
+}
+
+.time-table-viewer__error {
+  margin: 0;
+  padding: 32px 16px;
+  color: #7c201e;
+  text-align: center;
+}
+
+.time-table-viewer__effective-date {
+  margin: 8px 0 0;
+  padding: 0 18px 14px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+.time-table-viewer__sheet {
+  width: 42px;
+  min-height: 38px;
+  border-radius: 9px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.time-table-viewer__sheet.is-active {
+  border-color: var(--forest-deep);
+  color: #fff;
+  background: var(--forest-deep);
+}
+
+.time-table-viewer__arrow:focus-visible,
+.time-table-viewer__open:focus-visible,
+.time-table-viewer__sheet:focus-visible {
+  outline: 3px solid rgba(215, 172, 99, 0.8);
+  outline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+  .time-table-content {
+    width: calc(100% - 28px);
+    padding-block: 4px 8px;
+  }
+
+  .time-table-heading {
+    margin-bottom: 8px;
+  }
+
+  .time-table-viewer {
+    border-radius: 14px;
+  }
+
+  .time-table-viewer__toolbar {
+    min-height: 60px;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .time-table-viewer__page-count {
+    gap: 6px;
+    font-size: 0.75rem;
+  }
+
+  .time-table-viewer__actions {
+    gap: 5px;
+  }
+
+  .time-table-viewer__arrow {
+    width: 36px;
+    min-height: 36px;
+  }
+
+  .time-table-viewer__open {
+    min-height: 36px;
+    gap: 4px;
+    padding-inline: 9px;
+    font-size: 0.72rem;
+  }
+
+  .time-table-viewer__canvas {
+    padding: 0;
+  }
+
+  .time-table-viewer__image-frame {
+    width: calc(100% - 32px);
+  }
+
+  .time-table-page-image {
+    max-height: calc(100dvh - 150px);
+  }
+
+}

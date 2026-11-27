@@ -1,0 +1,144 @@
+.admission-procedure-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(221, 180, 91, 0.18), transparent 38%),
+    linear-gradient(180deg, #fffaf0 0%, #f8f0dc 52%, #fffaf0 100%);
+}
+
+.admission-procedure-content {
+  width: min(100% - 48px, 1000px);
+  flex: 1;
+  margin: 0 auto;
+  padding: 16px 0 56px;
+}
+
+.admission-procedure-heading {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 18px;
+  padding: clamp(28px, 5vw, 48px) 20px;
+  border: 1px solid #cfe0d2;
+  border-radius: 20px;
+  background:
+    radial-gradient(ellipse at 85% 15%, rgba(199, 225, 204, 0.34), transparent 36%),
+    linear-gradient(125deg, #f7fcf8 0%, #eef7f0 55%, #fbfdfb 100%);
+  box-shadow: 0 14px 34px rgba(35, 75, 48, 0.07);
+  text-align: center;
+}
+
+.admission-procedure-heading > p:first-child {
+  margin: 0 0 8px;
+  color: var(--brick);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.admission-procedure-heading h1 {
+  margin: 0;
+  color: var(--forest-deep);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  line-height: 1.05;
+}
+
+.admission-procedure-heading > p:last-child {
+  max-width: 640px;
+  margin: 6px auto 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.admission-procedure-card {
+  margin-top: 12px;
+  padding: clamp(16px, 2.5vw, 24px);
+  border: 1px solid rgba(20, 63, 57, 0.09);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(13, 42, 40, 0.045);
+}
+
+.admission-procedure-card h2 {
+  margin: 0 0 10px;
+  color: var(--forest-deep);
+  font-size: 1.25rem;
+}
+
+.admission-procedure-card ul,
+.admission-procedure-card ol {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 22px;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.admission-procedure-documents {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 32px;
+  padding-left: 30px;
+}
+
+.admission-procedure-documents > li:nth-child(even) {
+  transform: translateX(18px);
+}
+
+.admission-procedure-note {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  border-left: 3px solid var(--gold-deep);
+  background: #fbf7ef;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.admission-procedure-card .admission-procedure-contacts {
+  padding: 0;
+  list-style: none;
+}
+
+.admission-procedure-contacts li {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(20, 63, 57, 0.1);
+}
+
+.admission-procedure-contacts li:last-child {
+  border-bottom: 0;
+}
+
+.admission-procedure-contacts a,
+.admission-procedure-kea-link {
+  color: var(--forest);
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.admission-procedure-kea-link {
+  display: inline-block;
+  margin-top: 16px;
+}
+
+@media (max-width: 640px) {
+  .admission-procedure-content {
+    width: calc(100% - 32px);
+    padding: 12px 0 40px;
+  }
+
+  .admission-procedure-documents {
+    grid-template-columns: 1fr;
+  }
+
+  .admission-procedure-contacts li {
+    flex-direction: column;
+    gap: 4px;
+  }
+}

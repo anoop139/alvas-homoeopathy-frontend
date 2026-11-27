@@ -1,0 +1,234 @@
+.administration-page {
+  min-height: 100vh;
+  background: #f7f6f1;
+}
+.administration-section {
+  width: min(1120px, calc(100% - 40px));
+  margin: 12px auto 0;
+  padding: 0 0 88px;
+}
+
+.administration-section__heading {
+  max-width: 680px;
+  margin: 0 auto 4px;
+  text-align: center;
+}
+
+.administration-section__eyebrow {
+  margin: 0 0 10px;
+  color: #9a7138;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.administration-section__heading h1 {
+  margin: 0 0 12px;
+  color: #143f39;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  line-height: 1;
+}
+.administration-section__heading > p:last-child {
+  margin: 16px 0 0;
+  color: #66716d;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.administration-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.administration-card:nth-child(1) { grid-column: 3 / 5; }
+.administration-card:nth-child(2) { grid-column: 2 / 4; }
+.administration-card:nth-child(3) { grid-column: 4 / 6; }
+.administration-card:nth-child(4) { grid-column: 1 / 3; }
+.administration-card:nth-child(5) { grid-column: 3 / 5; }
+.administration-card:nth-child(6) { grid-column: 5 / 7; }
+
+/* Update .administration-card to use flexbox */
+.administration-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Keeps all cards in the same row equal height */
+  overflow: hidden;
+  border: 1px solid rgba(20, 63, 57, 0.09);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(19, 49, 43, 0.07);
+}
+
+/* Update .administration-card__details to expand evenly */
+.administration-card__details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  text-align: center;
+}
+.administration-card__photo,
+.administration-card__placeholder {
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+/* Keep the chairman's original photo size while tightening the caption. */
+.administration-card:first-child .administration-card__details {
+  min-height: 104px;
+  padding: 14px 16px;
+  justify-content: center;
+  gap: 4px;
+}
+
+.administration-card:first-child .administration-card__details h2,
+.administration-card:first-child .administration-card__details p {
+  margin: 0;
+}
+
+.administration-card:first-child .administration-card__details h2 {
+  color: #143f39;
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+.administration-card:first-child .administration-card__details p {
+  color: #35463e;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.administration-card__placeholder {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, #e9eee9, #dce6df);
+  color: #537168;
+  font-family: Georgia, serif;
+  font-size: 3rem;
+}
+
+
+
+
+.administration-card__more-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 9px 14px;
+  border: 1px solid rgba(20, 63, 57, 0.2);
+  border-radius: 999px;
+  color: #143f39;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.administration-card__more-info:hover,
+.administration-card__more-info:focus-visible {
+  background: #143f39;
+  color: #fff;
+}
+
+.administration-profile-overlay {
+  position: fixed;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(8, 22, 19, .52);
+  backdrop-filter: blur(8px);
+  inset: 0;
+}
+
+.administration-profile-dialog {
+  position: relative;
+  width: min(1120px, 100%);
+  max-height: min(92vh, 1000px);
+  overflow: auto;
+  border: 1px solid rgba(255,255,255,.68);
+  border-radius: 20px;
+  background: #f7f8f5;
+  box-shadow: 0 28px 90px rgba(0,0,0,.3);
+}
+
+.administration-profile-dialog__close {
+  position: sticky;
+  z-index: 2;
+  top: 14px;
+  float: right;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  margin: 14px 14px -56px 0;
+  border: 1px solid rgba(20,63,57,.16);
+  border-radius: 50%;
+  background: #fff;
+  color: #143f39;
+  font-size: 1.65rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(13,42,40,.12);
+}
+
+.administration-profile-dialog__close:hover,
+.administration-profile-dialog__close:focus-visible {
+  background: #143f39;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .administration-profile-overlay { padding: 10px; }
+  .administration-profile-dialog { max-height: 96vh; border-radius: 14px; }
+  .administration-profile-dialog__close { top: 8px; margin: 8px 8px -50px 0; }
+}
+
+@media (max-width: 760px) {
+  .administration-section {
+    width: min(560px, calc(100% - 32px));
+    padding: 0 0 64px;
+  }
+
+  .administration-grid {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 16px;
+  }
+
+  .administration-card {
+    width: min(100%, 420px);
+    grid-column: 1 !important;
+  }
+
+  .administration-card__photo,
+  .administration-card__placeholder {
+    height: 280px;
+  }
+
+  .administration-card__details {
+    min-height: 128px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .administration-grid {
+    grid-template-columns: 1fr;
+  }
+}
